@@ -5,27 +5,19 @@ import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:grabpanda/Models/Entity/user_entity.dart';
+import 'package:grabpanda/Controller/controller.dart';
 import 'package:grabpanda/Routers/routers.dart';
 import 'package:grabpanda/Routers/routers_name.dart';
-// ignore: import_of_legacy_library_into_null_safe
-import 'package:hive_flutter/hive_flutter.dart';
-import 'package:hive/hive.dart';
 import 'package:grabpanda/Screens/Login_Screen/login_screen.dart';
-import 'package:grabpanda/Screens/Splash/splash_screen.dart';
-import 'package:path_provider/path_provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  Directory dir =  await getApplicationDocumentsDirectory();
-  await Hive.initFlutter(dir.path);
-  Hive.registerAdapter<UserEntity>(UserEntityAdapter());
-  await Hive.openBox<UserEntity>('userEntity');
   SystemChrome.setSystemUIOverlayStyle(
     SystemUiOverlayStyle(
       statusBarColor: Colors.white.withOpacity(0),
     ),
   );
+  await Get.put(BaseController()).initStorage();
   runApp(const MyApp());
 }
 

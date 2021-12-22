@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:grabpanda/Commons/app_img.dart';
 import 'package:grabpanda/Controller/controller.dart';
 import 'package:grabpanda/Screens/Home_Screen/home_screen.dart';
+import 'package:grabpanda/Screens/Reset_Password/Reset_Password/reset_password_controller.dart';
 
 class ResetPasswordScreen extends StatelessWidget{
   final _rsPasswordFormKey = GlobalKey<FormState>();
@@ -10,9 +11,10 @@ class ResetPasswordScreen extends StatelessWidget{
   String? rePassword;
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(BaseController());
+    final controller = Get.put(ResetPasswordController());
     // TODO: implement build
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         toolbarHeight: 74,
         title: const Align(
@@ -63,15 +65,20 @@ class ResetPasswordScreen extends StatelessWidget{
                   Container(
                     height: 20,
                     width: 340,
-                    child: Column(
-                      children: const [
-                        Align(
-                            alignment: Alignment.topCenter,
-                            child: Text(
-                              "Please enter your password below",
-                            )),
-                      ],
+                    margin: const EdgeInsets.only(
+                      left: 5 ,
+                      right: 5,
                     ),
+                    child: RichText(
+                        textAlign: TextAlign.center,
+                        text: const TextSpan(
+                            text: 'Please enter your password below',
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 13,
+                            ),
+
+                        )),
                   ),
                   const SizedBox(
                     height: 30,
@@ -104,8 +111,18 @@ class ResetPasswordScreen extends StatelessWidget{
                             ),
                           ),
                         ),
+                        Container(
+                          margin: const EdgeInsets.only(left: 30,),
+                          child: const Align(
+                            alignment: Alignment.centerLeft,
+                            child: Text("Must be at Least 8 Characters", style: TextStyle(
+                              fontSize: 10,
+                              color: Colors.grey,
+                            ),),
+                          ),
+                        ),
                         const SizedBox(
-                          height: 5,
+                          height: 10,
                         ),
                         Container(
                           padding: const EdgeInsets.symmetric(horizontal: 29),
@@ -130,6 +147,19 @@ class ResetPasswordScreen extends StatelessWidget{
                               ),
                             ),
                           ),
+                        ),
+                        Container(
+                          margin: const EdgeInsets.only(left: 30,),
+                          child: const Align(
+                            alignment: Alignment.centerLeft,
+                            child: Text("Both Passwords must Match", style: TextStyle(
+                              fontSize: 10,
+                              color: Colors.grey,
+                            ),),
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 10,
                         ),
                         const SizedBox(
                           height: 30,

@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:grabpanda/Commons/app_img.dart';
 import 'package:grabpanda/Controller/controller.dart';
 import 'package:grabpanda/Screens/Register_Screen/register_screen.dart';
+import 'package:grabpanda/Screens/Reset_Password/Reset_Email/reset_mail_controller.dart';
 import 'package:grabpanda/Screens/Reset_Password/Reset_Password/reset_pasword_screen.dart';
 import 'package:grabpanda/Screens/Reset_Password/Veryfi_Screen/veryfi_screen.dart';
 
@@ -13,7 +14,7 @@ class ResetEmailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(BaseController());
+    final controller = Get.put(ResetEmailController());
     // TODO: implement build
     return Scaffold(
       backgroundColor: Colors.white,
@@ -35,7 +36,7 @@ class ResetEmailScreen extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    height: 48,
+                    height: 40,
                     width: 187,
                     child: const Align(
                         alignment: Alignment.topCenter,
@@ -48,20 +49,25 @@ class ResetEmailScreen extends StatelessWidget {
                         )),
                   ),
                   const SizedBox(
-                    height: 29,
+                    height: 14,
                   ),
                   Container(
                     height: 50,
                     width: 340,
-                    child: Column(
-                      children: const [
-                        Align(
-                            alignment: Alignment.topCenter,
-                            child: Text(
-                              "Enter your email address below & we’ll send you an email with Instruction on how change your Password",
-                            )),
-                      ],
+                    margin: const EdgeInsets.only(
+                      left: 10,
+                      right:5,
                     ),
+                    child: RichText(
+                        textAlign: TextAlign.center,
+                        text: const TextSpan(
+                            text: 'Enter your email address below & we’ll send you an email with Instruction on how change your Password',
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 13,
+                            ),
+
+                        )),
                   ),
                   const SizedBox(
                     height: 30,
@@ -82,7 +88,7 @@ class ResetEmailScreen extends StatelessWidget {
                                   style: BorderStyle.solid,
                                 ),
                                 borderRadius: BorderRadius.all(
-                                  Radius.circular(15),
+                                  Radius.circular(10),
                                 ),
                               ),
                               hintStyle:

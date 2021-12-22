@@ -1,18 +1,22 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_verification_code/flutter_verification_code.dart';
 import 'package:get/get.dart';
 import 'package:grabpanda/Commons/app_img.dart';
 import 'package:grabpanda/Controller/controller.dart';
 import 'package:grabpanda/Screens/Reset_Password/Reset_Password/reset_pasword_screen.dart';
+import 'package:grabpanda/Screens/Reset_Password/Veryfi_Screen/verify_controller.dart';
 
 class VeryfiScreen extends StatelessWidget {
   String? veryfi;
+  bool? check;
   final _veryfiFormKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(BaseController());
+    final controller = Get.put(VerifyController());
     // TODO: implement build
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         toolbarHeight: 74,
         title: const Align(
@@ -57,47 +61,54 @@ class VeryfiScreen extends StatelessWidget {
                     ),
                     Container(
                       padding: const EdgeInsets.symmetric(horizontal: 29),
-                      child: TextFormField(
-                        onSaved: (value) => veryfi = value,
-                        decoration: const InputDecoration(
-                          border: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: Colors.white,
-                              style: BorderStyle.solid,
-                            ),
-                            borderRadius: BorderRadius.all(
-                              Radius.circular(15),
-                            ),
-                          ),
-                          hintStyle:
-                              TextStyle(color: Colors.grey, fontSize: 12.0),
-                          hintText: "Veryfi OTP",
-                          suffixIcon: Icon(
-                            Icons.remove_red_eye_outlined,
-                            size: 22,
-                          ),
-                        ),
+                      child: VerificationCode(
+                        keyboardType: TextInputType.number,
+                        length: 6,
+                        onCompleted: (String value){
+                          veryfi = value;
+                        },
+                        onEditing: (bool value){
+                          check = value;
+                          if (check == false) FocusScope.of(context).unfocus();
+                        },
                       ),
                     ),
                     const SizedBox(
                       height: 10,
                     ),
                     Container(
-                      height: 35,
+                      height: 50,
                       width: 340,
                       margin: EdgeInsets.only(
-                        left: 20,
+                        left: 10,
+                        right: 10,
                       ),
-                      child: Column(
-                        children: const [
-                          Align(
-                            alignment: Alignment.centerLeft,
-                            child: Text(
-                              "We send verification code to your email . You can check your inbox.",
-                            ),
-                          ),
-                        ],
-                      ),
+                      child: RichText(
+                          textAlign: TextAlign.left,
+                          text: TextSpan(
+                              text: 'We send verification code to your email ',
+                              style: const TextStyle(
+                                color: Colors.black,
+                                fontSize: 13,
+                              ),
+                              children: [
+                                TextSpan(
+                                  text: '${controller.restoreModel().email}. ',
+                                  style: const TextStyle(
+                                    color: Colors.lightBlue,
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 13,
+                                  ),
+                                ),
+                                const TextSpan(
+                                  text: 'You can check your inbox.',
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 13,
+                                  ),
+                                ),
+                              ]
+                          )),
                     ),
                     const SizedBox(
                       height: 5,

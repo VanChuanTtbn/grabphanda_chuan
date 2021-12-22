@@ -11,10 +11,11 @@ class HomeScreen extends StatelessWidget {
     final controller = Get.put(BaseController());
     // TODO: implement build
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: Column(
           children: [
-            Text("Xin Chao: ${controller.getEmail}"),
+            Text("Xin Chao: ${controller.restoreModel().email}"),
             ElevatedButton(
               onPressed: () {
                 Get.to(ResetEmailScreen());

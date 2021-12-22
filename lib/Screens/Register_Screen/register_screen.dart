@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:grabpanda/Controller/controller.dart';
-import 'package:grabpanda/Models/Entity/user_entity.dart';
+import 'package:grabpanda/Models/Entity/account_entity.dart';
 import 'package:grabpanda/Screens/Login_Screen/login_screen.dart';
 import 'package:grabpanda/Screens/Register_Screen/register_screen_controller.dart';
 import '../../Commons/app_img.dart';
@@ -22,10 +21,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(BaseController());
+    final controller = Get.put(RegisterScreenController());
 
     // TODO: implement build
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         toolbarHeight: 74,
         title: const Align(
@@ -57,11 +57,33 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   const SizedBox(
                     height: 11,
                   ),
-                  const Align(
-                      alignment: Alignment.topCenter,
-                      child: Text(
-                        "Give Us some of your information to get free Accesss to flieldly GrabPanda",
-                      )),
+                  Container(
+                    height: 55,
+                    width: 340,
+                    margin: const EdgeInsets.only(
+                      left: 5 ,
+                      right: 5,
+                    ),
+                    child: RichText(
+                        textAlign: TextAlign.center,
+                        text: const TextSpan(
+                        text: 'Give Us some of your information to get free Accesss to flieldly ',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 13,
+                        ),
+                        children: [
+                          TextSpan(
+                            text: 'GrabPanda',
+                            style: TextStyle(
+                                color: Colors.lightBlue,
+                                fontWeight: FontWeight.w400,
+                              fontSize: 13,
+                            ),
+                          ),
+                        ]
+                    )),
+                  ),
                   const SizedBox(
                     height: 23,
                   ),
@@ -211,18 +233,22 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               value: false,
                               onChanged: (bool? value) {},
                             ),
-                            const Flexible(
-                                child:
-                                    Text("By signing up, you agree to the ")),
                             Flexible(
-                              child: TextButton(
-                                  onPressed: () {},
-                                  child: Text(
-                                    "Terms of Sevice and Privacy Policy",
+                              child: RichText(text: const TextSpan(
+                                text: 'By signing up, you agree to the ',
+                                style: TextStyle(
+                                  color: Colors.black,
+                                ),
+                                children: [
+                                  TextSpan(
+                                    text: 'Terms of Service and Privacy Policy',
                                     style: TextStyle(
                                       color: Colors.lightBlue,
+                                      fontWeight: FontWeight.w400
                                     ),
-                                  )),
+                                  )
+                                ]
+                              )),
                             ),
                           ],
                         ),
@@ -237,8 +263,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             child: ElevatedButton(
                               onPressed: () async {
                                 _registerFormKey.currentState?.save();
-                                final registerAcc = await controller.checkUser(
-                                  UserEntity(
+                                final registerAcc = await controller.checkAccount(
+                                  AccountEntity(
                                     email: email,
                                     password: password,
                                     name: name,

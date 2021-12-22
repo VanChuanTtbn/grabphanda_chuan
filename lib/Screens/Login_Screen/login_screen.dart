@@ -20,7 +20,7 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(BaseController());
+    final controller = Get.put(LoginScreenController());
     // TODO: implement build
     return Scaffold(
       backgroundColor: Colors.white,
@@ -60,24 +60,29 @@ class LoginScreen extends StatelessWidget {
                   Container(
                     height: 35,
                     width: 340,
-                    child: Column(
-                      children: const [
-                        Align(
-                            alignment: Alignment.topCenter,
-                            child: Text(
-                              "Please login to your account to continue with",
-                            )),
-                        Align(
-                            alignment: Alignment.topCenter,
-                            child: Text(
-                              "GrabPanda",
-                              style: TextStyle(
-                                color: Colors.lightBlue,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            )),
-                      ],
+                    margin: const EdgeInsets.only(
+                      left: 5 ,
+                      right: 5,
                     ),
+                    child: RichText(
+                        textAlign: TextAlign.center,
+                        text: const TextSpan(
+                            text: 'Please login to your account to continue with ',
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 13,
+                            ),
+                            children: [
+                              TextSpan(
+                                text: 'GrabPanda',
+                                style: TextStyle(
+                                  color: Colors.lightBlue,
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 13,
+                                ),
+                              ),
+                            ]
+                        )),
                   ),
                   const SizedBox(
                     height: 50,
@@ -163,7 +168,7 @@ class LoginScreen extends StatelessWidget {
                             child: ElevatedButton(
                               onPressed: () async {
                                 _loginFormKey.currentState?.save();
-                                final result = await controller.login(
+                                final result = await controller.signin(
                                     email: email, password: password);
                                 if (result == true) {
                                   print("Lgok");
