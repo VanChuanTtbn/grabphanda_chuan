@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:grabpanda/Controller/controller.dart';
 import 'package:grabpanda/Routers/routers.dart';
 import 'package:flutter/src/widgets/router.dart';
+import 'package:grabpanda/Screens/Bottom_Bar/bottom_bar.dart';
 import 'package:grabpanda/Screens/Home_Screen/home_screen.dart';
 import 'package:grabpanda/Screens/Login_Screen/login_screen_controller.dart';
 import 'package:grabpanda/Screens/Register_Screen/register_screen.dart';
@@ -172,7 +173,7 @@ class LoginScreen extends StatelessWidget {
                                     email: email, password: password);
                                 if (result == true) {
                                   print("Lgok");
-                                  Get.to(HomeScreen());
+                                  Get.to(BottomBarScreen());
                                 } else {
                                   print("lgLoi");
                                 }
