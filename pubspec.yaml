@@ -38,6 +38,7 @@ dependencies:
   flutter_verification_code:
   carousel_slider: ^4.0.0
   google_fonts: ^2.1.1
+  syncfusion_flutter_sliders:
 
 
   # The following adds the Cupertino Icons font to your application.

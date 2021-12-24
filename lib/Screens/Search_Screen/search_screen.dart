@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:grabpanda/Screens/Home_Screen/home_controller.dart';
+import 'package:grabpanda/Screens/Search_Screen/Filters_Screens/Filters_Screen/filters_screen.dart';
 import 'package:grabpanda/Screens/Search_Screen/search_controller.dart';
 
 class SearchScreen extends StatelessWidget {
@@ -69,7 +70,8 @@ class SearchScreen extends StatelessWidget {
                         ),
                       ),
                       hintStyle: GoogleFonts.poppins(
-                        textStyle: const TextStyle(color: Colors.grey, fontSize: 12.0),
+                        textStyle:
+                            const TextStyle(color: Colors.grey, fontSize: 12.0),
                       ),
                       hintText: "Search for restaurant, dishes …",
                       prefixIcon: const Icon(
@@ -103,12 +105,17 @@ class SearchScreen extends StatelessWidget {
                           Icons.filter_alt_outlined,
                           size: 20,
                         ),
-                        Text(
-                          "Filters",
-                          style: GoogleFonts.poppins(
-                            textStyle: const TextStyle(
+                        TextButton(
+                          onPressed: () {
+                            Get.to(FiltersScreen());
+                          },
+                          child: Text(
+                            "Filters",
+                            style: GoogleFonts.poppins(
+                                textStyle: const TextStyle(
                               fontSize: 20,
-                            )
+                                  color: Colors.black,
+                            )),
                           ),
                         ),
                       ],
@@ -124,129 +131,125 @@ class SearchScreen extends StatelessWidget {
                 width: 300,
                 child: ListView.separated(
                   scrollDirection: Axis.horizontal,
-                    itemBuilder: (context, index){
-                      return InkWell(
-                        onTap: () {},
-                        child: Column(
-                          children: [
-                            Container(
-                              height: 100,
-                              width: 200,
-                              margin:
-                              const EdgeInsets.symmetric(horizontal: 7),
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              child: Stack(
-                                children: [
-                                  Container(
-                                    width: 200,
-                                    padding: const EdgeInsets.only(
-                                        bottom: 10, left: 8, right: 8),
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(10),
-                                      image: DecorationImage(
-                                        image: AssetImage(
-                                          "${controller.nearBy![index].img}",
+                  itemBuilder: (context, index) {
+                    return InkWell(
+                      onTap: () {},
+                      child: Column(
+                        children: [
+                          Container(
+                            height: 100,
+                            width: 200,
+                            margin: const EdgeInsets.symmetric(horizontal: 7),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: Stack(
+                              children: [
+                                Container(
+                                  width: 200,
+                                  padding: const EdgeInsets.only(
+                                      bottom: 10, left: 8, right: 8),
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(10),
+                                    image: DecorationImage(
+                                      image: AssetImage(
+                                        "${controller.nearBy![index].img}",
+                                      ),
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Container(
+                            margin: EdgeInsets.only(left: 5, right: 5),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  "${controller.nearBy![index].name}",
+                                  style: GoogleFonts.poppins(
+                                    textStyle: const TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 18.0,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                  overflow: TextOverflow.ellipsis,
+                                  textAlign: TextAlign.justify,
+                                  maxLines: 2,
+                                ),
+                                Row(
+                                  children: [
+                                    const Icon(
+                                      Icons.star,
+                                      color: Colors.yellow,
+                                    ),
+                                    Text(
+                                      "4.5",
+                                      style: GoogleFonts.poppins(
+                                        textStyle: const TextStyle(
+                                          color: Colors.black,
+                                          fontSize: 18.0,
+                                          fontWeight: FontWeight.bold,
                                         ),
-                                        fit: BoxFit.cover,
                                       ),
+                                      overflow: TextOverflow.ellipsis,
+                                      textAlign: TextAlign.justify,
+                                      maxLines: 2,
                                     ),
-                                  ),
-                                ],
-                              ),
+                                  ],
+                                ),
+                              ],
                             ),
-                            Container(
-                              margin: EdgeInsets.only(left: 5, right: 5),
-                              child: Row(
-                                mainAxisAlignment:
-                                MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    "${controller.nearBy![index].name}",
-                                    style: GoogleFonts.poppins(
-                                      textStyle: const TextStyle(
-                                        color: Colors.black,
-                                        fontSize: 18.0,
-                                        fontWeight: FontWeight.bold,
-                                      ),
+                          ),
+                          Container(
+                            margin: const EdgeInsets.only(left: 0, right: 0),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  "${controller.nearBy![index].type}",
+                                  style: GoogleFonts.poppins(
+                                    textStyle: const TextStyle(
+                                      color: Colors.grey,
+                                      fontSize: 15.0,
                                     ),
-                                    overflow: TextOverflow.ellipsis,
-                                    textAlign: TextAlign.justify,
-                                    maxLines: 2,
                                   ),
-                                  Row(
-                                    children: [
-                                      const Icon(
-                                        Icons.star,
-                                        color: Colors.yellow,
-                                      ),
-                                      Text(
-                                        "4.5",
-                                        style: GoogleFonts.poppins(
-                                          textStyle: const TextStyle(
-                                            color: Colors.black,
-                                            fontSize: 18.0,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
-                                        overflow: TextOverflow.ellipsis,
-                                        textAlign: TextAlign.justify,
-                                        maxLines: 2,
-                                      ),
-                                    ],
+                                  overflow: TextOverflow.ellipsis,
+                                  textAlign: TextAlign.justify,
+                                  maxLines: 2,
+                                ),
+                                // ignore: prefer_const_constructors
+                                SizedBox(
+                                  width: 100,
+                                ),
+                                Text(
+                                  "0.5 Km",
+                                  style: GoogleFonts.poppins(
+                                    textStyle: const TextStyle(
+                                      color: Colors.grey,
+                                      fontSize: 15.0,
+                                    ),
                                   ),
-                                ],
-                              ),
+                                  overflow: TextOverflow.ellipsis,
+                                  textAlign: TextAlign.justify,
+                                  maxLines: 2,
+                                ),
+                              ],
                             ),
-                            Container(
-                              margin:
-                              const EdgeInsets.only(left: 0, right: 0),
-                              child: Row(
-                                mainAxisAlignment:
-                                MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    "${controller.nearBy![index].type}",
-                                    style: GoogleFonts.poppins(
-                                      textStyle: const TextStyle(
-                                        color: Colors.grey,
-                                        fontSize: 15.0,
-                                      ),
-                                    ),
-                                    overflow: TextOverflow.ellipsis,
-                                    textAlign: TextAlign.justify,
-                                    maxLines: 2,
-                                  ),
-                                  // ignore: prefer_const_constructors
-                                  SizedBox(
-                                    width: 100,
-                                  ),
-                                  Text(
-                                    "0.5 Km",
-                                    style: GoogleFonts.poppins(
-                                      textStyle: const TextStyle(
-                                        color: Colors.grey,
-                                        fontSize: 15.0,
-                                      ),
-                                    ),
-                                    overflow: TextOverflow.ellipsis,
-                                    textAlign: TextAlign.justify,
-                                    maxLines: 2,
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
-                      );
-                    },
-                    separatorBuilder: (context, index){
-                      return const SizedBox(
-                        width: 0,
-                      );
-                    },
-                    itemCount: controller.nearBy!.length,
+                          ),
+                        ],
+                      ),
+                    );
+                  },
+                  separatorBuilder: (context, index) {
+                    return const SizedBox(
+                      width: 0,
+                    );
+                  },
+                  itemCount: controller.nearBy!.length,
                 ),
               ),
               const SizedBox(
@@ -275,92 +278,91 @@ class SearchScreen extends StatelessWidget {
                 width: 300,
                 child: ListView.separated(
                   scrollDirection: Axis.horizontal,
-                    itemBuilder: (context, index){
-                      return InkWell(
-                        onTap: () {},
-                        child: Container(
-                          width: 200,
-                          margin: const EdgeInsets.symmetric(horizontal: 7),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          child: Stack(
-                            children: [
-                              Container(
-                                width: 200,
-                                padding: const EdgeInsets.only(
-                                    bottom: 10, left: 0, right: 0),
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10),
-                                  image: DecorationImage(
-                                    image: AssetImage(
-                                      "${controller.hotPromotions![index].img}",
-                                    ),
-                                    fit: BoxFit.cover,
+                  itemBuilder: (context, index) {
+                    return InkWell(
+                      onTap: () {},
+                      child: Container(
+                        width: 200,
+                        margin: const EdgeInsets.symmetric(horizontal: 7),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: Stack(
+                          children: [
+                            Container(
+                              width: 200,
+                              padding: const EdgeInsets.only(
+                                  bottom: 10, left: 0, right: 0),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                image: DecorationImage(
+                                  image: AssetImage(
+                                    "${controller.hotPromotions![index].img}",
                                   ),
-                                ),
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  crossAxisAlignment:
-                                  CrossAxisAlignment.start,
-                                  children: [
-                                    const Spacer(),
-                                    Container(
-                                      width: 10000,
-                                      color: Colors.white70,
-                                      child: Text(
-                                        "${controller.hotPromotions![index].name}",
-                                        style: GoogleFonts.poppins(
-                                          textStyle: const TextStyle(
-                                            backgroundColor: Colors.white70,
-                                            color: Colors.black,
-                                            fontSize: 20.0,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
-                                        overflow: TextOverflow.ellipsis,
-                                        textAlign: TextAlign.justify,
-                                        maxLines: 2,
-                                      ),
-                                    ),
-                                  ],
+                                  fit: BoxFit.cover,
                                 ),
                               ),
-                              Positioned(
-                                top: 10,
-                                right: 10,
-                                child: Container(
-                                  height: 25,
-                                  width: 40,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(10),
-                                    color: Colors.red,
-                                  ),
-                                  child: Align(
-                                    alignment: Alignment.center,
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  const Spacer(),
+                                  Container(
+                                    width: 10000,
+                                    color: Colors.white70,
                                     child: Text(
-                                      "-${controller.hotPromotions![index].sale}",
+                                      "${controller.hotPromotions![index].name}",
                                       style: GoogleFonts.poppins(
                                         textStyle: const TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 18,
+                                          backgroundColor: Colors.white70,
+                                          color: Colors.black,
+                                          fontSize: 20.0,
+                                          fontWeight: FontWeight.bold,
                                         ),
+                                      ),
+                                      overflow: TextOverflow.ellipsis,
+                                      textAlign: TextAlign.justify,
+                                      maxLines: 2,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Positioned(
+                              top: 10,
+                              right: 10,
+                              child: Container(
+                                height: 25,
+                                width: 40,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                  color: Colors.red,
+                                ),
+                                child: Align(
+                                  alignment: Alignment.center,
+                                  child: Text(
+                                    "-${controller.hotPromotions![index].sale}",
+                                    style: GoogleFonts.poppins(
+                                      textStyle: const TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 18,
                                       ),
                                     ),
                                   ),
                                 ),
                               ),
-                            ],
-                          ),
+                            ),
+                          ],
                         ),
-                      );
-                    },
-                    separatorBuilder: (context, index){
-                      return const SizedBox(
-                        width: 1,
-                      );
-                    },
-                    itemCount: controller.hotPromotions!.length,
+                      ),
+                    );
+                  },
+                  separatorBuilder: (context, index) {
+                    return const SizedBox(
+                      width: 1,
+                    );
+                  },
+                  itemCount: controller.hotPromotions!.length,
                 ),
               ),
               const SizedBox(
@@ -368,7 +370,7 @@ class SearchScreen extends StatelessWidget {
               ),
               Container(
                 margin: const EdgeInsets.only(left: 10, right: 10),
-                child:  Align(
+                child: Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
                     "Best choice for you",
@@ -389,13 +391,12 @@ class SearchScreen extends StatelessWidget {
                 width: 300,
                 child: ListView.separated(
                   scrollDirection: Axis.horizontal,
-                    itemBuilder: (context, index){
+                  itemBuilder: (context, index) {
                     return InkWell(
                       onTap: () {},
                       child: Container(
                         width: 100,
-                        margin: const EdgeInsets.symmetric(
-                            horizontal: 7),
+                        margin: const EdgeInsets.symmetric(horizontal: 7),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),
                         ),
@@ -406,8 +407,7 @@ class SearchScreen extends StatelessWidget {
                               padding: const EdgeInsets.only(
                                   bottom: 10, left: 8, right: 8),
                               decoration: BoxDecoration(
-                                borderRadius:
-                                BorderRadius.circular(10),
+                                borderRadius: BorderRadius.circular(10),
                                 image: DecorationImage(
                                   image: AssetImage(
                                     "${controller.bestChoice![index].img}",
@@ -416,10 +416,8 @@ class SearchScreen extends StatelessWidget {
                                 ),
                               ),
                               child: Column(
-                                mainAxisAlignment:
-                                MainAxisAlignment.start,
-                                crossAxisAlignment:
-                                CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   const Spacer(),
                                   Text(
@@ -431,8 +429,7 @@ class SearchScreen extends StatelessWidget {
                                         fontWeight: FontWeight.bold,
                                       ),
                                     ),
-                                    overflow:
-                                    TextOverflow.ellipsis,
+                                    overflow: TextOverflow.ellipsis,
                                     textAlign: TextAlign.justify,
                                     maxLines: 2,
                                   ),
@@ -443,13 +440,13 @@ class SearchScreen extends StatelessWidget {
                         ),
                       ),
                     );
-                    },
-                    separatorBuilder: (context, index){
-                      return const SizedBox(
-                        width: 1,
-                      );
-                    },
-                    itemCount: controller.bestChoice!.length,
+                  },
+                  separatorBuilder: (context, index) {
+                    return const SizedBox(
+                      width: 1,
+                    );
+                  },
+                  itemCount: controller.bestChoice!.length,
                 ),
               ),
               const SizedBox(

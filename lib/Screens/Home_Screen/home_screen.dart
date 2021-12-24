@@ -117,7 +117,7 @@ class HomeScreen extends StatelessWidget {
                               return Stack(
                                 children: [
                                   Container(
-                                    padding: EdgeInsets.only(
+                                    padding: const EdgeInsets.only(
                                       top: 10,
                                     ),
                                     child: Stack(

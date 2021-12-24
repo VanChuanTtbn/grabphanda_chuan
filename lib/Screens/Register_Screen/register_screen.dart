@@ -29,17 +29,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         toolbarHeight: 74,
-        title: Align(
-            alignment: Alignment.bottomCenter,
-            child: Text(
-              "Register",
-              style: GoogleFonts.poppins(
-                textStyle: const TextStyle(color: Colors.black),
-              ),
-            )),
-        actions: const [
-          Icon(Icons.password, color: Colors.white,)
-        ],
+        centerTitle: true,
+        title: Text(
+          "Register",
+          style: GoogleFonts.poppins(
+            textStyle: const TextStyle(color: Colors.black),
+          ),
+        ),
         backgroundColor: Colors.white,
         iconTheme: const IconThemeData(
           color: Colors.black,
