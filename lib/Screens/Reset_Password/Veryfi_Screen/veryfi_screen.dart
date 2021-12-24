@@ -2,8 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_verification_code/flutter_verification_code.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:grabpanda/Commons/app_img.dart';
 import 'package:grabpanda/Controller/controller.dart';
+import 'package:grabpanda/Screens/Reset_Password/Reset_Email/reset_email_screen.dart';
 import 'package:grabpanda/Screens/Reset_Password/Reset_Password/reset_pasword_screen.dart';
 import 'package:grabpanda/Screens/Reset_Password/Veryfi_Screen/verify_controller.dart';
 
@@ -19,11 +21,13 @@ class VeryfiScreen extends StatelessWidget {
       backgroundColor: Colors.white,
       appBar: AppBar(
         toolbarHeight: 74,
-        title: const Align(
+        title: Align(
             alignment: Alignment.bottomCenter,
             child: Text(
               "Verification",
-              style: TextStyle(color: Colors.black),
+              style: GoogleFonts.poppins(
+                textStyle: const TextStyle(color: Colors.black),
+              ),
             )),
         backgroundColor: Colors.white,
         iconTheme: const IconThemeData(
@@ -43,15 +47,17 @@ class VeryfiScreen extends StatelessWidget {
                       height: 15,
                     ),
                     Container(
-                      height: 60,
+                      height: 70,
                       width: 300,
-                      child: const Align(
+                      child: Align(
                         alignment: Alignment.centerLeft,
                         child: Text(
-                          "Enter your Verification Code",
-                          style: TextStyle(
-                            fontSize: 25,
-                            fontWeight: FontWeight.bold,
+                          "Enter your \nVerification Code",
+                          style: GoogleFonts.poppins(
+                            textStyle: const TextStyle(
+                              fontSize: 25,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ),
                       ),
@@ -77,9 +83,9 @@ class VeryfiScreen extends StatelessWidget {
                       height: 10,
                     ),
                     Container(
-                      height: 50,
+                      height: 70,
                       width: 340,
-                      margin: EdgeInsets.only(
+                      margin: const EdgeInsets.only(
                         left: 10,
                         right: 10,
                       ),
@@ -87,9 +93,11 @@ class VeryfiScreen extends StatelessWidget {
                           textAlign: TextAlign.left,
                           text: TextSpan(
                               text: 'We send verification code to your email ',
-                              style: const TextStyle(
-                                color: Colors.black,
-                                fontSize: 13,
+                              style: GoogleFonts.poppins(
+                                textStyle: const TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 13,
+                                ),
                               ),
                               children: [
                                 TextSpan(
@@ -100,11 +108,13 @@ class VeryfiScreen extends StatelessWidget {
                                     fontSize: 13,
                                   ),
                                 ),
-                                const TextSpan(
+                                TextSpan(
                                   text: 'You can check your inbox.',
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 13,
+                                  style: GoogleFonts.poppins(
+                                    textStyle: const TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 13,
+                                    ),
                                   ),
                                 ),
                               ]
@@ -116,13 +126,17 @@ class VeryfiScreen extends StatelessWidget {
                     Align(
                       alignment: Alignment.centerLeft,
                       child: TextButton(
-                          onPressed: () {},
-                          child: const Text(
+                          onPressed: () {
+                            Get.to(ResetEmailScreen());
+                          },
+                          child: Text(
                             "I didn’t received the code? Send again",
-                            style: TextStyle(
-                              color: Colors.lightBlue,
+                            style: GoogleFonts.poppins(
+                              textStyle: const TextStyle(
+                                color: Colors.lightBlue,
+                              ),
                             ),
-                          )),
+                          ),),
                     ),
                     const SizedBox(
                       height: 30,
@@ -143,9 +157,11 @@ class VeryfiScreen extends StatelessWidget {
                               print("veryfiLoi");
                             }
                           },
-                          child: const Text(
+                          child: Text(
                             "Veryfi",
-                            style: TextStyle(color: Colors.white),
+                            style: GoogleFonts.poppins(
+                              textStyle: const TextStyle(color: Colors.white),
+                            ),
                           ),
                           style: ButtonStyle(
                             backgroundColor:

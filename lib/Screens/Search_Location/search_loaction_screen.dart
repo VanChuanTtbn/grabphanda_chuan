@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:grabpanda/Controller/controller.dart';
 
 class SearchLocationScreen extends StatelessWidget {
@@ -14,12 +15,15 @@ class SearchLocationScreen extends StatelessWidget {
       backgroundColor: Colors.white,
       appBar: AppBar(
         toolbarHeight: 74,
-        title: const Align(
-            alignment: Alignment.bottomCenter,
-            child: Text(
-              "Search Location",
-              style: TextStyle(color: Colors.black),
-            )),
+        title: Align(
+          alignment: Alignment.bottomCenter,
+          child: Text(
+            "Search Location",
+            style: GoogleFonts.poppins(
+              textStyle: const TextStyle(color: Colors.black),
+            ),
+          ),
+        ),
         backgroundColor: Colors.white,
         iconTheme: const IconThemeData(
           color: Colors.black,
@@ -38,13 +42,15 @@ class SearchLocationScreen extends StatelessWidget {
                 Container(
                   height: 40,
                   width: 300,
-                  child: const Align(
+                  child: Align(
                     alignment: Alignment.topCenter,
                     child: Text(
                       "Find Restaurants Near You",
-                      style: TextStyle(
-                        fontSize: 23,
-                        fontWeight: FontWeight.bold,
+                      style: GoogleFonts.poppins(
+                        textStyle: const TextStyle(
+                          fontSize: 23,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                   ),
@@ -61,12 +67,14 @@ class SearchLocationScreen extends StatelessWidget {
                   ),
                   child: RichText(
                       textAlign: TextAlign.center,
-                      text: const TextSpan(
+                      text: TextSpan(
                         text:
                             'We need your address to find the right restaurants for you',
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 13,
+                        style: GoogleFonts.poppins(
+                          textStyle: const TextStyle(
+                            color: Colors.black,
+                            fontSize: 13,
+                          ),
                         ),
                       )),
                 ),
@@ -77,8 +85,8 @@ class SearchLocationScreen extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(horizontal: 29),
                   child: TextFormField(
                     onSaved: (value) => searchLocation = value,
-                    decoration: const InputDecoration(
-                      border: OutlineInputBorder(
+                    decoration: InputDecoration(
+                      border: const OutlineInputBorder(
                         borderSide: BorderSide(
                           color: Colors.white,
                           style: BorderStyle.solid,
@@ -87,7 +95,10 @@ class SearchLocationScreen extends StatelessWidget {
                           Radius.circular(15),
                         ),
                       ),
-                      hintStyle: TextStyle(color: Colors.grey, fontSize: 12.0),
+                      hintStyle: GoogleFonts.inter(
+                        textStyle:
+                            const TextStyle(color: Colors.grey, fontSize: 12.0),
+                      ),
                       hintText: "Enter a New Address",
                     ),
                   ),
@@ -95,13 +106,15 @@ class SearchLocationScreen extends StatelessWidget {
                 const SizedBox(
                   height: 15,
                 ),
-                const Align(
+                Align(
                   alignment: Alignment.topCenter,
                   child: Text(
                     "Or",
-                    style: TextStyle(
-                      fontSize: 20,
-                      color: Colors.grey,
+                    style: GoogleFonts.poppins(
+                      textStyle: const TextStyle(
+                        fontSize: 20,
+                        color: Colors.grey,
+                      ),
                     ),
                   ),
                 ),
@@ -127,11 +140,13 @@ class SearchLocationScreen extends StatelessWidget {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
-                        children: const [
-                          Icon(Icons.location_on_outlined),
+                        children: [
+                          const Icon(Icons.location_on_outlined),
                           Text(
                             "Use Current Location",
-                            style: TextStyle(color: Colors.white),
+                            style: GoogleFonts.poppins(
+                              textStyle: const TextStyle(color: Colors.white),
+                            ),
                           ),
                         ],
                       ),
@@ -151,13 +166,15 @@ class SearchLocationScreen extends StatelessWidget {
                   children: [
                     Container(
                       margin: const EdgeInsets.all(10),
-                      child: const Align(
+                      child: Align(
                         alignment: Alignment.centerLeft,
                         child: Text(
                           "Nearby Locations",
-                          style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
+                          style: GoogleFonts.poppins(
+                            textStyle: const TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ),
                       ),
@@ -177,28 +194,35 @@ class SearchLocationScreen extends StatelessWidget {
                       margin: const EdgeInsets.only(left: 20, right: 20),
                       child: Row(
                         children: [
-                          Icon(Icons.location_on),
+                          const Icon(Icons.location_on),
                           const SizedBox(
                             width: 10,
                           ),
                           Flexible(
                             child: RichText(
-                                textAlign: TextAlign.left,
-                                text: const TextSpan(
-                                    text: 'Albion (Oswego County)\n',
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 16,
+                              textAlign: TextAlign.left,
+                              text: TextSpan(
+                                text: 'Albion (Oswego County)\n',
+                                style: GoogleFonts.poppins(
+                                  textStyle: const TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 16,
+                                  ),
+                                ),
+                                children: [
+                                  TextSpan(
+                                    text:
+                                        '60 Robertson Quay The Quayside 01-05, Singapore 238252 Singapore',
+                                    style: GoogleFonts.poppins(
+                                      textStyle: const TextStyle(
+                                        fontSize: 13,
+                                        color: Colors.grey,
+                                      ),
                                     ),
-                                    children: [
-                                      TextSpan(
-                                          text:
-                                          '60 Robertson Quay The Quayside 01-05, Singapore 238252 Singapore',
-                                          style: TextStyle(
-                                            fontSize: 13,
-                                            color: Colors.grey,
-                                          ))
-                                    ])),
+                                  ),
+                                ],
+                              ),
+                            ),
                           ),
                         ],
                       ),
@@ -213,35 +237,44 @@ class SearchLocationScreen extends StatelessWidget {
                       margin: const EdgeInsets.only(left: 20, right: 20),
                       child: Row(
                         children: [
-                          Icon(Icons.location_on),
+                          const Icon(Icons.location_on),
                           const SizedBox(
                             width: 10,
                           ),
                           Flexible(
                             child: RichText(
-                                textAlign: TextAlign.left,
-                                text: const TextSpan(
-                                    text: 'Brighton (Monroe County)\n',
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 16,
+                              textAlign: TextAlign.left,
+                              text: TextSpan(
+                                text: 'Brighton (Monroe County)\n',
+                                style: GoogleFonts.poppins(
+                                  textStyle: const TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 16,
+                                  ),
+                                ),
+                                children: [
+                                  TextSpan(
+                                    text:
+                                        '1 Fullerton Square Fullerton Hotel The Fullerton Hotel, Singapore 049178 Singapore',
+                                    style: GoogleFonts.poppins(
+                                      textStyle: const TextStyle(
+                                        fontSize: 13,
+                                        color: Colors.grey,
+                                      ),
                                     ),
-                                    children: [
-                                      TextSpan(
-                                          text:
-                                          '1 Fullerton Square Fullerton Hotel The Fullerton Hotel, Singapore 049178 Singapore',
-                                          style: TextStyle(
-                                            fontSize: 13,
-                                            color: Colors.grey,
-                                          ))
-                                    ])),
+                                  ),
+                                ],
+                              ),
+                            ),
                           ),
                         ],
                       ),
                     ),
                   ],
                 ),
-                SizedBox(height: 50,)
+                const SizedBox(
+                  height: 50,
+                )
               ],
             ),
           ),

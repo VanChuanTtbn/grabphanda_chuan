@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:grabpanda/Configs/app_constant.dart';
 import 'package:grabpanda/Screens/Components/my_behavior.dart';
 import 'package:grabpanda/Screens/Home_Screen/home_screen.dart';
@@ -68,10 +69,14 @@ class _BottomBarScreenState extends State<BottomBarScreen> {
         backgroundColor: Colors.transparent,
         currentIndex: currentTabIndex ?? 0,
         unselectedItemColor: Color(0xFF5A5A5A),
-        selectedLabelStyle: const TextStyle(color: Colors.blue, fontSize: 12, fontWeight: FontWeight.bold),
-        unselectedLabelStyle: const TextStyle(
-          color: Color(0xFF5A5A5A),
-          fontSize: 12,
+        selectedLabelStyle: GoogleFonts.poppins(
+          textStyle: const TextStyle(color: Colors.blue, fontSize: 12, fontWeight: FontWeight.bold),
+        ),
+        unselectedLabelStyle: GoogleFonts.poppins(
+          textStyle: const TextStyle(
+            color: Color(0xFF5A5A5A),
+            fontSize: 12,
+          ),
         ),
         items: [
           _buildItem(iconBottomBars[0], 'Home'),

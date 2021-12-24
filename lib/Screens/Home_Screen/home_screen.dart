@@ -1,13 +1,8 @@
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:grabpanda/Commons/app_img.dart';
-import 'package:grabpanda/Controller/controller.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:grabpanda/Screens/Home_Screen/home_controller.dart';
-import 'package:grabpanda/Screens/Login_Screen/login_screen.dart';
-import 'package:grabpanda/Screens/Reset_Password/Reset_Email/reset_email_screen.dart';
-import 'package:grabpanda/Screens/Search_Location/search_loaction_screen.dart';
 import 'package:grabpanda/Utils/custom_appbar.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -23,15 +18,19 @@ class HomeScreen extends StatelessWidget {
         title: RichText(
           text: TextSpan(
               text: "Welcome, ${controller.restoreModel().name}\n",
-              style: const TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
+              style: GoogleFonts.poppins(
+                textStyle: const TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
               children: [
                 TextSpan(
                   text: "${controller.restoreModel().location}",
-                  style: const TextStyle(
-                    fontSize: 13,
+                  style: GoogleFonts.poppins(
+                    textStyle: const TextStyle(
+                      fontSize: 13,
+                    ),
                   ),
                 )
               ]),
@@ -85,119 +84,148 @@ class HomeScreen extends StatelessWidget {
                     margin: const EdgeInsets.only(
                       top: 10,
                     ),
-                    child: const Align(
+                    child: Align(
                       alignment: Alignment.topCenter,
                       child: Text(
                         "- OFFER OF THE DAY -",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18,
-                          color: Colors.white,
+                        style: GoogleFonts.poppins(
+                          textStyle: const TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18,
+                            color: Colors.white,
+                          ),
                         ),
                       ),
                     ),
                   ),
                   Container(
-                    margin: const EdgeInsets.only(top: 50),
+                    margin: const EdgeInsets.only(top: 20),
                     child: Column(
                       children: [
-                        CarouselSlider(
-                          options: CarouselOptions(
-                            height: 110,
-                            autoPlay: true,
-                            autoPlayInterval: const Duration(seconds: 30),
-                            autoPlayAnimationDuration:
-                                const Duration(milliseconds: 800),
-                            enlargeCenterPage: true,
-                            enlargeStrategy: CenterPageEnlargeStrategy.height,
-                            viewportFraction: 0.85,
-                          ),
-                          items: controller.listDish!.map(
-                            (item) {
-                              return Builder(
-                                builder: (BuildContext context) {
-                                  return InkWell(
-                                    onTap: () {},
-                                    child: Container(
-                                      width: MediaQuery.of(context).size.width,
-                                      margin: const EdgeInsets.symmetric(
-                                          horizontal: 7),
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(10),
-                                      ),
-                                      child: Stack(
-                                        children: [
-                                          Container(
-                                            padding: const EdgeInsets.only(
-                                                bottom: 10, left: 8, right: 8),
-                                            decoration: BoxDecoration(
-                                              borderRadius:
-                                                  BorderRadius.circular(10),
-                                              image: DecorationImage(
-                                                image: AssetImage(
-                                                  "${item.img}",
-                                                ),
-                                                fit: BoxFit.cover,
+                        Container(
+                          height: 100,
+                          width: 300,
+                          child: ListView.separated(
+                            scrollDirection: Axis.horizontal,
+                            itemCount: controller.listDish!.length,
+                            separatorBuilder: (context, index) {
+                              return const SizedBox(
+                                width: 10,
+                              );
+                            },
+                            itemBuilder: (context, index) {
+                              return Stack(
+                                children: [
+                                  Container(
+                                    padding: EdgeInsets.only(
+                                      top: 10,
+                                    ),
+                                    child: Stack(
+                                      children: [
+                                        Container(
+                                          width: 200,
+                                          padding: const EdgeInsets.only(
+                                              bottom: 10, left: 8, right: 8),
+                                          decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(10),
+                                            image: DecorationImage(
+                                              scale: 0.5,
+                                              image: AssetImage(
+                                                "${controller.listDish![index].img}",
                                               ),
+                                              fit: BoxFit.cover,
                                             ),
-                                            child: Column(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.start,
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: [
-                                                const Spacer(),
-                                                Text(
-                                                  "${item.name}                                                  ",
-                                                  style: const TextStyle(
+                                          ),
+                                          child: Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.start,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              const Spacer(),
+                                              Text(
+                                                "${controller.listDish![index].name}                                                  ",
+                                                style: GoogleFonts.poppins(
+                                                  textStyle: const TextStyle(
                                                     color: Colors.white,
                                                     fontSize: 20.0,
                                                     fontWeight: FontWeight.bold,
                                                   ),
-                                                  overflow:
-                                                      TextOverflow.ellipsis,
-                                                  textAlign: TextAlign.justify,
-                                                  maxLines: 2,
                                                 ),
-                                              ],
+                                                overflow: TextOverflow.ellipsis,
+                                                textAlign: TextAlign.justify,
+                                                maxLines: 2,
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  Positioned(
+                                    top: -2,
+                                    left: 15,
+                                    child: Container(
+                                      height: 25,
+                                      width: 45,
+                                      decoration: BoxDecoration(
+                                        borderRadius:
+                                        BorderRadius.circular(10),
+                                        color: Colors.yellow,
+                                      ),
+                                      child: Align(
+                                        alignment: Alignment.center,
+                                        child: Text(
+                                          "-${controller.listDish![index].sale}%",
+                                          style: GoogleFonts.poppins(
+                                            textStyle: const TextStyle(
+                                              color: Colors.black,
+                                              fontSize: 16,
                                             ),
                                           ),
-                                        ],
+                                        ),
                                       ),
                                     ),
-                                  );
-                                },
+                                  ),
+                                ],
                               );
                             },
-                          ).toList(),
+                          ),
                         ),
                         const SizedBox(
                           height: 10,
                         ),
                         RichText(
-                          text: const TextSpan(
+                          text: TextSpan(
                             text: "- ",
-                            style: TextStyle(
-                              color: Colors.lightBlueAccent,
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
+                            style: GoogleFonts.poppins(
+                              textStyle: const TextStyle(
+                                color: Colors.lightBlueAccent,
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
                             children: [
                               TextSpan(
                                 text: "CULINARY CATEGORY ",
-                                style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold,
-                                ),
+                                style: GoogleFonts.poppins(
+                                  textStyle: const TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                )
                               ),
                               TextSpan(
                                 text: "-",
-                                style: TextStyle(
-                                  color: Colors.lightBlueAccent,
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold,
-                                ),
+                                style: GoogleFonts.poppins(
+                                  textStyle: const TextStyle(
+                                    color: Colors.lightBlueAccent,
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                )
                               ),
                             ],
                           ),
@@ -238,10 +266,11 @@ class HomeScreen extends StatelessWidget {
                                       ],
                                     ),
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 10,
                                   ),
-                                  Text("Korean"),
+                                  Text("Korean",
+                                  style: GoogleFonts.poppins(),),
                                 ],
                               ),
                               Column(
@@ -276,7 +305,7 @@ class HomeScreen extends StatelessWidget {
                                   const SizedBox(
                                     height: 10,
                                   ),
-                                  const Text("Western"),
+                                  Text("Western", style:  GoogleFonts.poppins(),),
                                 ],
                               ),
                               Column(
@@ -311,7 +340,7 @@ class HomeScreen extends StatelessWidget {
                                   const SizedBox(
                                     height: 10,
                                   ),
-                                  const Text("Japanese"),
+                                  Text("Japanese", style: GoogleFonts.poppins(),),
                                 ],
                               ),
                               Column(
@@ -346,7 +375,7 @@ class HomeScreen extends StatelessWidget {
                                   const SizedBox(
                                     height: 10,
                                   ),
-                                  const Text("Asian"),
+                                  Text("Asian", style: GoogleFonts.poppins(),),
                                 ],
                               ),
                               Column(
@@ -381,7 +410,7 @@ class HomeScreen extends StatelessWidget {
                                   const SizedBox(
                                     height: 10,
                                   ),
-                                  const Text("Fast Food"),
+                                  Text("Fast Food", style: GoogleFonts.poppins(),),
                                 ],
                               ),
                             ],
@@ -391,28 +420,34 @@ class HomeScreen extends StatelessWidget {
                           height: 20,
                         ),
                         RichText(
-                          text: const TextSpan(
+                          text: TextSpan(
                             text: "- ",
-                            style: TextStyle(
-                              color: Colors.lightBlueAccent,
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
+                            style: GoogleFonts.poppins(
+                              textStyle: const TextStyle(
+                                color: Colors.lightBlueAccent,
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
                             children: [
                               TextSpan(
                                 text: "POPULAR RESTAURANTS ",
-                                style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold,
+                                style: GoogleFonts.poppins(
+                                  textStyle: const TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold,
+                                  ),
                                 ),
                               ),
                               TextSpan(
                                 text: "-",
-                                style: TextStyle(
-                                  color: Colors.lightBlueAccent,
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold,
+                                style: GoogleFonts.poppins(
+                                  textStyle: const TextStyle(
+                                    color: Colors.lightBlueAccent,
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold,
+                                  ),
                                 ),
                               ),
                             ],
@@ -421,170 +456,142 @@ class HomeScreen extends StatelessWidget {
                         const SizedBox(
                           height: 10,
                         ),
-                        CarouselSlider(
-                          options: CarouselOptions(
-                            height: 200,
-                            autoPlay: true,
-                            autoPlayInterval: const Duration(seconds: 30),
-                            autoPlayAnimationDuration:
-                                const Duration(milliseconds: 800),
-                            enlargeCenterPage: true,
-                            enlargeStrategy: CenterPageEnlargeStrategy.height,
-                            viewportFraction: 0.85,
-                          ),
-                          items: controller.listPopuler?.map(
-                            (item) {
-                              return Builder(
-                                builder: (BuildContext context) {
-                                  return InkWell(
-                                    onTap: () {},
-                                    child: Column(
-                                      children: [
-                                        Container(
-                                          height: 120,
-                                          width:
-                                              MediaQuery.of(context).size.width,
-                                          margin: const EdgeInsets.symmetric(
-                                              horizontal: 7),
-                                          decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(10),
-                                          ),
-                                          child: Stack(
-                                            children: [
-                                              Container(
-                                                padding: const EdgeInsets.only(
-                                                    bottom: 10,
-                                                    left: 8,
-                                                    right: 8),
-                                                decoration: BoxDecoration(
-                                                  borderRadius:
-                                                      BorderRadius.circular(10),
-                                                  image: DecorationImage(
-                                                    image: AssetImage(
-                                                      "${item.img}",
-                                                    ),
-                                                    fit: BoxFit.cover,
+                        Container(
+                          height: 200,
+                          width: 300,
+                          child: ListView.separated(
+                              scrollDirection: Axis.horizontal,
+                              separatorBuilder: (context, index) {
+                                return const SizedBox(
+                                  width: 10,
+                                );
+                              },
+                              itemBuilder: (context, index) {
+                                return InkWell(
+                                  onTap: () {},
+                                  child: Column(
+                                    children: [
+                                      Container(
+                                        height: 120,
+                                        width: 200,
+                                        margin: const EdgeInsets.symmetric(
+                                            horizontal: 7),
+                                        decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                        ),
+                                        child: Stack(
+                                          children: [
+                                            Container(
+                                              width: 200,
+                                              padding: const EdgeInsets.only(
+                                                  bottom: 10,
+                                                  left: 8,
+                                                  right: 8),
+                                              decoration: BoxDecoration(
+                                                borderRadius:
+                                                    BorderRadius.circular(10),
+                                                image: DecorationImage(
+                                                  image: AssetImage(
+                                                    "${controller.listPopuler![index].img}",
                                                   ),
-                                                ),
-                                                child: Column(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.start,
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.start,
-                                                  children: const [
-                                                    Spacer(),
-                                                    // ignore: prefer_const_literals_to_create_immutables
-                                                    Text(
-                                                      "                                                            ",
-                                                      style: TextStyle(
-                                                        color: Colors.white,
-                                                        fontSize: 20.0,
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                      ),
-                                                      overflow:
-                                                          TextOverflow.ellipsis,
-                                                      textAlign:
-                                                          TextAlign.justify,
-                                                      maxLines: 2,
-                                                    ),
-                                                  ],
+                                                  fit: BoxFit.cover,
                                                 ),
                                               ),
-                                              Positioned(
-                                                top: 10,
-                                                right: 10,
-                                                child: Icon(Icons.star_border),
-                                              )
-                                            ],
-                                          ),
+                                            ),
+                                            // ignore: prefer_const_constructors
+                                            Positioned(
+                                              top: 10,
+                                              right: 10,
+                                              child: Icon(Icons.star_border),
+                                            )
+                                          ],
                                         ),
-                                        Container(
-                                          margin: EdgeInsets.only(
-                                              left: 5, right: 5),
-                                          child: Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceBetween,
-                                            children: [
-                                              Text(
-                                                "${item.name}",
-                                                style: const TextStyle(
+                                      ),
+                                      Container(
+                                        margin:
+                                            const EdgeInsets.only(left: 5, right: 5),
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Text(
+                                              "${controller.listPopuler![index].name}",
+                                              style: GoogleFonts.poppins(
+                                                textStyle: const TextStyle(
                                                   color: Colors.black,
                                                   fontSize: 18.0,
                                                   fontWeight: FontWeight.bold,
                                                 ),
-                                                overflow: TextOverflow.ellipsis,
-                                                textAlign: TextAlign.justify,
-                                                maxLines: 2,
                                               ),
-                                              Row(
-                                                children: const [
-                                                  Icon(
-                                                    Icons.star,
-                                                    color: Colors.red,
-                                                  ),
-                                                  Text(
-                                                    "4.2",
-                                                    style: TextStyle(
+                                              overflow: TextOverflow.ellipsis,
+                                              textAlign: TextAlign.justify,
+                                              maxLines: 2,
+                                            ),
+                                            Row(
+                                              children: [
+                                                const Icon(
+                                                  Icons.star,
+                                                  color: Colors.redAccent,
+                                                ),
+                                                Text(
+                                                  "4.2",
+                                                  style: GoogleFonts.poppins(
+                                                    textStyle: const TextStyle(
                                                       color: Colors.black,
-                                                      fontSize: 18.0,
-                                                      fontWeight:
-                                                          FontWeight.bold,
+                                                      fontSize: 17.0,
                                                     ),
-                                                    overflow:
-                                                        TextOverflow.ellipsis,
-                                                    textAlign:
-                                                        TextAlign.justify,
-                                                    maxLines: 2,
                                                   ),
-                                                ],
-                                              ),
-                                            ],
-                                          ),
+                                                  overflow:
+                                                      TextOverflow.ellipsis,
+                                                  textAlign: TextAlign.justify,
+                                                  maxLines: 2,
+                                                ),
+                                              ],
+                                            ),
+                                          ],
                                         ),
-                                        Container(
-                                          margin: const EdgeInsets.only(
-                                              left: 5, right: 5),
-                                          child: Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceBetween,
-                                            children: [
-                                              Text(
-                                                "${item.type}",
-                                                style: const TextStyle(
+                                      ),
+                                      Container(
+                                        margin: const EdgeInsets.only(
+                                            left: 5, right: 5),
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Text(
+                                              "${controller.listPopuler![index].type}",
+                                              style: GoogleFonts.poppins(
+                                                textStyle: const TextStyle(
                                                   color: Colors.grey,
                                                   fontSize: 15.0,
                                                 ),
-                                                overflow: TextOverflow.ellipsis,
-                                                textAlign: TextAlign.justify,
-                                                maxLines: 2,
                                               ),
-                                              // ignore: prefer_const_constructors
-                                              SizedBox(
-                                                width: 100,
-                                              ),
-                                              Text(
-                                                "1.2 Km",
-                                                style: const TextStyle(
+                                              overflow: TextOverflow.ellipsis,
+                                              textAlign: TextAlign.justify,
+                                              maxLines: 2,
+                                            ),
+                                            Text(
+                                              "1.2 Km",
+                                              style: GoogleFonts.poppins(
+                                                textStyle: const TextStyle(
                                                   color: Colors.grey,
                                                   fontSize: 15.0,
                                                 ),
-                                                overflow: TextOverflow.ellipsis,
-                                                textAlign: TextAlign.justify,
-                                                maxLines: 2,
                                               ),
-                                            ],
-                                          ),
+                                              overflow: TextOverflow.ellipsis,
+                                              textAlign: TextAlign.justify,
+                                              maxLines: 2,
+                                            ),
+                                          ],
                                         ),
-                                      ],
-                                    ),
-                                  );
-                                },
-                              );
-                            },
-                          ).toList(),
-                        ),
+                                      ),
+                                    ],
+                                  ),
+                                );
+                              },
+                              itemCount: controller.listPopuler!.length),
+                        )
                       ],
                     ),
                   ),

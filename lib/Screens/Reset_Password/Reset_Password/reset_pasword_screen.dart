@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:grabpanda/Commons/app_img.dart';
 import 'package:grabpanda/Controller/controller.dart';
 import 'package:grabpanda/Screens/Home_Screen/home_screen.dart';
 import 'package:grabpanda/Screens/Reset_Password/Reset_Password/reset_password_controller.dart';
 
-class ResetPasswordScreen extends StatelessWidget{
+class ResetPasswordScreen extends StatelessWidget {
   final _rsPasswordFormKey = GlobalKey<FormState>();
   String? password;
   String? rePassword;
@@ -17,12 +18,12 @@ class ResetPasswordScreen extends StatelessWidget{
       backgroundColor: Colors.white,
       appBar: AppBar(
         toolbarHeight: 74,
-        title: const Align(
+        title: Align(
             alignment: Alignment.bottomCenter,
-            child: Text(
-              "Reset Password",
-              style: TextStyle(color: Colors.black),
-            )),
+            child: Text("Reset Password",
+                style: GoogleFonts.poppins(
+                  textStyle: const TextStyle(color: Colors.black),
+                ))),
         backgroundColor: Colors.white,
         iconTheme: const IconThemeData(
           color: Colors.black,
@@ -48,16 +49,19 @@ class ResetPasswordScreen extends StatelessWidget{
                   ),
                   Container(
                     height: 48,
-                    width: 187,
-                    child: const Align(
-                        alignment: Alignment.topCenter,
-                        child: Text(
-                          "GrabPanda",
-                          style: TextStyle(
-                            fontSize: 37,
+                    width: 189,
+                    child: Align(
+                      alignment: Alignment.topCenter,
+                      child: Text(
+                        "GrabPanda",
+                        style: GoogleFonts.poppins(
+                          textStyle: const TextStyle(
+                            fontSize: 32,
                             fontWeight: FontWeight.bold,
                           ),
-                        )),
+                        ),
+                      ),
+                    ),
                   ),
                   const SizedBox(
                     height: 10,
@@ -66,19 +70,21 @@ class ResetPasswordScreen extends StatelessWidget{
                     height: 20,
                     width: 340,
                     margin: const EdgeInsets.only(
-                      left: 5 ,
+                      left: 5,
                       right: 5,
                     ),
                     child: RichText(
-                        textAlign: TextAlign.center,
-                        text: const TextSpan(
-                            text: 'Please enter your password below',
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 13,
-                            ),
-
-                        )),
+                      textAlign: TextAlign.center,
+                      text: TextSpan(
+                        text: 'Please enter your password below',
+                        style: GoogleFonts.poppins(
+                          textStyle: const TextStyle(
+                            color: Colors.black,
+                            fontSize: 13,
+                          ),
+                        ),
+                      ),
+                    ),
                   ),
                   const SizedBox(
                     height: 30,
@@ -91,8 +97,8 @@ class ResetPasswordScreen extends StatelessWidget{
                           padding: const EdgeInsets.symmetric(horizontal: 29),
                           child: TextFormField(
                             onSaved: (value) => password = value,
-                            decoration: const InputDecoration(
-                              border: OutlineInputBorder(
+                            decoration: InputDecoration(
+                              border: const OutlineInputBorder(
                                 borderSide: BorderSide(
                                   color: Colors.white,
                                   style: BorderStyle.solid,
@@ -101,10 +107,12 @@ class ResetPasswordScreen extends StatelessWidget{
                                   Radius.circular(15),
                                 ),
                               ),
-                              hintStyle:
-                              TextStyle(color: Colors.grey, fontSize: 12.0),
+                              hintStyle: GoogleFonts.inter(
+                                textStyle: TextStyle(
+                                    color: Colors.grey, fontSize: 12.0),
+                              ),
                               hintText: "New Password",
-                              suffixIcon: Icon(
+                              suffixIcon: const Icon(
                                 Icons.remove_red_eye_outlined,
                                 size: 22,
                               ),
@@ -112,13 +120,20 @@ class ResetPasswordScreen extends StatelessWidget{
                           ),
                         ),
                         Container(
-                          margin: const EdgeInsets.only(left: 30,),
-                          child: const Align(
+                          margin: const EdgeInsets.only(
+                            left: 30,
+                          ),
+                          child: Align(
                             alignment: Alignment.centerLeft,
-                            child: Text("Must be at Least 8 Characters", style: TextStyle(
-                              fontSize: 10,
-                              color: Colors.grey,
-                            ),),
+                            child: Text(
+                              "Must be at Least 8 Characters",
+                              style: GoogleFonts.poppins(
+                                textStyle: const TextStyle(
+                                  fontSize: 10,
+                                  color: Colors.grey,
+                                ),
+                              ),
+                            ),
                           ),
                         ),
                         const SizedBox(
@@ -128,8 +143,8 @@ class ResetPasswordScreen extends StatelessWidget{
                           padding: const EdgeInsets.symmetric(horizontal: 29),
                           child: TextFormField(
                             onSaved: (value) => rePassword = value,
-                            decoration: const InputDecoration(
-                              border: OutlineInputBorder(
+                            decoration: InputDecoration(
+                              border: const OutlineInputBorder(
                                 borderSide: BorderSide(
                                   color: Colors.white,
                                   style: BorderStyle.solid,
@@ -138,10 +153,12 @@ class ResetPasswordScreen extends StatelessWidget{
                                   Radius.circular(15),
                                 ),
                               ),
-                              hintStyle:
-                              TextStyle(color: Colors.grey, fontSize: 12.0),
+                              hintStyle: GoogleFonts.inter(
+                                textStyle: const TextStyle(
+                                    color: Colors.grey, fontSize: 12.0),
+                              ),
                               hintText: "Confirm password",
-                              suffixIcon: Icon(
+                              suffixIcon: const Icon(
                                 Icons.remove_red_eye_outlined,
                                 size: 22,
                               ),
@@ -149,13 +166,20 @@ class ResetPasswordScreen extends StatelessWidget{
                           ),
                         ),
                         Container(
-                          margin: const EdgeInsets.only(left: 30,),
-                          child: const Align(
+                          margin: const EdgeInsets.only(
+                            left: 30,
+                          ),
+                          child: Align(
                             alignment: Alignment.centerLeft,
-                            child: Text("Both Passwords must Match", style: TextStyle(
-                              fontSize: 10,
-                              color: Colors.grey,
-                            ),),
+                            child: Text(
+                              "Both Passwords must Match",
+                              style: GoogleFonts.poppins(
+                                textStyle: const TextStyle(
+                                  fontSize: 10,
+                                  color: Colors.grey,
+                                ),
+                              ),
+                            ),
                           ),
                         ),
                         const SizedBox(
@@ -172,24 +196,29 @@ class ResetPasswordScreen extends StatelessWidget{
                             child: ElevatedButton(
                               onPressed: () async {
                                 _rsPasswordFormKey.currentState?.save();
-                                final result = await controller.changePassword(password: password, rePassword: rePassword);
-                                if(result!){
+                                final result = await controller.changePassword(
+                                    password: password, rePassword: rePassword);
+                                if (result!) {
                                   print("change Pass OK");
                                   Get.off(HomeScreen());
-                                }else{
+                                } else {
                                   print("changeLoi");
                                 }
                               },
-                              child: const Text(
+                              child: Text(
                                 "Reset Passwod",
-                                style: TextStyle(color: Colors.white),
+                                style: GoogleFonts.poppins(
+                                  textStyle:
+                                      const TextStyle(color: Colors.white),
+                                ),
                               ),
                               style: ButtonStyle(
-                                backgroundColor: MaterialStateProperty.all(Colors.lightBlue),
+                                backgroundColor:
+                                    MaterialStateProperty.all(Colors.lightBlue),
                                 shape: MaterialStateProperty.all(
                                     RoundedRectangleBorder(
                                         borderRadius:
-                                        BorderRadius.circular(30.0))),
+                                            BorderRadius.circular(30.0))),
                               ),
                             ),
                           ),
@@ -208,5 +237,4 @@ class ResetPasswordScreen extends StatelessWidget{
       ),
     );
   }
-
 }

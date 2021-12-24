@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:grabpanda/Commons/app_img.dart';
 import 'package:get/get.dart';
 import 'package:grabpanda/Controller/controller.dart';
@@ -44,16 +45,19 @@ class LoginScreen extends StatelessWidget {
                   ),
                   Container(
                     height: 48,
-                    width: 187,
-                    child: const Align(
-                        alignment: Alignment.topCenter,
-                        child: Text(
-                          "GrabPanda",
-                          style: TextStyle(
-                            fontSize: 37,
+                    width: 189,
+                    child: Align(
+                      alignment: Alignment.topCenter,
+                      child: Text(
+                        "GrabPanda",
+                        style: GoogleFonts.poppins(
+                          textStyle: const TextStyle(
+                            fontSize: 32,
                             fontWeight: FontWeight.bold,
                           ),
-                        )),
+                        ),
+                      ),
+                    ),
                   ),
                   const SizedBox(
                     height: 29,
@@ -62,28 +66,32 @@ class LoginScreen extends StatelessWidget {
                     height: 35,
                     width: 340,
                     margin: const EdgeInsets.only(
-                      left: 5 ,
+                      left: 5,
                       right: 5,
                     ),
                     child: RichText(
                         textAlign: TextAlign.center,
-                        text: const TextSpan(
-                            text: 'Please login to your account to continue with ',
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 13,
+                        text: TextSpan(
+                            text:
+                                'Please login to your account to continue with ',
+                            style: GoogleFonts.poppins(
+                              textStyle: const TextStyle(
+                                color: Colors.black,
+                                fontSize: 13,
+                              ),
                             ),
                             children: [
                               TextSpan(
                                 text: 'GrabPanda',
-                                style: TextStyle(
-                                  color: Colors.lightBlue,
-                                  fontWeight: FontWeight.w400,
-                                  fontSize: 13,
+                                style: GoogleFonts.poppins(
+                                  textStyle: const TextStyle(
+                                    color: Colors.lightBlue,
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 13,
+                                  ),
                                 ),
                               ),
-                            ]
-                        )),
+                            ])),
                   ),
                   const SizedBox(
                     height: 50,
@@ -97,8 +105,8 @@ class LoginScreen extends StatelessWidget {
                           child: TextFormField(
                             onSaved: (value) => email = value,
                             keyboardType: TextInputType.emailAddress,
-                            decoration: const InputDecoration(
-                              border: OutlineInputBorder(
+                            decoration: InputDecoration(
+                              border: const OutlineInputBorder(
                                 borderSide: BorderSide(
                                   color: Colors.white,
                                   style: BorderStyle.solid,
@@ -107,10 +115,12 @@ class LoginScreen extends StatelessWidget {
                                   Radius.circular(15),
                                 ),
                               ),
-                              hintStyle:
-                                  TextStyle(color: Colors.grey, fontSize: 12.0),
+                              hintStyle: GoogleFonts.inter(
+                                textStyle: const TextStyle(
+                                    color: Colors.grey, fontSize: 12.0),
+                              ),
                               hintText: "Email",
-                              suffixIcon: Icon(
+                              suffixIcon: const Icon(
                                 Icons.email,
                                 size: 22,
                               ),
@@ -124,8 +134,8 @@ class LoginScreen extends StatelessWidget {
                           padding: const EdgeInsets.symmetric(horizontal: 29),
                           child: TextFormField(
                             onSaved: (value) => password = value,
-                            decoration: const InputDecoration(
-                              border: OutlineInputBorder(
+                            decoration: InputDecoration(
+                              border: const OutlineInputBorder(
                                 borderSide: BorderSide(
                                   color: Colors.white,
                                   style: BorderStyle.solid,
@@ -134,10 +144,12 @@ class LoginScreen extends StatelessWidget {
                                   Radius.circular(15),
                                 ),
                               ),
-                              hintStyle:
-                                  TextStyle(color: Colors.grey, fontSize: 12.0),
+                              hintStyle: GoogleFonts.inter(
+                                textStyle: const TextStyle(
+                                    color: Colors.grey, fontSize: 12.0),
+                              ),
                               hintText: "Password",
-                              suffixIcon: Icon(
+                              suffixIcon: const Icon(
                                 Icons.remove_red_eye_outlined,
                                 size: 22,
                               ),
@@ -148,12 +160,14 @@ class LoginScreen extends StatelessWidget {
                           padding: const EdgeInsets.only(
                             right: 21,
                           ),
-                          child: const Align(
+                          child: Align(
                             alignment: Alignment.centerRight,
                             child: Text(
                               "Forgot Password?",
-                              style: TextStyle(
-                                color: Colors.grey,
+                              style: GoogleFonts.poppins(
+                                textStyle: const TextStyle(
+                                  color: Colors.grey,
+                                ),
                               ),
                             ),
                           ),
@@ -178,12 +192,16 @@ class LoginScreen extends StatelessWidget {
                                   print("lgLoi");
                                 }
                               },
-                              child: const Text(
+                              child: Text(
                                 "Sign Up",
-                                style: TextStyle(color: Colors.white),
+                                style: GoogleFonts.poppins(
+                                  textStyle:
+                                      const TextStyle(color: Colors.white),
+                                ),
                               ),
                               style: ButtonStyle(
-                                backgroundColor: MaterialStateProperty.all(Colors.lightBlue),
+                                backgroundColor:
+                                    MaterialStateProperty.all(Colors.lightBlue),
                                 shape: MaterialStateProperty.all(
                                     RoundedRectangleBorder(
                                         borderRadius:
@@ -196,15 +214,15 @@ class LoginScreen extends StatelessWidget {
                           height: 5,
                         ),
                         Container(
-                          child: const Align(
+                          child: Align(
                             alignment: Alignment.topCenter,
-                            child: Text(
-                              "Or",
-                              style: TextStyle(
-                                color: Colors.grey,
-                                fontSize: 17,
-                              ),
-                            ),
+                            child: Text("Or",
+                                style: GoogleFonts.poppins(
+                                  textStyle: const TextStyle(
+                                    color: Colors.grey,
+                                    fontSize: 17,
+                                  ),
+                                )),
                           ),
                         ),
                         const SizedBox(
@@ -224,9 +242,12 @@ class LoginScreen extends StatelessWidget {
                                     onPressed: () {
                                       Get.to(ResetEmailScreen());
                                     },
-                                    child: const Text(
+                                    child: Text(
                                       "facebook",
-                                      style: TextStyle(color: Colors.white),
+                                      style: GoogleFonts.poppins(
+                                        textStyle: const TextStyle(
+                                            color: Colors.white),
+                                      ),
                                     ),
                                     style: ButtonStyle(
                                       shape: MaterialStateProperty.all(
@@ -247,12 +268,16 @@ class LoginScreen extends StatelessWidget {
                                   width: 121,
                                   child: ElevatedButton(
                                     onPressed: () {},
-                                    child: const Text(
+                                    child: Text(
                                       "Google",
-                                      style: TextStyle(color: Colors.white),
+                                      style: GoogleFonts.poppins(
+                                        textStyle: const TextStyle(
+                                            color: Colors.white),
+                                      ),
                                     ),
                                     style: ButtonStyle(
-                                      backgroundColor: MaterialStateProperty.all(Colors.red),
+                                      backgroundColor:
+                                          MaterialStateProperty.all(Colors.red),
                                       shape: MaterialStateProperty.all(
                                           RoundedRectangleBorder(
                                               borderRadius:
@@ -272,14 +297,20 @@ class LoginScreen extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              const Text("Don't have an account?"),
+                              Text(
+                                "Don't have an account?",
+                                style: GoogleFonts.poppins(),
+                              ),
                               TextButton(
                                   onPressed: () {
                                     Get.to(RegisterScreen());
                                   },
-                                  child: const Text(
+                                  child: Text(
                                     "Register Now",
-                                    style: TextStyle(color: Colors.lightBlue),
+                                    style: GoogleFonts.poppins(
+                                      textStyle:
+                                          TextStyle(color: Colors.lightBlue),
+                                    ),
                                   ))
                             ],
                           ),

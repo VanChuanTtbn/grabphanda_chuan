@@ -1,6 +1,7 @@
 import 'package:email_auth/email_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:grabpanda/Commons/app_img.dart';
 import 'package:grabpanda/Controller/controller.dart';
 import 'package:grabpanda/Screens/Register_Screen/register_screen.dart';
@@ -37,37 +38,43 @@ class ResetEmailScreen extends StatelessWidget {
                   ),
                   Container(
                     height: 40,
-                    width: 187,
-                    child: const Align(
-                        alignment: Alignment.topCenter,
-                        child: Text(
-                          "GrabPanda",
-                          style: TextStyle(
-                            fontSize: 37,
+                    width: 189,
+                    child: Align(
+                      alignment: Alignment.topCenter,
+                      child: Text(
+                        "GrabPanda",
+                        style: GoogleFonts.poppins(
+                          textStyle: const TextStyle(
+                            fontSize: 32,
                             fontWeight: FontWeight.bold,
                           ),
-                        )),
+                        ),
+                      ),
+                    ),
                   ),
                   const SizedBox(
                     height: 14,
                   ),
                   Container(
-                    height: 50,
+                    height: 60,
                     width: 340,
                     margin: const EdgeInsets.only(
                       left: 10,
-                      right:5,
+                      right: 5,
                     ),
                     child: RichText(
-                        textAlign: TextAlign.center,
-                        text: const TextSpan(
-                            text: 'Enter your email address below & we’ll send you an email with Instruction on how change your Password',
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 13,
-                            ),
-
-                        )),
+                      textAlign: TextAlign.center,
+                      text: TextSpan(
+                        text:
+                            'Enter your email address below & we’ll send you an email with Instruction on how change your Password',
+                        style: GoogleFonts.poppins(
+                          textStyle: const TextStyle(
+                            color: Colors.black,
+                            fontSize: 13,
+                          ),
+                        ),
+                      ),
+                    ),
                   ),
                   const SizedBox(
                     height: 30,
@@ -81,8 +88,8 @@ class ResetEmailScreen extends StatelessWidget {
                           child: TextFormField(
                             onSaved: (value) => email = value,
                             keyboardType: TextInputType.emailAddress,
-                            decoration: const InputDecoration(
-                              border: OutlineInputBorder(
+                            decoration: InputDecoration(
+                              border: const OutlineInputBorder(
                                 borderSide: BorderSide(
                                   color: Colors.white,
                                   style: BorderStyle.solid,
@@ -92,9 +99,11 @@ class ResetEmailScreen extends StatelessWidget {
                                 ),
                               ),
                               hintStyle:
-                                  TextStyle(color: Colors.grey, fontSize: 12.0),
+                                  GoogleFonts.inter(
+                                    textStyle: const TextStyle(color: Colors.grey, fontSize: 12.0),
+                                  ),
                               hintText: "Email",
-                              suffixIcon: Icon(
+                              suffixIcon: const Icon(
                                 Icons.email,
                                 size: 22,
                               ),
@@ -121,9 +130,11 @@ class ResetEmailScreen extends StatelessWidget {
                                 }
                                 Get.to(VeryfiScreen());
                               },
-                              child: const Text(
+                              child: Text(
                                 "Send Mail",
-                                style: TextStyle(color: Colors.white),
+                                style: GoogleFonts.poppins(
+                                  textStyle: const TextStyle(color: Colors.white),
+                                ),
                               ),
                               style: ButtonStyle(
                                 backgroundColor:

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:grabpanda/Models/Entity/account_entity.dart';
 import 'package:grabpanda/Screens/Login_Screen/login_screen.dart';
 import 'package:grabpanda/Screens/Register_Screen/register_screen_controller.dart';
@@ -28,12 +29,17 @@ class _RegisterScreenState extends State<RegisterScreen> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         toolbarHeight: 74,
-        title: const Align(
+        title: Align(
             alignment: Alignment.bottomCenter,
             child: Text(
               "Register",
-              style: TextStyle(color: Colors.black),
+              style: GoogleFonts.poppins(
+                textStyle: const TextStyle(color: Colors.black),
+              ),
             )),
+        actions: const [
+          Icon(Icons.password, color: Colors.white,)
+        ],
         backgroundColor: Colors.white,
         iconTheme: const IconThemeData(
           color: Colors.black,
@@ -66,19 +72,23 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     ),
                     child: RichText(
                         textAlign: TextAlign.center,
-                        text: const TextSpan(
+                        text: TextSpan(
                         text: 'Give Us some of your information to get free Accesss to flieldly ',
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 13,
+                        style: GoogleFonts.poppins(
+                          textStyle: const TextStyle(
+                            color: Colors.black,
+                            fontSize: 13,
+                          ),
                         ),
                         children: [
                           TextSpan(
                             text: 'GrabPanda',
-                            style: TextStyle(
+                            style: GoogleFonts.poppins(
+                              textStyle: const TextStyle(
                                 color: Colors.lightBlue,
                                 fontWeight: FontWeight.w400,
-                              fontSize: 13,
+                                fontSize: 13,
+                              ),
                             ),
                           ),
                         ]
@@ -95,8 +105,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           padding: const EdgeInsets.symmetric(horizontal: 29),
                           child: TextFormField(
                             onSaved: (value) => name = value,
-                            decoration: const InputDecoration(
-                              border: OutlineInputBorder(
+                            decoration: InputDecoration(
+                              border: const OutlineInputBorder(
                                 borderSide: BorderSide(
                                   color: Colors.white,
                                   style: BorderStyle.solid,
@@ -106,9 +116,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 ),
                               ),
                               hintStyle:
-                                  TextStyle(color: Colors.grey, fontSize: 12.0),
+                                  GoogleFonts.inter(
+                                    textStyle: const TextStyle(color: Colors.grey, fontSize: 12.0),
+                                  ),
                               hintText: "Name",
-                              suffixIcon: Icon(
+                              suffixIcon: const Icon(
                                 Icons.account_circle_outlined,
                                 size: 22,
                               ),
@@ -123,8 +135,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           child: TextFormField(
                             onSaved: (value) => email = value,
                             keyboardType: TextInputType.emailAddress,
-                            decoration: const InputDecoration(
-                              border: OutlineInputBorder(
+                            decoration: InputDecoration(
+                              border: const OutlineInputBorder(
                                 borderSide: BorderSide(
                                   color: Colors.white,
                                   style: BorderStyle.solid,
@@ -134,7 +146,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 ),
                               ),
                               hintStyle:
-                                  TextStyle(color: Colors.grey, fontSize: 12.0),
+                              GoogleFonts.inter(
+                                textStyle: const TextStyle(color: Colors.grey, fontSize: 12.0),
+                              ),
                               hintText: "Email",
                               suffixIcon: Icon(
                                 Icons.email,
@@ -150,8 +164,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           padding: const EdgeInsets.symmetric(horizontal: 29),
                           child: TextFormField(
                             onSaved: (value) => password = value,
-                            decoration: const InputDecoration(
-                              border: OutlineInputBorder(
+                            decoration: InputDecoration(
+                              border: const OutlineInputBorder(
                                 borderSide: BorderSide(
                                   color: Colors.white,
                                   style: BorderStyle.solid,
@@ -161,7 +175,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 ),
                               ),
                               hintStyle:
-                                  TextStyle(color: Colors.grey, fontSize: 12.0),
+                              GoogleFonts.inter(
+                                textStyle: const TextStyle(color: Colors.grey, fontSize: 12.0),
+                              ),
                               hintText: "Password",
                               suffixIcon: Icon(
                                 Icons.remove_red_eye_outlined,
@@ -177,8 +193,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           padding: const EdgeInsets.symmetric(horizontal: 29),
                           child: TextFormField(
                             onSaved: (value) => phoneNumber = value,
-                            decoration: const InputDecoration(
-                              border: OutlineInputBorder(
+                            decoration: InputDecoration(
+                              border: const OutlineInputBorder(
                                 borderSide: BorderSide(
                                   color: Colors.white,
                                   style: BorderStyle.solid,
@@ -188,9 +204,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 ),
                               ),
                               hintStyle:
-                                  TextStyle(color: Colors.grey, fontSize: 12.0),
+                              GoogleFonts.inter(
+                                textStyle: const TextStyle(color: Colors.grey, fontSize: 12.0),
+                              ),
                               hintText: "Phone number",
-                              suffixIcon: Icon(
+                              suffixIcon: const Icon(
                                 Icons.phone_android,
                                 size: 22,
                               ),
@@ -204,8 +222,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           padding: const EdgeInsets.symmetric(horizontal: 29),
                           child: TextFormField(
                             onSaved: (value) => location = value,
-                            decoration: const InputDecoration(
-                              border: OutlineInputBorder(
+                            decoration: InputDecoration(
+                              border: const OutlineInputBorder(
                                 borderSide: BorderSide(
                                   color: Colors.white,
                                   style: BorderStyle.solid,
@@ -215,7 +233,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 ),
                               ),
                               hintStyle:
-                                  TextStyle(color: Colors.grey, fontSize: 12.0),
+                              GoogleFonts.inter(
+                                textStyle: const TextStyle(color: Colors.grey, fontSize: 12.0),
+                              ),
                               hintText: "Location",
                               suffixIcon: Icon(
                                 Icons.not_listed_location_outlined,
@@ -234,19 +254,23 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               onChanged: (bool? value) {},
                             ),
                             Flexible(
-                              child: RichText(text: const TextSpan(
+                              child: RichText(text: TextSpan(
                                 text: 'By signing up, you agree to the ',
-                                style: TextStyle(
-                                  color: Colors.black,
+                                style: GoogleFonts.poppins(
+                                  textStyle: const TextStyle(
+                                    color: Colors.black,
+                                  ),
                                 ),
                                 children: [
                                   TextSpan(
                                     text: 'Terms of Service and Privacy Policy',
-                                    style: TextStyle(
-                                      color: Colors.lightBlue,
-                                      fontWeight: FontWeight.w400
+                                    style: GoogleFonts.poppins(
+                                      textStyle: const TextStyle(
+                                          color: Colors.lightBlue,
+                                          fontWeight: FontWeight.w400
+                                      ),
                                     ),
-                                  )
+                                  ),
                                 ]
                               )),
                             ),
@@ -279,9 +303,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                   print('rsLoi');
                                 }
                               },
-                              child: const Text(
+                              child: Text(
                                 "Register",
-                                style: TextStyle(color: Colors.white),
+                                style: GoogleFonts.poppins(
+                                  textStyle: const TextStyle(color: Colors.white)
+                                ),
                               ),
                               style: ButtonStyle(
                                 backgroundColor: MaterialStateProperty.all(Colors.lightBlue),
@@ -293,7 +319,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             ),
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 86,
                         )
                       ],

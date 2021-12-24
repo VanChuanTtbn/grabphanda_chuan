@@ -1,7 +1,7 @@
 import 'package:grabpanda/Controller/controller.dart';
 import 'package:grabpanda/Models/Entity/food_entity.dart';
 
-class HomeController extends BaseController{
+class HomeController extends BaseController {
   List<FoodEntity>? listDish;
   List<FoodEntity>? listPopuler;
   HomeController() {
@@ -9,22 +9,27 @@ class HomeController extends BaseController{
       FoodEntity(
         img: 'assets/img/artemis_grill.png',
         name: 'Artemis Grill',
+        sale: '25',
       ),
       FoodEntity(
-          img: 'assets/img/burger_king.png',
-          name: 'Burger King',
+        img: 'assets/img/burger_king.png',
+        name: 'Burger King',
+        sale: '25',
       ),
       FoodEntity(
-          img: 'assets/img/burnt_ends.png',
-          name: 'Burnt Ends',
+        img: 'assets/img/burnt_ends.png',
+        name: 'Burnt Ends',
+        sale: '25',
       ),
       FoodEntity(
-          img: 'assets/img/koma.png',
-          name: 'Koma',
+        img: 'assets/img/koma.png',
+        name: 'Koma',
+        sale: '25',
       ),
       FoodEntity(
-          img: 'assets/img/meta.png',
-          name: 'Meta',
+        img: 'assets/img/meta.png',
+        name: 'Meta',
+        sale: '25',
       ),
     ];
     listPopuler = [
