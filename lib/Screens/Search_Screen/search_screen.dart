@@ -82,8 +82,8 @@ class SearchScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(
-                height: 20,
+              SizedBox(
+                height: Get.height * 0.05,
               ),
               Container(
                 margin: const EdgeInsets.only(left: 10, right: 10),
@@ -123,12 +123,12 @@ class SearchScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              const SizedBox(
-                height: 10,
+              SizedBox(
+                height: Get.height * 0.01,
               ),
               Container(
-                height: 170,
-                width: 300,
+                height: Get.height * 0.3,
+                width: Get.width * 0.9,
                 child: ListView.separated(
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) {
@@ -137,8 +137,8 @@ class SearchScreen extends StatelessWidget {
                       child: Column(
                         children: [
                           Container(
-                            height: 100,
-                            width: 200,
+                            height: Get.height * 0.2,
+                            width: Get.width * 0.65,
                             margin: const EdgeInsets.symmetric(horizontal: 7),
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(10),
@@ -146,7 +146,7 @@ class SearchScreen extends StatelessWidget {
                             child: Stack(
                               children: [
                                 Container(
-                                  width: 200,
+                                  width: Get.width * 0.65,
                                   padding: const EdgeInsets.only(
                                       bottom: 10, left: 8, right: 8),
                                   decoration: BoxDecoration(
@@ -179,6 +179,9 @@ class SearchScreen extends StatelessWidget {
                                   overflow: TextOverflow.ellipsis,
                                   textAlign: TextAlign.justify,
                                   maxLines: 2,
+                                ),
+                                SizedBox(
+                                  width: Get.width * 0.13,
                                 ),
                                 Row(
                                   children: [
@@ -223,7 +226,7 @@ class SearchScreen extends StatelessWidget {
                                 ),
                                 // ignore: prefer_const_constructors
                                 SizedBox(
-                                  width: 100,
+                                  width: Get.width * 0.15,
                                 ),
                                 Text(
                                   "0.5 Km",
@@ -270,19 +273,19 @@ class SearchScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(
-                height: 20,
+              SizedBox(
+                height: Get.height * 0.04 ,
               ),
               Container(
-                height: 100,
-                width: 300,
+                height: Get.height * 0.2,
+                width: Get.width * 0.9,
                 child: ListView.separated(
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) {
                     return InkWell(
                       onTap: () {},
                       child: Container(
-                        width: 200,
+                        width: Get.width * 0.65,
                         margin: const EdgeInsets.symmetric(horizontal: 7),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),
@@ -290,7 +293,7 @@ class SearchScreen extends StatelessWidget {
                         child: Stack(
                           children: [
                             Container(
-                              width: 200,
+                              width: Get.width * 0.65,
                               padding: const EdgeInsets.only(
                                   bottom: 10, left: 0, right: 0),
                               decoration: BoxDecoration(
@@ -332,8 +335,8 @@ class SearchScreen extends StatelessWidget {
                               top: 10,
                               right: 10,
                               child: Container(
-                                height: 25,
-                                width: 40,
+                                height: Get.height * 0.05,
+                                width: Get.width * 0.14,
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(10),
                                   color: Colors.red,
@@ -383,12 +386,12 @@ class SearchScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(
-                height: 30,
+              SizedBox(
+                height: Get.height * 0.04,
               ),
               Container(
-                height: 150,
-                width: 300,
+                height: Get.height * 0.3,
+                width: Get.width * 0.9,
                 child: ListView.separated(
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) {
@@ -403,7 +406,7 @@ class SearchScreen extends StatelessWidget {
                         child: Stack(
                           children: [
                             Container(
-                              width: 100,
+                              width: Get.width * 0.4,
                               padding: const EdgeInsets.only(
                                   bottom: 10, left: 8, right: 8),
                               decoration: BoxDecoration(
@@ -449,8 +452,8 @@ class SearchScreen extends StatelessWidget {
                   itemCount: controller.bestChoice!.length,
                 ),
               ),
-              const SizedBox(
-                height: 30,
+              SizedBox(
+                height: Get.height * 0.07,
               ),
             ],
           ),

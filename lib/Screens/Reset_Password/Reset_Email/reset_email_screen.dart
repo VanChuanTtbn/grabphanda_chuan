@@ -25,8 +25,8 @@ class ResetEmailScreen extends StatelessWidget {
             children: [
               Column(
                 children: [
-                  const SizedBox(
-                    height: 79,
+                  SizedBox(
+                    height: Get.height * 0.17,
                   ),
                   Align(
                     alignment: Alignment.topCenter,
@@ -37,8 +37,8 @@ class ResetEmailScreen extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    height: 40,
-                    width: 189,
+                    height: Get.height * 0.07,
+                    width: Get.width * 0.6,
                     child: Align(
                       alignment: Alignment.topCenter,
                       child: Text(
@@ -52,12 +52,12 @@ class ResetEmailScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  const SizedBox(
-                    height: 14,
+                  SizedBox(
+                    height: Get.height * 0.02,
                   ),
                   Container(
-                    height: 60,
-                    width: 340,
+                    height: Get.height * 0.1,
+                    width: Get.width * 0.9,
                     margin: const EdgeInsets.only(
                       left: 10,
                       right: 5,
@@ -76,8 +76,8 @@ class ResetEmailScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  const SizedBox(
-                    height: 30,
+                  SizedBox(
+                    height: Get.height * 0.04,
                   ),
                   Form(
                     key: _rsEmailFormKey,
@@ -110,14 +110,14 @@ class ResetEmailScreen extends StatelessWidget {
                             ),
                           ),
                         ),
-                        const SizedBox(
-                          height: 30,
+                        SizedBox(
+                          height: Get.height * 0.04,
                         ),
                         Align(
                           alignment: Alignment.topCenter,
                           child: SizedBox(
-                            height: 40,
-                            width: 268,
+                            height: Get.height * 0.07,
+                            width: Get.width * 0.83,
                             child: ElevatedButton(
                               onPressed: () async {
                                 _rsEmailFormKey.currentState?.save();

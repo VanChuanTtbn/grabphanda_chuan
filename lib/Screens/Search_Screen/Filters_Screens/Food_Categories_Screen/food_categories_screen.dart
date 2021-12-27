@@ -16,8 +16,8 @@ class _FoodCategoriesScreenState extends State<FoodCategoriesScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
-        child: Container(
-          height: 1000,
+        child: SizedBox(
+          height: 10000,
           child: ListView.separated(
             shrinkWrap: true,
               itemBuilder: (context, index){

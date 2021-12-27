@@ -17,13 +17,11 @@ class ResetPasswordScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        toolbarHeight: 74,
-        title: Align(
-            alignment: Alignment.bottomCenter,
-            child: Text("Reset Password",
-                style: GoogleFonts.poppins(
-                  textStyle: const TextStyle(color: Colors.black),
-                ))),
+        centerTitle: true,
+        title: Text("Reset Password",
+            style: GoogleFonts.poppins(
+              textStyle: const TextStyle(color: Colors.black),
+            )),
         backgroundColor: Colors.white,
         iconTheme: const IconThemeData(
           color: Colors.black,
@@ -36,8 +34,8 @@ class ResetPasswordScreen extends StatelessWidget {
             children: [
               Column(
                 children: [
-                  const SizedBox(
-                    height: 32,
+                  SizedBox(
+                    height: Get.height * 0.07,
                   ),
                   Align(
                     alignment: Alignment.topCenter,
@@ -48,8 +46,8 @@ class ResetPasswordScreen extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    height: 48,
-                    width: 189,
+                    height: Get.height * 0.07,
+                    width: Get.width * 0.6,
                     child: Align(
                       alignment: Alignment.topCenter,
                       child: Text(
@@ -63,8 +61,8 @@ class ResetPasswordScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  const SizedBox(
-                    height: 10,
+                  SizedBox(
+                    height: Get.height * 0.01,
                   ),
                   Container(
                     height: 20,
@@ -86,8 +84,8 @@ class ResetPasswordScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  const SizedBox(
-                    height: 30,
+                  SizedBox(
+                    height: Get.height * 0.07,
                   ),
                   Form(
                     key: _rsPasswordFormKey,
@@ -135,9 +133,8 @@ class ResetPasswordScreen extends StatelessWidget {
                               ),
                             ),
                           ),
-                        ),
-                        const SizedBox(
-                          height: 10,
+                        ), SizedBox(
+                          height: Get.height * 0.01,
                         ),
                         Container(
                           padding: const EdgeInsets.symmetric(horizontal: 29),
@@ -182,11 +179,11 @@ class ResetPasswordScreen extends StatelessWidget {
                             ),
                           ),
                         ),
-                        const SizedBox(
-                          height: 10,
+                        SizedBox(
+                          height: Get.height * 0.01,
                         ),
-                        const SizedBox(
-                          height: 30,
+                        SizedBox(
+                          height: Get.height * 0.07,
                         ),
                         Align(
                           alignment: Alignment.topCenter,

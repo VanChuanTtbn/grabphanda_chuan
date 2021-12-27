@@ -5,10 +5,10 @@ class CustomAppBar extends CustomClipper<Path>{
   Path getClip(Size size) {
     // TODO: implement getClip
     Path path = Path();
-    path.lineTo(0, 150);
+    path.lineTo(0, size.height - 280);
     // path.quadraticBezierTo(size.width /2, size.height,
     //   size.width, size.height - 50,);
-    path.lineTo(1100, 0);
+    path.lineTo(size.width + 1000, 0);
     path.close();
     return path;
   }

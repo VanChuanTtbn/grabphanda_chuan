@@ -14,14 +14,12 @@ class SearchLocationScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+        centerTitle: true,
         toolbarHeight: 74,
-        title: Align(
-          alignment: Alignment.bottomCenter,
-          child: Text(
-            "Search Location",
-            style: GoogleFonts.poppins(
-              textStyle: const TextStyle(color: Colors.black),
-            ),
+        title: Text(
+          "Search Location",
+          style: GoogleFonts.poppins(
+            textStyle: const TextStyle(color: Colors.black),
           ),
         ),
         backgroundColor: Colors.white,
@@ -36,12 +34,12 @@ class SearchLocationScreen extends StatelessWidget {
             key: _searchLocationFormKey,
             child: Column(
               children: [
-                const SizedBox(
-                  height: 15,
+                SizedBox(
+                  height: Get.height * 0.03,
                 ),
                 Container(
-                  height: 40,
-                  width: 300,
+                  height: Get.height * 0.13,
+                  width: Get.width * 0.9,
                   child: Align(
                     alignment: Alignment.topCenter,
                     child: Text(
@@ -55,12 +53,12 @@ class SearchLocationScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                const SizedBox(
-                  height: 10,
+                SizedBox(
+                  height: Get.height * 0.01,
                 ),
                 Container(
-                  height: 35,
-                  width: 340,
+                  height: Get.height * 0.065,
+                  width: Get.width * 0.9,
                   margin: const EdgeInsets.only(
                     left: 20,
                     right: 20,
@@ -78,8 +76,8 @@ class SearchLocationScreen extends StatelessWidget {
                         ),
                       )),
                 ),
-                const SizedBox(
-                  height: 30,
+                SizedBox(
+                  height: Get.height * 0.03,
                 ),
                 Container(
                   padding: const EdgeInsets.symmetric(horizontal: 29),
@@ -103,8 +101,8 @@ class SearchLocationScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                const SizedBox(
-                  height: 15,
+                SizedBox(
+                  height: Get.height * 0.01,
                 ),
                 Align(
                   alignment: Alignment.topCenter,
@@ -112,20 +110,20 @@ class SearchLocationScreen extends StatelessWidget {
                     "Or",
                     style: GoogleFonts.poppins(
                       textStyle: const TextStyle(
-                        fontSize: 20,
+                        fontSize: 17,
                         color: Colors.grey,
                       ),
                     ),
                   ),
                 ),
-                const SizedBox(
-                  height: 15,
+                SizedBox(
+                  height: Get.height * 0.01,
                 ),
                 Align(
                   alignment: Alignment.topCenter,
                   child: SizedBox(
-                    height: 40,
-                    width: 268,
+                    height: Get.height * 0.07,
+                    width: Get.width * 0.8,
                     child: ElevatedButton(
                       onPressed: () async {
                         _searchLocationFormKey.currentState?.save();
@@ -159,8 +157,8 @@ class SearchLocationScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                const SizedBox(
-                  height: 40,
+                SizedBox(
+                  height: Get.height * 0.07,
                 ),
                 Column(
                   children: [
@@ -185,7 +183,7 @@ class SearchLocationScreen extends StatelessWidget {
                   shrinkWrap: true,
                   children: <Widget>[
                     Container(
-                      height: 100,
+                      height: Get.height * 0.15,
                       decoration: const BoxDecoration(
                         border: Border(
                           bottom: BorderSide(color: Colors.grey),
@@ -195,8 +193,8 @@ class SearchLocationScreen extends StatelessWidget {
                       child: Row(
                         children: [
                           const Icon(Icons.location_on),
-                          const SizedBox(
-                            width: 10,
+                          SizedBox(
+                            width: Get.width * 0.03,
                           ),
                           Flexible(
                             child: RichText(
@@ -228,7 +226,7 @@ class SearchLocationScreen extends StatelessWidget {
                       ),
                     ),
                     Container(
-                      height: 100,
+                      height: Get.height * 0.15,
                       decoration: const BoxDecoration(
                         border: Border(
                           bottom: BorderSide(color: Colors.grey),
@@ -238,8 +236,8 @@ class SearchLocationScreen extends StatelessWidget {
                       child: Row(
                         children: [
                           const Icon(Icons.location_on),
-                          const SizedBox(
-                            width: 10,
+                          SizedBox(
+                            width: Get.width * 0.03,
                           ),
                           Flexible(
                             child: RichText(

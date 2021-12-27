@@ -28,7 +28,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        toolbarHeight: 74,
         centerTitle: true,
         title: Text(
           "Register",
@@ -60,8 +59,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     height: 11,
                   ),
                   Container(
-                    height: 55,
-                    width: 340,
+                    height: Get.height * 0.1,
+                    width: Get.width * 0.9,
                     margin: const EdgeInsets.only(
                       left: 5 ,
                       right: 5,
@@ -278,8 +277,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         Align(
                           alignment: Alignment.topCenter,
                           child: SizedBox(
-                            height: 40,
-                            width: 268,
+                            height: Get.height * 0.07,
+                            width: Get.width * 0.85,
                             child: ElevatedButton(
                               onPressed: () async {
                                 _registerFormKey.currentState?.save();

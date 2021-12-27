@@ -24,8 +24,8 @@ class LocationScreen extends StatelessWidget{
             );
             },
             separatorBuilder: (context, index){
-              return const SizedBox(
-                height: 10,
+              return SizedBox(
+                height: Get.height * 0.01,
               );
             },
             itemCount: controller.listLocation!.length,

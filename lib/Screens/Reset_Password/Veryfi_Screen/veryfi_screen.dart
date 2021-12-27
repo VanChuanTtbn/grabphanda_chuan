@@ -20,15 +20,13 @@ class VeryfiScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        toolbarHeight: 74,
-        title: Align(
-            alignment: Alignment.bottomCenter,
-            child: Text(
-              "Verification",
-              style: GoogleFonts.poppins(
-                textStyle: const TextStyle(color: Colors.black),
-              ),
-            )),
+        centerTitle: true,
+        title: Text(
+          "Verification",
+          style: GoogleFonts.poppins(
+            textStyle: const TextStyle(color: Colors.black),
+          ),
+        ),
         backgroundColor: Colors.white,
         iconTheme: const IconThemeData(
           color: Colors.black,
@@ -43,12 +41,12 @@ class VeryfiScreen extends StatelessWidget {
                 key: _veryfiFormKey,
                 child: Column(
                   children: [
-                    const SizedBox(
-                      height: 15,
+                    SizedBox(
+                      height: Get.height * 0.01,
                     ),
                     Container(
-                      height: 70,
-                      width: 300,
+                      height: Get.height * 0.15,
+                      width: Get.width * 0.9,
                       child: Align(
                         alignment: Alignment.centerLeft,
                         child: Text(
@@ -62,8 +60,8 @@ class VeryfiScreen extends StatelessWidget {
                         ),
                       ),
                     ),
-                    const SizedBox(
-                      height: 10,
+                    SizedBox(
+                      height: Get.height * 0.01,
                     ),
                     Container(
                       padding: const EdgeInsets.symmetric(horizontal: 29),
@@ -79,12 +77,12 @@ class VeryfiScreen extends StatelessWidget {
                         },
                       ),
                     ),
-                    const SizedBox(
-                      height: 10,
+                    SizedBox(
+                      height: Get.height * 0.01,
                     ),
                     Container(
-                      height: 70,
-                      width: 340,
+                      height: Get.height * 0.15,
+                      width: Get.width * 0.9,
                       margin: const EdgeInsets.only(
                         left: 10,
                         right: 10,
@@ -120,8 +118,8 @@ class VeryfiScreen extends StatelessWidget {
                               ]
                           )),
                     ),
-                    const SizedBox(
-                      height: 5,
+                    SizedBox(
+                      height: Get.height * 0.01,
                     ),
                     Align(
                       alignment: Alignment.centerLeft,
@@ -138,14 +136,14 @@ class VeryfiScreen extends StatelessWidget {
                             ),
                           ),),
                     ),
-                    const SizedBox(
-                      height: 30,
+                    SizedBox(
+                      height: Get.height * 0.07,
                     ),
                     Align(
                       alignment: Alignment.topCenter,
                       child: SizedBox(
-                        height: 40,
-                        width: 268,
+                        height: Get.height * 0.07,
+                        width: Get.width * 0.8,
                         child: ElevatedButton(
                           onPressed: () async {
                             _veryfiFormKey.currentState?.save();

@@ -103,8 +103,8 @@ class HomeScreen extends StatelessWidget {
                     child: Column(
                       children: [
                         Container(
-                          height: 100,
-                          width: 300,
+                          height: Get.height * 0.18,
+                          width: Get.width * 0.9,
                           child: ListView.separated(
                             scrollDirection: Axis.horizontal,
                             itemCount: controller.listDish!.length,
@@ -123,7 +123,7 @@ class HomeScreen extends StatelessWidget {
                                     child: Stack(
                                       children: [
                                         Container(
-                                          width: 200,
+                                          width: Get.width * 0.55,
                                           padding: const EdgeInsets.only(
                                               bottom: 10, left: 8, right: 8),
                                           decoration: BoxDecoration(
@@ -167,8 +167,8 @@ class HomeScreen extends StatelessWidget {
                                     top: -2,
                                     left: 15,
                                     child: Container(
-                                      height: 25,
-                                      width: 45,
+                                      height: Get.height *0.05,
+                                      width: Get.width * 0.15,
                                       decoration: BoxDecoration(
                                         borderRadius:
                                         BorderRadius.circular(10),
@@ -193,8 +193,8 @@ class HomeScreen extends StatelessWidget {
                             },
                           ),
                         ),
-                        const SizedBox(
-                          height: 10,
+                        SizedBox(
+                          height: Get.height * 0.01,
                         ),
                         RichText(
                           text: TextSpan(
@@ -230,8 +230,8 @@ class HomeScreen extends StatelessWidget {
                             ],
                           ),
                         ),
-                        const SizedBox(
-                          height: 10,
+                        SizedBox(
+                          height: Get.height * 0.01,
                         ),
                         SingleChildScrollView(
                           scrollDirection: Axis.horizontal,
@@ -266,8 +266,8 @@ class HomeScreen extends StatelessWidget {
                                       ],
                                     ),
                                   ),
-                                  const SizedBox(
-                                    height: 10,
+                                  SizedBox(
+                                    height: Get.height * 0.01,
                                   ),
                                   Text("Korean",
                                   style: GoogleFonts.poppins(),),
@@ -302,8 +302,8 @@ class HomeScreen extends StatelessWidget {
                                       ],
                                     ),
                                   ),
-                                  const SizedBox(
-                                    height: 10,
+                                  SizedBox(
+                                    height: Get.height * 0.01,
                                   ),
                                   Text("Western", style:  GoogleFonts.poppins(),),
                                 ],
@@ -337,8 +337,8 @@ class HomeScreen extends StatelessWidget {
                                       ],
                                     ),
                                   ),
-                                  const SizedBox(
-                                    height: 10,
+                                  SizedBox(
+                                    height: Get.height * 0.01,
                                   ),
                                   Text("Japanese", style: GoogleFonts.poppins(),),
                                 ],
@@ -372,8 +372,8 @@ class HomeScreen extends StatelessWidget {
                                       ],
                                     ),
                                   ),
-                                  const SizedBox(
-                                    height: 10,
+                                  SizedBox(
+                                    height: Get.height * 0.01,
                                   ),
                                   Text("Asian", style: GoogleFonts.poppins(),),
                                 ],
@@ -407,8 +407,8 @@ class HomeScreen extends StatelessWidget {
                                       ],
                                     ),
                                   ),
-                                  const SizedBox(
-                                    height: 10,
+                                  SizedBox(
+                                    height: Get.height * 0.01,
                                   ),
                                   Text("Fast Food", style: GoogleFonts.poppins(),),
                                 ],
@@ -453,12 +453,12 @@ class HomeScreen extends StatelessWidget {
                             ],
                           ),
                         ),
-                        const SizedBox(
-                          height: 10,
+                        SizedBox(
+                          height: Get.height * 0.01,
                         ),
                         Container(
-                          height: 200,
-                          width: 300,
+                          height: Get.height * 0.3,
+                          width: Get.width * 0.9,
                           child: ListView.separated(
                               scrollDirection: Axis.horizontal,
                               separatorBuilder: (context, index) {
@@ -472,8 +472,8 @@ class HomeScreen extends StatelessWidget {
                                   child: Column(
                                     children: [
                                       Container(
-                                        height: 120,
-                                        width: 200,
+                                        height: Get.height * 0.18,
+                                        width: Get.width * 0.65,
                                         margin: const EdgeInsets.symmetric(
                                             horizontal: 7),
                                         decoration: BoxDecoration(

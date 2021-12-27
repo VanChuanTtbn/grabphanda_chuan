@@ -15,7 +15,7 @@ class FiltersScreen extends StatefulWidget {
 }
 
 class _FiltersScreenState extends State<FiltersScreen> {
-  double _currentSliderValue = 200;
+  double _currentSliderValue = 400;
   @override
   Widget build(BuildContext context) {
     final controllerFood = Get.put(FoodCategoriesController());
@@ -42,12 +42,12 @@ class _FiltersScreenState extends State<FiltersScreen> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              const SizedBox(
-                height: 20,
+              SizedBox(
+                height: Get.height * 0.04,
               ),
               Container(
-                height: 56,
-                width: 359,
+                height: Get.height * 0.1,
+                width: Get.width * 1,
                 margin: const EdgeInsets.only(left: 10, right: 10),
                 padding: const EdgeInsets.all(10),
                 decoration: const BoxDecoration(
@@ -142,12 +142,12 @@ class _FiltersScreenState extends State<FiltersScreen> {
                   ],
                 ),
               ),
-              const SizedBox(
-                height: 15,
+              SizedBox(
+                height: Get.height * 0.03,
               ),
               Container(
-                height: 56,
-                width: 359,
+                height: Get.height * 0.1,
+                width: Get.width * 1,
                 margin: const EdgeInsets.only(left: 10, right: 10),
                 padding: const EdgeInsets.all(10),
                 decoration: const BoxDecoration(
@@ -271,12 +271,12 @@ class _FiltersScreenState extends State<FiltersScreen> {
                   ],
                 ),
               ),
-              const SizedBox(
-                height: 15,
+              SizedBox(
+                height: Get.height * 0.03,
               ),
               Container(
-                height: 56,
-                width: 359,
+                height: Get.height * 0.1,
+                width: Get.width * 1,
                 margin: const EdgeInsets.only(left: 10, right: 10),
                 padding: const EdgeInsets.all(10),
                 decoration: const BoxDecoration(
@@ -371,12 +371,12 @@ class _FiltersScreenState extends State<FiltersScreen> {
                   ],
                 ),
               ),
-              const SizedBox(
-                height: 15,
+              SizedBox(
+                height: Get.height * 0.03,
               ),
               Container(
-                height: 78,
-                width: 359,
+                height: Get.height * 0.15,
+                width: Get.width * 1,
                 margin: const EdgeInsets.only(left: 10, right: 10),
                 padding: const EdgeInsets.only(
                     top: 3, left: 10, right: 10, bottom: 0),
@@ -417,12 +417,12 @@ class _FiltersScreenState extends State<FiltersScreen> {
                   ],
                 ),
               ),
-              const SizedBox(
-                height: 15,
+              SizedBox(
+                height: Get.height * 0.03,
               ),
               Container(
-                height: 110,
-                width: 359,
+                height: Get.height * 0.2,
+                width: Get.width * 1,
                 margin: const EdgeInsets.only(left: 10, right: 10),
                 padding: const EdgeInsets.only(
                     top: 3, left: 10, right: 10, bottom: 0),
@@ -487,8 +487,8 @@ class _FiltersScreenState extends State<FiltersScreen> {
                   ],
                 ),
               ),
-              const SizedBox(
-                height: 15,
+              SizedBox(
+                height: Get.height * 0.03,
               ),
               Container(
                 margin: const EdgeInsets.only(left: 10, right: 10),
@@ -519,16 +519,16 @@ class _FiltersScreenState extends State<FiltersScreen> {
                   ],
                 ),
               ),
-              const SizedBox(
-                height: 96,
+              SizedBox(
+                height: Get.height * 0.2,
               ),
               Container(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     SizedBox(
-                      height: 40,
-                      width: 168.27,
+                      height: Get.height * 0.07,
+                      width: Get.width * 0.4,
                       child: TextButton(
                         onPressed: () {},
                         child: Text(
@@ -546,8 +546,8 @@ class _FiltersScreenState extends State<FiltersScreen> {
                       ),
                     ),
                     SizedBox(
-                      height: 40,
-                      width: 130,
+                      height: Get.height * 0.07,
+                      width: Get.width * 0.4,
                       child: ElevatedButton(
                         onPressed: () {},
                         child: Text(

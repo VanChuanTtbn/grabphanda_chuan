@@ -2,9 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:grabpanda/Commons/app_img.dart';
 import 'package:get/get.dart';
-import 'package:grabpanda/Controller/controller.dart';
-import 'package:grabpanda/Routers/routers.dart';
-import 'package:flutter/src/widgets/router.dart';
 import 'package:grabpanda/Screens/Bottom_Bar/bottom_bar.dart';
 import 'package:grabpanda/Screens/Home_Screen/home_screen.dart';
 import 'package:grabpanda/Screens/Login_Screen/login_screen_controller.dart';
@@ -32,8 +29,8 @@ class LoginScreen extends StatelessWidget {
             children: [
               Column(
                 children: [
-                  const SizedBox(
-                    height: 79,
+                  SizedBox(
+                    height: Get.height * 0.14,
                   ),
                   Align(
                     alignment: Alignment.topCenter,
@@ -44,8 +41,8 @@ class LoginScreen extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    height: 48,
-                    width: 189,
+                    height: Get.height * 0.08,
+                    width: Get.width * 0.6,
                     child: Align(
                       alignment: Alignment.topCenter,
                       child: Text(
@@ -63,8 +60,8 @@ class LoginScreen extends StatelessWidget {
                     height: 29,
                   ),
                   Container(
-                    height: 35,
-                    width: 340,
+                    height: Get.height * 0.06,
+                    width: Get.width * 0.9,
                     margin: const EdgeInsets.only(
                       left: 5,
                       right: 5,
@@ -178,8 +175,8 @@ class LoginScreen extends StatelessWidget {
                         Align(
                           alignment: Alignment.topCenter,
                           child: SizedBox(
-                            height: 40,
-                            width: 268,
+                            height: Get.height *0.07,
+                            width: Get.width * 0.85,
                             child: ElevatedButton(
                               onPressed: () async {
                                 _loginFormKey.currentState?.save();
@@ -236,8 +233,8 @@ class LoginScreen extends StatelessWidget {
                               Align(
                                 alignment: Alignment.center,
                                 child: SizedBox(
-                                  height: 31,
-                                  width: 121,
+                                  height: Get.height *0.06,
+                                  width: Get.width * 0.37,
                                   child: ElevatedButton(
                                     onPressed: () {
                                       Get.to(ResetEmailScreen());
@@ -264,8 +261,8 @@ class LoginScreen extends StatelessWidget {
                               Align(
                                 alignment: Alignment.topCenter,
                                 child: SizedBox(
-                                  height: 31,
-                                  width: 121,
+                                  height: Get.height *0.06,
+                                  width: Get.width * 0.37,
                                   child: ElevatedButton(
                                     onPressed: () {},
                                     child: Text(
