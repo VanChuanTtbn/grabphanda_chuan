@@ -3,7 +3,9 @@ import 'package:grabpanda/Models/Entity/food_entity.dart';
 
 class FoodCategoriesController extends BaseController {
   List<FoodEntity>? listFoodCategories;
+  List count = [];
   FoodCategoriesController() {
+    count = [];
     listFoodCategories = [
       FoodEntity(
         type: "Asian cuisine",
@@ -76,13 +78,11 @@ class FoodCategoriesController extends BaseController {
     ];
   }
   getCount() {
-    var count = [];
-    listFoodCategories!.forEach(
-      (element) {
+    count = [];
+    for (var element in listFoodCategories!) {
         if (element.checkFoodCategories == true) {
           count.add(element.type);
         }
-      },
-    );
+      }
   }
 }

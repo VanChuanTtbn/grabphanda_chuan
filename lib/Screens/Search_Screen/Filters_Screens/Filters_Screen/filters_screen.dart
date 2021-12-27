@@ -5,6 +5,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:grabpanda/Screens/Search_Screen/Filters_Screens/Food_Categories_Screen/food_categories_controller.dart';
 import 'package:grabpanda/Screens/Search_Screen/Filters_Screens/Food_Categories_Screen/food_categories_screen.dart';
 import 'package:grabpanda/Screens/Search_Screen/Filters_Screens/Location_Screen/location_screen.dart';
+import 'package:grabpanda/Screens/Search_Screen/Filters_Screens/Promotion_Type_Screen/promotion_type_controller.dart';
+import 'package:grabpanda/Screens/Search_Screen/Filters_Screens/Promotion_Type_Screen/promotion_type_screen.dart';
 import 'package:syncfusion_flutter_sliders/sliders.dart';
 
 class FiltersScreen extends StatefulWidget {
@@ -16,7 +18,8 @@ class _FiltersScreenState extends State<FiltersScreen> {
   double _currentSliderValue = 200;
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(FoodCategoriesController());
+    final controllerFood = Get.put(FoodCategoriesController());
+    final controllerPromotion = Get.put(PromotionTypeController());
     // TODO: implement build
     return Scaffold(
       appBar: AppBar(
@@ -101,8 +104,12 @@ class _FiltersScreenState extends State<FiltersScreen> {
                                   ),
                                   TextButton(
                                     onPressed: () {
-                                      controller.getCount();
-                                      Navigator.pop(context);
+
+                                      setState(() {
+                                        controllerFood.getCount();
+                                        Navigator.pop(context);
+                                      });
+
                                     },
                                     child: Text(
                                       "Ok",
@@ -120,7 +127,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
                         child: Row(
                           children: [
                             Text(
-                              "${controller.getCount()?.length ?? 0} Selected",
+                              "${controllerFood.count.length} Selected",
                               style: GoogleFonts.inter(
                                 color: Colors.grey,
                                 fontSize: 17,
@@ -229,8 +236,8 @@ class _FiltersScreenState extends State<FiltersScreen> {
                                     ),
                                   ),
                                   TextButton(
-                                    onPressed: () {
-                                      controller.getCount();
+                                    onPressed: () async {
+                                      await controllerFood.getCount();
                                       Navigator.pop(context);
                                     },
                                     child: Text(
@@ -294,11 +301,62 @@ class _FiltersScreenState extends State<FiltersScreen> {
                       ),
                     ),
                     TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          showDialog(
+                            context: context,
+                            builder: (BuildContext context) {
+                              return AlertDialog(
+                                insetPadding: const EdgeInsets.only(
+                                  top: 50,
+                                  right: 10,
+                                  left: 10,
+                                  bottom: 10,
+                                ),
+                                title: Text(
+                                  'Promotion Type',
+                                  style: GoogleFonts.inter(),
+                                ),
+                                content: Stack(
+                                  children: [
+                                    PromotionTypeScreen(),
+                                  ],
+                                ),
+                                actions: [
+                                  TextButton(
+                                    onPressed: () {},
+                                    child: Text(
+                                      "Clear",
+                                      style: GoogleFonts.poppins(
+                                        color: Colors.lightBlueAccent,
+                                      ),
+                                    ),
+                                  ),
+                                  TextButton(
+                                    onPressed: () {
+
+                                      setState(() {
+                                        controllerPromotion.getCount();
+                                        Navigator.pop(context);
+                                      });
+
+                                    },
+                                    child: Text(
+                                      "Ok",
+                                      style: GoogleFonts.poppins(
+                                        color: Colors.blue,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              );
+                            },
+                          );
+                        },
                         child: Row(
                           children: [
                             Text(
-                              "0 Selected",
+                              "${controllerPromotion.count.length} Selected",
                               style: GoogleFonts.inter(
                                 color: Colors.grey,
                                 fontSize: 17,
