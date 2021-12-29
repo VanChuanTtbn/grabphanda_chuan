@@ -1,9 +1,11 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:grabpanda/Models/Entity/account_entity.dart';
-import 'package:grabpanda/Screens/Login_Screen/login_screen.dart';
-import 'package:grabpanda/Screens/Register_Screen/register_screen_controller.dart';
+import 'package:grabpanda1/Models/Entity/account_entity.dart';
+import 'package:grabpanda1/Screens/Bottom_Bar/bottom_bar.dart';
+import 'package:grabpanda1/Screens/Login_Screen/login_screen.dart';
+import 'package:grabpanda1/Screens/Register_Screen/register_screen_controller.dart';
 import '../../Commons/app_img.dart';
 
 class RegisterScreen extends StatefulWidget {
@@ -31,8 +33,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
         centerTitle: true,
         title: Text(
           "Register",
-          style: GoogleFonts.poppins(
-            textStyle: const TextStyle(color: Colors.black),
+          style: Theme.of(context).textTheme.headline5?.copyWith(
+            color: Colors.black,
           ),
         ),
         backgroundColor: Colors.white,
@@ -69,21 +71,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         textAlign: TextAlign.center,
                         text: TextSpan(
                         text: 'Give Us some of your information to get free Accesss to flieldly ',
-                        style: GoogleFonts.poppins(
-                          textStyle: const TextStyle(
-                            color: Colors.black,
-                            fontSize: 13,
-                          ),
-                        ),
+                        style: Theme.of(context).textTheme.bodyText1,
                         children: [
                           TextSpan(
                             text: 'GrabPanda',
-                            style: GoogleFonts.poppins(
-                              textStyle: const TextStyle(
-                                color: Colors.lightBlue,
-                                fontWeight: FontWeight.w400,
-                                fontSize: 13,
-                              ),
+                            style: Theme.of(context).textTheme.bodyText1?.copyWith(
+                              color: Colors.lightBlue,
                             ),
                           ),
                         ]
@@ -251,19 +244,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             Flexible(
                               child: RichText(text: TextSpan(
                                 text: 'By signing up, you agree to the ',
-                                style: GoogleFonts.poppins(
-                                  textStyle: const TextStyle(
-                                    color: Colors.black,
-                                  ),
-                                ),
+                                style: Theme.of(context).textTheme.bodyText1,
                                 children: [
                                   TextSpan(
                                     text: 'Terms of Service and Privacy Policy',
-                                    style: GoogleFonts.poppins(
-                                      textStyle: const TextStyle(
-                                          color: Colors.lightBlue,
-                                          fontWeight: FontWeight.w400
-                                      ),
+                                    style: Theme.of(context).textTheme.bodyText1?.copyWith(
+                                      color: Colors.lightBlue,
                                     ),
                                   ),
                                 ]
@@ -282,26 +268,34 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             child: ElevatedButton(
                               onPressed: () async {
                                 _registerFormKey.currentState?.save();
-                                final registerAcc = await controller.checkAccount(
-                                  AccountEntity(
-                                    email: email,
-                                    password: password,
-                                    name: name,
-                                    phoneNumber: phoneNumber,
-                                    location: location,
-                                  ),
-                                );
-                                if (registerAcc == true) {
-                                  print('rsOK');
-                                  Get.to(LoginScreen());
-                                } else {
-                                  print('rsLoi');
-                                }
+                                // final registerAcc = await controller.checkAccount(
+                                //   AccountEntity(
+                                //     email: email,
+                                //     password: password,
+                                //     name: name,
+                                //     phoneNumber: phoneNumber,
+                                //     location: location,
+                                //   ),
+                                // );
+                                // if (registerAcc == true) {
+                                //   print('rsOK');
+                                //   Get.to(LoginScreen());
+                                // } else {
+                                //   print('rsLoi');
+                                // }
+                                await controller.register(AccountEntity(
+                                  name: name,
+                                  email: email,
+                                  password: password,
+                                  phoneNumber: phoneNumber,
+                                  location: location,
+                                ));
+                                Get.offAll(BottomBarScreen());
                               },
                               child: Text(
                                 "Register",
-                                style: GoogleFonts.poppins(
-                                  textStyle: const TextStyle(color: Colors.white)
+                                style: Theme.of(context).textTheme.bodyText1?.copyWith(
+                                  color: Colors.white,
                                 ),
                               ),
                               style: ButtonStyle(

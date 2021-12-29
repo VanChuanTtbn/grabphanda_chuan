@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:grabpanda/Screens/Search_Screen/Filters_Screens/Food_Categories_Screen/food_categories_controller.dart';
+
+import 'food_categories_controller.dart';
 
 class FoodCategoriesScreen extends StatefulWidget{
   @override
@@ -26,7 +26,7 @@ class _FoodCategoriesScreenState extends State<FoodCategoriesScreen> {
                     Container(
                       child: CheckboxListTile(
                         checkColor: Colors.white,
-                        title: Text('${controller.listFoodCategories![index].type}', style: GoogleFonts.poppins(),),
+                        title: Text('${controller.listFoodCategories![index].type}', style: Theme.of(context).textTheme.bodyText1,),
                         value: controller.listFoodCategories![index].checkFoodCategories,
                         onChanged: (bool? value){
                           setState(() {

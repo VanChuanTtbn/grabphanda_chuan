@@ -1,6 +1,7 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:grabpanda/Controller/controller.dart';
+
+
+import 'package:grabpanda1/Controller/controller.dart';
+import 'package:grabpanda1/Models/Entity/account_entity.dart';
 
 class LoginScreenController extends BaseController {
   Future<bool>? signin({String? email, String? password}) async {
@@ -21,6 +22,15 @@ class LoginScreenController extends BaseController {
       }
     } catch (e) {
       return false;
+    }
+  }
+
+
+  Future<void>? login(String? email, String? password){
+    try{
+      auth.signInWithEmailAndPassword(email: email!, password: password!);
+    }catch(e){
+      print(e.toString());
     }
   }
 }

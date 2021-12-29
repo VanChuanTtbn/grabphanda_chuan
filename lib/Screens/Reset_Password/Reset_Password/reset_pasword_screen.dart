@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:grabpanda/Commons/app_img.dart';
-import 'package:grabpanda/Controller/controller.dart';
-import 'package:grabpanda/Screens/Home_Screen/home_screen.dart';
-import 'package:grabpanda/Screens/Reset_Password/Reset_Password/reset_password_controller.dart';
+import 'package:grabpanda1/Commons/app_img.dart';
+import 'package:grabpanda1/Screens/Home_Screen/home_screen.dart';
+import 'package:grabpanda1/Screens/Reset_Password/Reset_Password/reset_password_controller.dart';
 
 class ResetPasswordScreen extends StatelessWidget {
   final _rsPasswordFormKey = GlobalKey<FormState>();
@@ -19,9 +18,7 @@ class ResetPasswordScreen extends StatelessWidget {
       appBar: AppBar(
         centerTitle: true,
         title: Text("Reset Password",
-            style: GoogleFonts.poppins(
-              textStyle: const TextStyle(color: Colors.black),
-            )),
+            style: Theme.of(context).textTheme.headline6,),
         backgroundColor: Colors.white,
         iconTheme: const IconThemeData(
           color: Colors.black,
@@ -52,12 +49,11 @@ class ResetPasswordScreen extends StatelessWidget {
                       alignment: Alignment.topCenter,
                       child: Text(
                         "GrabPanda",
-                        style: GoogleFonts.poppins(
-                          textStyle: const TextStyle(
-                            fontSize: 32,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
+                        style: Theme.of(context).textTheme.headline4?.copyWith(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 32,
+                        )
                       ),
                     ),
                   ),
@@ -75,17 +71,12 @@ class ResetPasswordScreen extends StatelessWidget {
                       textAlign: TextAlign.center,
                       text: TextSpan(
                         text: 'Please enter your password below',
-                        style: GoogleFonts.poppins(
-                          textStyle: const TextStyle(
-                            color: Colors.black,
-                            fontSize: 13,
-                          ),
-                        ),
+                        style:Theme.of(context).textTheme.bodyText1,
                       ),
                     ),
                   ),
                   SizedBox(
-                    height: Get.height * 0.07,
+                    height: Get.height * 0.05,
                   ),
                   Form(
                     key: _rsPasswordFormKey,
@@ -125,11 +116,9 @@ class ResetPasswordScreen extends StatelessWidget {
                             alignment: Alignment.centerLeft,
                             child: Text(
                               "Must be at Least 8 Characters",
-                              style: GoogleFonts.poppins(
-                                textStyle: const TextStyle(
-                                  fontSize: 10,
-                                  color: Colors.grey,
-                                ),
+                              style: Theme.of(context).textTheme.bodyText2?.copyWith(
+                                color: Colors.grey,
+                                fontSize: 12,
                               ),
                             ),
                           ),
@@ -170,11 +159,9 @@ class ResetPasswordScreen extends StatelessWidget {
                             alignment: Alignment.centerLeft,
                             child: Text(
                               "Both Passwords must Match",
-                              style: GoogleFonts.poppins(
-                                textStyle: const TextStyle(
-                                  fontSize: 10,
-                                  color: Colors.grey,
-                                ),
+                              style: Theme.of(context).textTheme.bodyText2?.copyWith(
+                                color: Colors.grey,
+                                fontSize: 12,
                               ),
                             ),
                           ),
@@ -204,10 +191,9 @@ class ResetPasswordScreen extends StatelessWidget {
                               },
                               child: Text(
                                 "Reset Passwod",
-                                style: GoogleFonts.poppins(
-                                  textStyle:
-                                      const TextStyle(color: Colors.white),
-                                ),
+                                style: Theme.of(context).textTheme.button?.copyWith(
+                                  color: Colors.white,
+                                )
                               ),
                               style: ButtonStyle(
                                 backgroundColor:

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:grabpanda/Screens/Reset_Password/Reset_Email/reset_email_screen.dart';
-import 'package:grabpanda/Screens/Search_Location/search_loaction_screen.dart';
+import 'package:grabpanda1/Screens/Reset_Password/Reset_Email/reset_email_screen.dart';
+import 'package:grabpanda1/Screens/Search_Location/search_loaction_screen.dart';
 
 class ReservationsScreen extends StatelessWidget {
   @override

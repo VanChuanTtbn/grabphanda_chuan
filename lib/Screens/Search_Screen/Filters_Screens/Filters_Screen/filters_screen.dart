@@ -2,11 +2,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:grabpanda/Screens/Search_Screen/Filters_Screens/Food_Categories_Screen/food_categories_controller.dart';
-import 'package:grabpanda/Screens/Search_Screen/Filters_Screens/Food_Categories_Screen/food_categories_screen.dart';
-import 'package:grabpanda/Screens/Search_Screen/Filters_Screens/Location_Screen/location_screen.dart';
-import 'package:grabpanda/Screens/Search_Screen/Filters_Screens/Promotion_Type_Screen/promotion_type_controller.dart';
-import 'package:grabpanda/Screens/Search_Screen/Filters_Screens/Promotion_Type_Screen/promotion_type_screen.dart';
+import 'package:grabpanda1/Screens/Search_Screen/Filters_Screens/Food_Categories_Screen/food_categories_controller.dart';
+import 'package:grabpanda1/Screens/Search_Screen/Filters_Screens/Food_Categories_Screen/food_categories_screen.dart';
+import 'package:grabpanda1/Screens/Search_Screen/Filters_Screens/Location_Screen/location_screen.dart';
+import 'package:grabpanda1/Screens/Search_Screen/Filters_Screens/Promotion_Type_Screen/promotion_type_controller.dart';
+import 'package:grabpanda1/Screens/Search_Screen/Filters_Screens/Promotion_Type_Screen/promotion_type_screen.dart';
 import 'package:syncfusion_flutter_sliders/sliders.dart';
 
 class FiltersScreen extends StatefulWidget {
@@ -67,8 +67,8 @@ class _FiltersScreenState extends State<FiltersScreen> {
                   children: [
                     Text(
                       "Food categories",
-                      style: GoogleFonts.poppins(
-                        fontSize: 17,
+                      style: Theme.of(context).textTheme.bodyText1?.copyWith(
+                        fontSize: 16,
                       ),
                     ),
                     TextButton(
@@ -97,7 +97,8 @@ class _FiltersScreenState extends State<FiltersScreen> {
                                     onPressed: () {},
                                     child: Text(
                                       "Clear",
-                                      style: GoogleFonts.poppins(
+                                      style: Theme.of(context).textTheme.bodyText1?.copyWith(
+                                        fontSize: 15,
                                         color: Colors.lightBlueAccent,
                                       ),
                                     ),
@@ -113,10 +114,9 @@ class _FiltersScreenState extends State<FiltersScreen> {
                                     },
                                     child: Text(
                                       "Ok",
-                                      style: GoogleFonts.poppins(
-                                        color: Colors.blue,
-                                        fontWeight: FontWeight.bold,
-                                      ),
+                                      style: Theme.of(context).textTheme.bodyText1?.copyWith(
+                                        fontSize: 16,
+                                        color: Colors.lightBlue,),
                                     ),
                                   ),
                                 ],
@@ -167,8 +167,8 @@ class _FiltersScreenState extends State<FiltersScreen> {
                   children: [
                     Text(
                       "Location",
-                      style: GoogleFonts.poppins(
-                        fontSize: 17,
+                      style: Theme.of(context).textTheme.bodyText1?.copyWith(
+                        fontSize: 16,
                       ),
                     ),
                     TextButton(
@@ -230,7 +230,8 @@ class _FiltersScreenState extends State<FiltersScreen> {
                                     onPressed: () {},
                                     child: Text(
                                       "Clear",
-                                      style: GoogleFonts.poppins(
+                                      style: Theme.of(context).textTheme.bodyText1?.copyWith(
+                                        fontSize: 15,
                                         color: Colors.lightBlueAccent,
                                       ),
                                     ),
@@ -242,9 +243,9 @@ class _FiltersScreenState extends State<FiltersScreen> {
                                     },
                                     child: Text(
                                       "Ok",
-                                      style: GoogleFonts.poppins(
-                                        color: Colors.blue,
-                                        fontWeight: FontWeight.bold,
+                                      style: Theme.of(context).textTheme.bodyText1?.copyWith(
+                                        fontSize: 15,
+                                        color: Colors.lightBlue,
                                       ),
                                     ),
                                   ),
@@ -296,9 +297,9 @@ class _FiltersScreenState extends State<FiltersScreen> {
                   children: [
                     Text(
                       "Promotion type",
-                      style: GoogleFonts.poppins(
-                        fontSize: 17,
-                      ),
+                      style: Theme.of(context).textTheme.bodyText1?.copyWith(
+                      fontSize: 16,
+                    ),
                     ),
                     TextButton(
                         onPressed: () {
@@ -326,7 +327,8 @@ class _FiltersScreenState extends State<FiltersScreen> {
                                     onPressed: () {},
                                     child: Text(
                                       "Clear",
-                                      style: GoogleFonts.poppins(
+                                      style: Theme.of(context).textTheme.bodyText1?.copyWith(
+                                        fontSize: 15,
                                         color: Colors.lightBlueAccent,
                                       ),
                                     ),
@@ -342,9 +344,9 @@ class _FiltersScreenState extends State<FiltersScreen> {
                                     },
                                     child: Text(
                                       "Ok",
-                                      style: GoogleFonts.poppins(
-                                        color: Colors.blue,
-                                        fontWeight: FontWeight.bold,
+                                      style: Theme.of(context).textTheme.bodyText1?.copyWith(
+                                        fontSize: 15,
+                                        color: Colors.lightBlue,
                                       ),
                                     ),
                                   ),
@@ -398,8 +400,8 @@ class _FiltersScreenState extends State<FiltersScreen> {
                       alignment: Alignment.centerLeft,
                       child: Text(
                         "Merchant name",
-                        style: GoogleFonts.poppins(
-                          fontSize: 17,
+                        style: Theme.of(context).textTheme.bodyText1?.copyWith(
+                          fontSize: 16,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -407,9 +409,9 @@ class _FiltersScreenState extends State<FiltersScreen> {
                     TextFormField(
                       decoration: InputDecoration(
                         isDense: true,
-                        hintStyle: GoogleFonts.poppins(
-                          textStyle: const TextStyle(
-                              color: Colors.grey, fontSize: 12.0),
+                        hintStyle: Theme.of(context).textTheme.bodyText1?.copyWith(
+                          color: Colors.grey,
+                          fontSize: 12,
                         ),
                         hintText: "Type text here",
                       ),
@@ -444,8 +446,8 @@ class _FiltersScreenState extends State<FiltersScreen> {
                       alignment: Alignment.centerLeft,
                       child: Text(
                         "Pricing range",
-                        style: GoogleFonts.poppins(
-                          fontSize: 17,
+                        style: Theme.of(context).textTheme.bodyText1?.copyWith(
+                          fontSize: 16,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -500,8 +502,8 @@ class _FiltersScreenState extends State<FiltersScreen> {
                       alignment: Alignment.centerLeft,
                       child: Text(
                         "Other prices",
-                        style: GoogleFonts.poppins(
-                          fontSize: 17,
+                        style: Theme.of(context).textTheme.bodyText1?.copyWith(
+                          fontSize: 16,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -509,9 +511,9 @@ class _FiltersScreenState extends State<FiltersScreen> {
                     TextFormField(
                       decoration: InputDecoration(
                         isDense: true,
-                        hintStyle: GoogleFonts.poppins(
-                          textStyle: const TextStyle(
-                              color: Colors.grey, fontSize: 12.0),
+                        hintStyle: Theme.of(context).textTheme.bodyText1?.copyWith(
+                          fontSize: 12,
+                          color: Colors.grey,
                         ),
                         hintText: "Type text here",
                       ),
@@ -533,8 +535,9 @@ class _FiltersScreenState extends State<FiltersScreen> {
                         onPressed: () {},
                         child: Text(
                           "Clear",
-                          style: GoogleFonts.poppins(
-                              color: Colors.lightBlueAccent, fontSize: 16),
+                          style: Theme.of(context).textTheme.button?.copyWith(
+                            color: Colors.lightBlueAccent,
+                          ),
                         ),
                         style: ButtonStyle(
                           backgroundColor:
@@ -552,10 +555,9 @@ class _FiltersScreenState extends State<FiltersScreen> {
                         onPressed: () {},
                         child: Text(
                           "Apply",
-                          style: GoogleFonts.poppins(
-                            fontSize: 16,
+                          style: Theme.of(context).textTheme.button?.copyWith(
                             color: Colors.white,
-                          ),
+                          )
                         ),
                         style: ButtonStyle(
                           backgroundColor:

@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:grabpanda/Commons/app_img.dart';
 import 'package:get/get.dart';
-import 'package:grabpanda/Screens/Bottom_Bar/bottom_bar.dart';
-import 'package:grabpanda/Screens/Home_Screen/home_screen.dart';
-import 'package:grabpanda/Screens/Login_Screen/login_screen_controller.dart';
-import 'package:grabpanda/Screens/Register_Screen/register_screen.dart';
-import 'package:grabpanda/Screens/Reset_Password/Reset_Email/reset_email_screen.dart';
+import 'package:grabpanda1/Commons/app_img.dart';
+import 'package:grabpanda1/Screens/Bottom_Bar/bottom_bar.dart';
+import 'package:grabpanda1/Screens/Home_Screen/home_screen.dart';
+import 'package:grabpanda1/Screens/Register_Screen/register_screen.dart';
+import 'package:grabpanda1/Screens/Reset_Password/Reset_Email/reset_email_screen.dart';
+
+import 'login_screen_controller.dart';
 
 class LoginScreen extends StatelessWidget {
   final _loginFormKey = GlobalKey<FormState>();
@@ -47,12 +48,11 @@ class LoginScreen extends StatelessWidget {
                       alignment: Alignment.topCenter,
                       child: Text(
                         "GrabPanda",
-                        style: GoogleFonts.poppins(
-                          textStyle: const TextStyle(
-                            fontSize: 32,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
+                        style: Theme.of(context).textTheme.headline4?.copyWith(
+                          fontSize: 32,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black,
+                        )
                       ),
                     ),
                   ),
@@ -71,21 +71,16 @@ class LoginScreen extends StatelessWidget {
                         text: TextSpan(
                             text:
                                 'Please login to your account to continue with ',
-                            style: GoogleFonts.poppins(
-                              textStyle: const TextStyle(
-                                color: Colors.black,
-                                fontSize: 13,
-                              ),
+                            style: Theme.of(context).textTheme.bodyText1?.copyWith(
+                              fontSize: 13,
+                              color: Colors.black,
                             ),
                             children: [
                               TextSpan(
                                 text: 'GrabPanda',
-                                style: GoogleFonts.poppins(
-                                  textStyle: const TextStyle(
-                                    color: Colors.lightBlue,
-                                    fontWeight: FontWeight.w400,
-                                    fontSize: 13,
-                                  ),
+                                style: Theme.of(context).textTheme.bodyText1?.copyWith(
+                                  fontSize: 13,
+                                  color: Colors.lightBlueAccent,
                                 ),
                               ),
                             ])),
@@ -180,20 +175,21 @@ class LoginScreen extends StatelessWidget {
                             child: ElevatedButton(
                               onPressed: () async {
                                 _loginFormKey.currentState?.save();
-                                final result = await controller.signin(
-                                    email: email, password: password);
-                                if (result == true) {
-                                  print("Lgok");
-                                  Get.to(BottomBarScreen());
-                                } else {
-                                  print("lgLoi");
-                                }
+                                // final result = await controller.signin(
+                                //     email: email, password: password);
+                                // if (result == true) {
+                                //   print("Lgok");
+                                //   Get.to(BottomBarScreen());
+                                // } else {
+                                //   print("lgLoi");
+                                // }
+                                await controller.login(email, password);
+                                Get.offAll(BottomBarScreen());
                               },
                               child: Text(
                                 "Sign Up",
-                                style: GoogleFonts.poppins(
-                                  textStyle:
-                                      const TextStyle(color: Colors.white),
+                                style: Theme.of(context).textTheme.bodyText1?.copyWith(
+                                  color: Colors.white,
                                 ),
                               ),
                               style: ButtonStyle(
@@ -214,12 +210,10 @@ class LoginScreen extends StatelessWidget {
                           child: Align(
                             alignment: Alignment.topCenter,
                             child: Text("Or",
-                                style: GoogleFonts.poppins(
-                                  textStyle: const TextStyle(
-                                    color: Colors.grey,
-                                    fontSize: 17,
-                                  ),
-                                )),
+                                style: Theme.of(context).textTheme.bodyText1?.copyWith(
+                                  color: Colors.grey,
+                                  fontSize: 17
+                                ),),
                           ),
                         ),
                         const SizedBox(
@@ -241,9 +235,8 @@ class LoginScreen extends StatelessWidget {
                                     },
                                     child: Text(
                                       "facebook",
-                                      style: GoogleFonts.poppins(
-                                        textStyle: const TextStyle(
-                                            color: Colors.white),
+                                      style: Theme.of(context).textTheme.bodyText1?.copyWith(
+                                        color: Colors.white,
                                       ),
                                     ),
                                     style: ButtonStyle(
@@ -267,9 +260,8 @@ class LoginScreen extends StatelessWidget {
                                     onPressed: () {},
                                     child: Text(
                                       "Google",
-                                      style: GoogleFonts.poppins(
-                                        textStyle: const TextStyle(
-                                            color: Colors.white),
+                                      style: Theme.of(context).textTheme.bodyText1?.copyWith(
+                                        color: Colors.white,
                                       ),
                                     ),
                                     style: ButtonStyle(
@@ -296,7 +288,9 @@ class LoginScreen extends StatelessWidget {
                             children: [
                               Text(
                                 "Don't have an account?",
-                                style: GoogleFonts.poppins(),
+                                style: Theme.of(context).textTheme.bodyText1?.copyWith(
+                                  color: Colors.black,
+                                ),
                               ),
                               TextButton(
                                   onPressed: () {
@@ -304,9 +298,8 @@ class LoginScreen extends StatelessWidget {
                                   },
                                   child: Text(
                                     "Register Now",
-                                    style: GoogleFonts.poppins(
-                                      textStyle:
-                                          TextStyle(color: Colors.lightBlue),
+                                    style: Theme.of(context).textTheme.bodyText1?.copyWith(
+                                      color: Colors.lightBlue,
                                     ),
                                   ))
                             ],

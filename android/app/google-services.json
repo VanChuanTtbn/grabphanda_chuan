@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "754272849066",
+    "project_id": "grabpanda-chuan",
+    "storage_bucket": "grabpanda-chuan.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:754272849066:android:81651a82e6b86d983454d3",
+        "android_client_info": {
+          "package_name": "com.example.grabpanda"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "754272849066-bo1500opavldsl86qt5jjnel6nv1h2ok.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCv82p6hVC8vsE3vQ2ZBkZ-o3K8gJz8pYw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "754272849066-bo1500opavldsl86qt5jjnel6nv1h2ok.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:754272849066:android:3c240c688a3d42cc3454d3",
+        "android_client_info": {
+          "package_name": "com.example.grabpanda1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "754272849066-bo1500opavldsl86qt5jjnel6nv1h2ok.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCv82p6hVC8vsE3vQ2ZBkZ-o3K8gJz8pYw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "754272849066-bo1500opavldsl86qt5jjnel6nv1h2ok.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:grabpanda/Screens/Search_Screen/Filters_Screens/Food_Categories_Screen/food_categories_controller.dart';
-import 'package:grabpanda/Screens/Search_Screen/Filters_Screens/Promotion_Type_Screen/promotion_type_controller.dart';
+import 'package:grabpanda1/Screens/Search_Screen/Filters_Screens/Promotion_Type_Screen/promotion_type_controller.dart';
 
 class PromotionTypeScreen extends StatefulWidget{
   @override
@@ -27,7 +25,7 @@ class _PromotionTypeScreenState extends State<PromotionTypeScreen> {
                   Container(
                       child: CheckboxListTile(
                         checkColor: Colors.white,
-                        title: Text('${controller.listPromotionType![index].promotionType}', style: GoogleFonts.poppins(),),
+                        title: Text('${controller.listPromotionType![index].promotionType}', style: Theme.of(context).textTheme.bodyText1,),
                         value: controller.listPromotionType![index].checkFoodCategories,
                         onChanged: (bool? value){
                           setState(() {

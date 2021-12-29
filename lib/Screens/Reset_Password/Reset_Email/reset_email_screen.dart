@@ -1,13 +1,10 @@
-import 'package:email_auth/email_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:grabpanda/Commons/app_img.dart';
-import 'package:grabpanda/Controller/controller.dart';
-import 'package:grabpanda/Screens/Register_Screen/register_screen.dart';
-import 'package:grabpanda/Screens/Reset_Password/Reset_Email/reset_mail_controller.dart';
-import 'package:grabpanda/Screens/Reset_Password/Reset_Password/reset_pasword_screen.dart';
-import 'package:grabpanda/Screens/Reset_Password/Veryfi_Screen/veryfi_screen.dart';
+import 'package:grabpanda1/Commons/app_img.dart';
+import 'package:grabpanda1/Screens/Reset_Password/Reset_Email/reset_mail_controller.dart';
+import 'package:grabpanda1/Screens/Reset_Password/Reset_Password/reset_pasword_screen.dart';
+import 'package:grabpanda1/Screens/Reset_Password/Veryfi_Screen/veryfi_screen.dart';
 
 class ResetEmailScreen extends StatelessWidget {
   final _rsEmailFormKey = GlobalKey<FormState>();
@@ -43,11 +40,10 @@ class ResetEmailScreen extends StatelessWidget {
                       alignment: Alignment.topCenter,
                       child: Text(
                         "GrabPanda",
-                        style: GoogleFonts.poppins(
-                          textStyle: const TextStyle(
-                            fontSize: 32,
-                            fontWeight: FontWeight.bold,
-                          ),
+                        style: Theme.of(context).textTheme.headline4?.copyWith(
+                          fontSize: 32,
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
                         ),
                       ),
                     ),
@@ -67,11 +63,8 @@ class ResetEmailScreen extends StatelessWidget {
                       text: TextSpan(
                         text:
                             'Enter your email address below & we’ll send you an email with Instruction on how change your Password',
-                        style: GoogleFonts.poppins(
-                          textStyle: const TextStyle(
-                            color: Colors.black,
-                            fontSize: 13,
-                          ),
+                        style: Theme.of(context).textTheme.bodyText1?.copyWith(
+                          fontSize: 13,
                         ),
                       ),
                     ),
@@ -84,7 +77,7 @@ class ResetEmailScreen extends StatelessWidget {
                     child: Column(
                       children: [
                         Container(
-                          padding: const EdgeInsets.symmetric(horizontal: 29),
+                          padding: const EdgeInsets.symmetric(horizontal: 10),
                           child: TextFormField(
                             onSaved: (value) => email = value,
                             keyboardType: TextInputType.emailAddress,
@@ -132,8 +125,8 @@ class ResetEmailScreen extends StatelessWidget {
                               },
                               child: Text(
                                 "Send Mail",
-                                style: GoogleFonts.poppins(
-                                  textStyle: const TextStyle(color: Colors.white),
+                                style: Theme.of(context).textTheme.button?.copyWith(
+                                  color: Colors.white,
                                 ),
                               ),
                               style: ButtonStyle(

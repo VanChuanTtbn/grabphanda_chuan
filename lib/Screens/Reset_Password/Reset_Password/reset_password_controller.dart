@@ -1,6 +1,7 @@
-import 'package:get/get.dart';
-import 'package:grabpanda/Controller/controller.dart';
-import 'package:grabpanda/Models/Entity/account_entity.dart';
+
+
+import 'package:grabpanda1/Controller/controller.dart';
+import 'package:grabpanda1/Models/Entity/account_entity.dart';
 
 class ResetPasswordController extends BaseController {
   Future<bool>? changePassword({String? rePassword, String? password}) async {

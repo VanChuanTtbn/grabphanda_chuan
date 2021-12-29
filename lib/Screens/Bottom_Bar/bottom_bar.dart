@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:grabpanda/Configs/app_constant.dart';
-import 'package:grabpanda/Screens/Components/my_behavior.dart';
-import 'package:grabpanda/Screens/Home_Screen/home_screen.dart';
-import 'package:grabpanda/Screens/Profile_Screen/profile_screen.dart';
-import 'package:grabpanda/Screens/Reservations_Screen/reservations_screen.dart';
-import 'package:grabpanda/Screens/Search_Screen/search_screen.dart';
+import 'package:grabpanda1/Configs/app_constant.dart';
+import 'package:grabpanda1/Screens/Components/my_behavior.dart';
+import 'package:grabpanda1/Screens/Home_Screen/home_screen.dart';
+import 'package:grabpanda1/Screens/Profile_Screen/profile_screen.dart';
+import 'package:grabpanda1/Screens/Reservations_Screen/reservations_screen.dart';
+import 'package:grabpanda1/Screens/Search_Screen/search_screen.dart';
 
 class BottomBarScreen extends StatefulWidget{
   final int? tabIndex;

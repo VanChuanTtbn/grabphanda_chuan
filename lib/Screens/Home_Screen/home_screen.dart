@@ -2,8 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:grabpanda/Screens/Home_Screen/home_controller.dart';
-import 'package:grabpanda/Utils/custom_appbar.dart';
+import 'package:grabpanda1/Utils/custom_appbar.dart';
+
+import 'home_controller.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
@@ -15,25 +16,32 @@ class HomeScreen extends StatelessWidget {
         elevation: 0,
         automaticallyImplyLeading: false,
         backgroundColor: Colors.transparent,
-        title: RichText(
-          text: TextSpan(
-              text: "Welcome, ${controller.restoreModel().name}\n",
-              style: GoogleFonts.poppins(
-                textStyle: const TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
+        title: Stack(
+          children: [
+            FutureBuilder(
+              future: controller.getName(),
+              builder: (BuildContext context, AsyncSnapshot snapshot) {
+                print(snapshot.data);
+                return Text("Welcome, ${snapshot.data}\n",
+                  style: Theme.of(context).textTheme.headline5?.copyWith(
+                    color: Colors.white,
+                  ),);
+              },
+            ),
+            Positioned(
+              top: Get.height * 0.07,
+              child: FutureBuilder(
+                future: controller.getLocation(),
+                builder: (BuildContext context, AsyncSnapshot snapshot) {
+                  print(snapshot.data);
+                  return Text("${snapshot.data}",
+                    style: Theme.of(context).textTheme.bodyText1?.copyWith(
+                      color: Colors.white,
+                    ),);
+                },
               ),
-              children: [
-                TextSpan(
-                  text: "${controller.restoreModel().location}",
-                  style: GoogleFonts.poppins(
-                    textStyle: const TextStyle(
-                      fontSize: 13,
-                    ),
-                  ),
-                )
-              ]),
+            ),
+          ],
         ),
         flexibleSpace: Container(
           decoration: const BoxDecoration(
@@ -88,12 +96,10 @@ class HomeScreen extends StatelessWidget {
                       alignment: Alignment.topCenter,
                       child: Text(
                         "- OFFER OF THE DAY -",
-                        style: GoogleFonts.poppins(
-                          textStyle: const TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 18,
-                            color: Colors.white,
-                          ),
+                        style: Theme.of(context).textTheme.headline6?.copyWith(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18,
+                          color: Colors.white,
                         ),
                       ),
                     ),
@@ -146,12 +152,10 @@ class HomeScreen extends StatelessWidget {
                                               const Spacer(),
                                               Text(
                                                 "${controller.listDish![index].name}                                                  ",
-                                                style: GoogleFonts.poppins(
-                                                  textStyle: const TextStyle(
-                                                    color: Colors.white,
-                                                    fontSize: 20.0,
-                                                    fontWeight: FontWeight.bold,
-                                                  ),
+                                                style: Theme.of(context).textTheme.bodyText1?.copyWith(
+                                                  color: Colors.white,
+                                                  fontSize: 20.0,
+                                                  fontWeight: FontWeight.bold,
                                                 ),
                                                 overflow: TextOverflow.ellipsis,
                                                 textAlign: TextAlign.justify,
@@ -167,8 +171,8 @@ class HomeScreen extends StatelessWidget {
                                     top: -2,
                                     left: 15,
                                     child: Container(
-                                      height: Get.height *0.05,
-                                      width: Get.width * 0.15,
+                                      height: Get.height *0.04,
+                                      width: Get.width * 0.14,
                                       decoration: BoxDecoration(
                                         borderRadius:
                                         BorderRadius.circular(10),
@@ -178,12 +182,7 @@ class HomeScreen extends StatelessWidget {
                                         alignment: Alignment.center,
                                         child: Text(
                                           "-${controller.listDish![index].sale}%",
-                                          style: GoogleFonts.poppins(
-                                            textStyle: const TextStyle(
-                                              color: Colors.black,
-                                              fontSize: 16,
-                                            ),
-                                          ),
+                                          style: Theme.of(context).textTheme.bodyText1,
                                         ),
                                       ),
                                     ),
@@ -199,33 +198,27 @@ class HomeScreen extends StatelessWidget {
                         RichText(
                           text: TextSpan(
                             text: "- ",
-                            style: GoogleFonts.poppins(
-                              textStyle: const TextStyle(
-                                color: Colors.lightBlueAccent,
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                              ),
+                            style: Theme.of(context).textTheme.bodyText1?.copyWith(
+                              color: Colors.lightBlueAccent,
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
                             ),
                             children: [
                               TextSpan(
                                 text: "CULINARY CATEGORY ",
-                                style: GoogleFonts.poppins(
-                                  textStyle: const TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                )
+                                style: Theme.of(context).textTheme.bodyText1?.copyWith(
+                                  color: Colors.black,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
                               TextSpan(
                                 text: "-",
-                                style: GoogleFonts.poppins(
-                                  textStyle: const TextStyle(
-                                    color: Colors.lightBlueAccent,
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                )
+                                style: Theme.of(context).textTheme.bodyText1?.copyWith(
+                                  color: Colors.lightBlueAccent,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
                             ],
                           ),
@@ -270,7 +263,7 @@ class HomeScreen extends StatelessWidget {
                                     height: Get.height * 0.01,
                                   ),
                                   Text("Korean",
-                                  style: GoogleFonts.poppins(),),
+                                  style: Theme.of(context).textTheme.bodyText1,),
                                 ],
                               ),
                               Column(
@@ -305,7 +298,7 @@ class HomeScreen extends StatelessWidget {
                                   SizedBox(
                                     height: Get.height * 0.01,
                                   ),
-                                  Text("Western", style:  GoogleFonts.poppins(),),
+                                  Text("Western", style:  Theme.of(context).textTheme.bodyText1,),
                                 ],
                               ),
                               Column(
@@ -340,7 +333,7 @@ class HomeScreen extends StatelessWidget {
                                   SizedBox(
                                     height: Get.height * 0.01,
                                   ),
-                                  Text("Japanese", style: GoogleFonts.poppins(),),
+                                  Text("Japanese", style: Theme.of(context).textTheme.bodyText1,),
                                 ],
                               ),
                               Column(
@@ -375,7 +368,7 @@ class HomeScreen extends StatelessWidget {
                                   SizedBox(
                                     height: Get.height * 0.01,
                                   ),
-                                  Text("Asian", style: GoogleFonts.poppins(),),
+                                  Text("Asian", style: Theme.of(context).textTheme.bodyText1,),
                                 ],
                               ),
                               Column(
@@ -410,7 +403,7 @@ class HomeScreen extends StatelessWidget {
                                   SizedBox(
                                     height: Get.height * 0.01,
                                   ),
-                                  Text("Fast Food", style: GoogleFonts.poppins(),),
+                                  Text("Fast Food", style: Theme.of(context).textTheme.bodyText1,),
                                 ],
                               ),
                             ],
@@ -517,12 +510,8 @@ class HomeScreen extends StatelessWidget {
                                           children: [
                                             Text(
                                               "${controller.listPopuler![index].name}",
-                                              style: GoogleFonts.poppins(
-                                                textStyle: const TextStyle(
-                                                  color: Colors.black,
-                                                  fontSize: 18.0,
-                                                  fontWeight: FontWeight.bold,
-                                                ),
+                                              style: Theme.of(context).textTheme.headline6?.copyWith(
+                                                fontWeight: FontWeight.bold,
                                               ),
                                               overflow: TextOverflow.ellipsis,
                                               textAlign: TextAlign.justify,
@@ -536,11 +525,8 @@ class HomeScreen extends StatelessWidget {
                                                 ),
                                                 Text(
                                                   "4.2",
-                                                  style: GoogleFonts.poppins(
-                                                    textStyle: const TextStyle(
-                                                      color: Colors.black,
-                                                      fontSize: 17.0,
-                                                    ),
+                                                  style: Theme.of(context).textTheme.headline6?.copyWith(
+                                                    fontWeight: FontWeight.bold,
                                                   ),
                                                   overflow:
                                                       TextOverflow.ellipsis,
@@ -558,14 +544,13 @@ class HomeScreen extends StatelessWidget {
                                         child: Row(
                                           mainAxisAlignment:
                                               MainAxisAlignment.spaceBetween,
+                                          crossAxisAlignment: CrossAxisAlignment.center,
                                           children: [
                                             Text(
                                               "${controller.listPopuler![index].type}",
-                                              style: GoogleFonts.poppins(
-                                                textStyle: const TextStyle(
-                                                  color: Colors.grey,
-                                                  fontSize: 15.0,
-                                                ),
+                                              style: Theme.of(context).textTheme.bodyText1?.copyWith(
+                                                color: Colors.grey,
+                                                fontSize: 15.0,
                                               ),
                                               overflow: TextOverflow.ellipsis,
                                               textAlign: TextAlign.justify,
@@ -573,11 +558,9 @@ class HomeScreen extends StatelessWidget {
                                             ),
                                             Text(
                                               "1.2 Km",
-                                              style: GoogleFonts.poppins(
-                                                textStyle: const TextStyle(
-                                                  color: Colors.grey,
-                                                  fontSize: 15.0,
-                                                ),
+                                              style: Theme.of(context).textTheme.bodyText1?.copyWith(
+                                                color: Colors.grey,
+                                                fontSize: 15.0,
                                               ),
                                               overflow: TextOverflow.ellipsis,
                                               textAlign: TextAlign.justify,

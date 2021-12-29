@@ -1,11 +1,9 @@
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:grabpanda/Screens/Home_Screen/home_controller.dart';
-import 'package:grabpanda/Screens/Search_Screen/Filters_Screens/Filters_Screen/filters_screen.dart';
-import 'package:grabpanda/Screens/Search_Screen/search_controller.dart';
+import 'package:grabpanda1/Screens/Search_Screen/search_controller.dart';
+
+import 'Filters_Screens/Filters_Screen/filters_screen.dart';
 
 class SearchScreen extends StatelessWidget {
   final _searchFormKey = GlobalKey<FormState>();
@@ -19,27 +17,30 @@ class SearchScreen extends StatelessWidget {
         elevation: 0,
         automaticallyImplyLeading: false,
         backgroundColor: Colors.white,
-        title: RichText(
-          text: TextSpan(
-              text: "Welcome, ${controller.restoreModel().name}\n",
-              style: GoogleFonts.poppins(
-                textStyle: const TextStyle(
-                  color: Colors.black,
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              children: [
-                TextSpan(
-                  text: "${controller.restoreModel().location}",
-                  style: GoogleFonts.poppins(
-                    textStyle: const TextStyle(
+        title: Stack(
+          children: [
+            FutureBuilder(
+              future: controller.getName(),
+              builder: (BuildContext context, AsyncSnapshot snapshot) {
+                return Text("Welcome, ${snapshot.data}\n",
+                  style: Theme.of(context).textTheme.headline5?.copyWith(
+                    color: Colors.black,
+                  ),);
+              },
+            ),
+            Positioned(
+              top: Get.height * 0.07,
+              child: FutureBuilder(
+                future: controller.getLocation(),
+                builder: (BuildContext context, AsyncSnapshot snapshot) {
+                  return Text("${snapshot.data}",
+                    style: Theme.of(context).textTheme.bodyText1?.copyWith(
                       color: Colors.black,
-                      fontSize: 13,
-                    ),
-                  ),
-                )
-              ]),
+                    ),);
+                },
+              ),
+            ),
+          ],
         ),
         actions: const [
           Icon(
@@ -69,10 +70,7 @@ class SearchScreen extends StatelessWidget {
                           Radius.circular(15),
                         ),
                       ),
-                      hintStyle: GoogleFonts.poppins(
-                        textStyle:
-                            const TextStyle(color: Colors.grey, fontSize: 12.0),
-                      ),
+                      hintStyle: Theme.of(context).textTheme.bodyText2,
                       hintText: "Search for restaurant, dishes …",
                       prefixIcon: const Icon(
                         Icons.search,
@@ -92,12 +90,9 @@ class SearchScreen extends StatelessWidget {
                   children: [
                     Text(
                       "Near by",
-                      style: GoogleFonts.poppins(
-                        textStyle: const TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
+                      style: Theme.of(context).textTheme.headline6?.copyWith(
+                            fontWeight: FontWeight.bold,
+                          ),
                     ),
                     Row(
                       children: [
@@ -111,11 +106,7 @@ class SearchScreen extends StatelessWidget {
                           },
                           child: Text(
                             "Filters",
-                            style: GoogleFonts.poppins(
-                                textStyle: const TextStyle(
-                              fontSize: 20,
-                                  color: Colors.black,
-                            )),
+                            style: Theme.of(context).textTheme.headline6,
                           ),
                         ),
                       ],
@@ -169,13 +160,12 @@ class SearchScreen extends StatelessWidget {
                               children: [
                                 Text(
                                   "${controller.nearBy![index].name}",
-                                  style: GoogleFonts.poppins(
-                                    textStyle: const TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 18.0,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .headline6
+                                      ?.copyWith(
+                                        fontWeight: FontWeight.bold,
+                                      ),
                                   overflow: TextOverflow.ellipsis,
                                   textAlign: TextAlign.justify,
                                   maxLines: 2,
@@ -191,13 +181,12 @@ class SearchScreen extends StatelessWidget {
                                     ),
                                     Text(
                                       "4.5",
-                                      style: GoogleFonts.poppins(
-                                        textStyle: const TextStyle(
-                                          color: Colors.black,
-                                          fontSize: 18.0,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                      ),
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .headline6
+                                          ?.copyWith(
+                                            fontWeight: FontWeight.bold,
+                                          ),
                                       overflow: TextOverflow.ellipsis,
                                       textAlign: TextAlign.justify,
                                       maxLines: 2,
@@ -214,12 +203,13 @@ class SearchScreen extends StatelessWidget {
                               children: [
                                 Text(
                                   "${controller.nearBy![index].type}",
-                                  style: GoogleFonts.poppins(
-                                    textStyle: const TextStyle(
-                                      color: Colors.grey,
-                                      fontSize: 15.0,
-                                    ),
-                                  ),
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodyText1
+                                      ?.copyWith(
+                                        color: Colors.grey,
+                                        fontSize: 15.0,
+                                      ),
                                   overflow: TextOverflow.ellipsis,
                                   textAlign: TextAlign.justify,
                                   maxLines: 2,
@@ -230,12 +220,13 @@ class SearchScreen extends StatelessWidget {
                                 ),
                                 Text(
                                   "0.5 Km",
-                                  style: GoogleFonts.poppins(
-                                    textStyle: const TextStyle(
-                                      color: Colors.grey,
-                                      fontSize: 15.0,
-                                    ),
-                                  ),
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodyText1
+                                      ?.copyWith(
+                                        color: Colors.grey,
+                                        fontSize: 15.0,
+                                      ),
                                   overflow: TextOverflow.ellipsis,
                                   textAlign: TextAlign.justify,
                                   maxLines: 2,
@@ -264,17 +255,14 @@ class SearchScreen extends StatelessWidget {
                   alignment: Alignment.centerLeft,
                   child: Text(
                     "Hot Promotions",
-                    style: GoogleFonts.poppins(
-                      textStyle: const TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
+                    style: Theme.of(context).textTheme.headline6?.copyWith(
+                          fontWeight: FontWeight.bold,
+                        ),
                   ),
                 ),
               ),
               SizedBox(
-                height: Get.height * 0.04 ,
+                height: Get.height * 0.04,
               ),
               Container(
                 height: Get.height * 0.2,
@@ -315,14 +303,15 @@ class SearchScreen extends StatelessWidget {
                                     color: Colors.white70,
                                     child: Text(
                                       "${controller.hotPromotions![index].name}",
-                                      style: GoogleFonts.poppins(
-                                        textStyle: const TextStyle(
-                                          backgroundColor: Colors.white70,
-                                          color: Colors.black,
-                                          fontSize: 20.0,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                      ),
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .headline6
+                                          ?.copyWith(
+                                            backgroundColor: Colors.white70,
+                                            color: Colors.black,
+                                            fontSize: 20.0,
+                                            fontWeight: FontWeight.bold,
+                                          ),
                                       overflow: TextOverflow.ellipsis,
                                       textAlign: TextAlign.justify,
                                       maxLines: 2,
@@ -345,12 +334,13 @@ class SearchScreen extends StatelessWidget {
                                   alignment: Alignment.center,
                                   child: Text(
                                     "-${controller.hotPromotions![index].sale}",
-                                    style: GoogleFonts.poppins(
-                                      textStyle: const TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 18,
-                                      ),
-                                    ),
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .bodyText1
+                                        ?.copyWith(
+                                          fontSize: 16,
+                                          color: Colors.white,
+                                        ),
                                   ),
                                 ),
                               ),
@@ -377,12 +367,9 @@ class SearchScreen extends StatelessWidget {
                   alignment: Alignment.centerLeft,
                   child: Text(
                     "Best choice for you",
-                    style: GoogleFonts.poppins(
-                      textStyle: const TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
+                    style: Theme.of(context).textTheme.headline6?.copyWith(
+                          fontWeight: FontWeight.bold,
+                        ),
                   ),
                 ),
               ),
@@ -425,13 +412,14 @@ class SearchScreen extends StatelessWidget {
                                   const Spacer(),
                                   Text(
                                     "${controller.bestChoice![index].type}                                                  ",
-                                    style: GoogleFonts.poppins(
-                                      textStyle: const TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 18.0,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    ),
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .headline6
+                                        ?.copyWith(
+                                          color: Colors.white,
+                                          fontSize: 20.0,
+                                          fontWeight: FontWeight.bold,
+                                        ),
                                     overflow: TextOverflow.ellipsis,
                                     textAlign: TextAlign.justify,
                                     maxLines: 2,

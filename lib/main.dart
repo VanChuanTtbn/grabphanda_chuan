@@ -1,29 +1,31 @@
-// @dart=2.9
-import 'dart:io';
-
 import 'package:animated_splash_screen/animated_splash_screen.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:grabpanda/Controller/controller.dart';
-import 'package:grabpanda/Routers/routers.dart';
-import 'package:grabpanda/Routers/routers_name.dart';
-import 'package:grabpanda/Screens/Login_Screen/login_screen.dart';
+import 'package:grabpanda1/Controller/controller.dart';
+import 'package:grabpanda1/Routers/routers.dart';
+
+import 'Routers/routers_name.dart';
+import 'Screens/Login_Screen/login_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  final Future<FirebaseApp> firebaseApp = Firebase.initializeApp();
   SystemChrome.setSystemUIOverlayStyle(
     SystemUiOverlayStyle(
       statusBarColor: Colors.white.withOpacity(0),
     ),
   );
-  await Get.put(BaseController()).initStorage();
+  firebaseApp.then((value) => {
+  Get.put(BaseController()),
+  });
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key key}) : super(key: key);
+  const MyApp({Key? key}) : super(key: key);
 
   // This widget is the root of your application.
   @override
@@ -31,7 +33,9 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        fontFamily: GoogleFonts.poppins().fontFamily,
+        textTheme: GoogleFonts.poppinsTextTheme(
+          Theme.of(context).textTheme,
+        ),
       ),
       initialRoute: RoutersName.root,
       getPages: Routers.pages(),
