@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:grabpanda1/Commons/app_img.dart';
+import 'package:grabpanda1/Screens/Bottom_Bar/bottom_bar.dart';
 import 'package:grabpanda1/Screens/Home_Screen/home_screen.dart';
 import 'package:grabpanda1/Screens/Reset_Password/Reset_Password/reset_password_controller.dart';
 
@@ -184,7 +185,7 @@ class ResetPasswordScreen extends StatelessWidget {
                                     password: password, rePassword: rePassword);
                                 if (result!) {
                                   print("change Pass OK");
-                                  Get.off(HomeScreen());
+                                  Get.off(BottomBarScreen());
                                 } else {
                                   print("changeLoi");
                                 }

@@ -290,7 +290,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                   phoneNumber: phoneNumber,
                                   location: location,
                                 ));
-                                Get.offAll(BottomBarScreen());
                               },
                               child: Text(
                                 "Register",

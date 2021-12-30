@@ -7,6 +7,8 @@ import 'package:grabpanda1/Utils/custom_appbar.dart';
 import 'home_controller.dart';
 
 class HomeScreen extends StatelessWidget {
+  const HomeScreen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(HomeController());
@@ -21,7 +23,6 @@ class HomeScreen extends StatelessWidget {
             FutureBuilder(
               future: controller.getName(),
               builder: (BuildContext context, AsyncSnapshot snapshot) {
-                print(snapshot.data);
                 return Text("Welcome, ${snapshot.data}\n",
                   style: Theme.of(context).textTheme.headline5?.copyWith(
                     color: Colors.white,
@@ -29,11 +30,10 @@ class HomeScreen extends StatelessWidget {
               },
             ),
             Positioned(
-              top: Get.height * 0.07,
+              top: 30,
               child: FutureBuilder(
                 future: controller.getLocation(),
                 builder: (BuildContext context, AsyncSnapshot snapshot) {
-                  print(snapshot.data);
                   return Text("${snapshot.data}",
                     style: Theme.of(context).textTheme.bodyText1?.copyWith(
                       color: Colors.white,

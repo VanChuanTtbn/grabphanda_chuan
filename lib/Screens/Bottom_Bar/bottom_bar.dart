@@ -95,7 +95,7 @@ class _BottomBarScreenState extends State<BottomBarScreen> {
     return ScrollConfiguration(
       behavior: MyBehavior(),
       child: PageView(
-        physics: ClampingScrollPhysics(),
+        physics: const ClampingScrollPhysics(),
         controller: _pageController,
         onPageChanged: (value) {
           onTappedBar(value);

@@ -1,9 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:get/get.dart';
 import 'package:grabpanda1/Controller/controller.dart';
 import 'package:grabpanda1/Models/Entity/food_entity.dart';
 
 class HomeController extends BaseController {
+  static HomeController instance = Get.find();
   List<FoodEntity>? listDish;
   List<FoodEntity>? listPopuler;
   HomeController() {

@@ -183,8 +183,7 @@ class LoginScreen extends StatelessWidget {
                                 // } else {
                                 //   print("lgLoi");
                                 // }
-                                await controller.login(email, password);
-                                Get.offAll(BottomBarScreen());
+                                controller.login(email, password);
                               },
                               child: Text(
                                 "Sign Up",
