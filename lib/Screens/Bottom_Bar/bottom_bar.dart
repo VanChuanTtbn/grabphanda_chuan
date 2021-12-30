@@ -68,7 +68,7 @@ class _BottomBarScreenState extends State<BottomBarScreen> {
         type: BottomNavigationBarType.fixed,
         backgroundColor: Colors.transparent,
         currentIndex: currentTabIndex ?? 0,
-        unselectedItemColor: Color(0xFF5A5A5A),
+        unselectedItemColor: const Color(0xFF5A5A5A),
         selectedLabelStyle: GoogleFonts.poppins(
           textStyle: const TextStyle(color: Colors.blue, fontSize: 12, fontWeight: FontWeight.bold),
         ),
@@ -101,7 +101,7 @@ class _BottomBarScreenState extends State<BottomBarScreen> {
           onTappedBar(value);
         },
         children: [
-          HomeScreen(),
+          const HomeScreen(),
           SearchScreen(),
           ReservationsScreen(),
           ProfileScreen(),

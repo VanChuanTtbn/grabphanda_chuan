@@ -22,7 +22,7 @@ class BaseController extends GetxController {
   //   );
   // }
   Future<void> initStorage() async {
-    await GetStorage.init();
+
   }
 
   void storeAccountEntity(AccountEntity model) {
@@ -46,15 +46,6 @@ class BaseController extends GetxController {
     super.onReady();
     _firebaseUser = Rx<User?>(auth.currentUser);
     _firebaseUser.bindStream(auth.userChanges());
-    ever(_firebaseUser, _initialScreen);
-  }
-
-  _initialScreen(User? user) {
-    if(user == null){
-      Get.offAll(() => LoginScreen());
-  }else{
-      Get.offAll(() => BottomBarScreen());
-    }
   }
 
   Future<String?> getName() async {
