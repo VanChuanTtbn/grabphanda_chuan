@@ -1,8 +1,5 @@
-import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:grabpanda1/Commons/app_img.dart';
-import 'package:grabpanda1/Screens/Login_Screen/login_screen.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({Key? key}) : super(key: key);

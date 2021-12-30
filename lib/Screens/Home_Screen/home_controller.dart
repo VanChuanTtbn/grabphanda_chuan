@@ -3,11 +3,34 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 import 'package:grabpanda1/Controller/controller.dart';
 import 'package:grabpanda1/Models/Entity/food_entity.dart';
+import 'package:grabpanda1/Models/Entity/offer_of_day_entity.dart';
+import 'package:grabpanda1/Models/Entity/popular_entity.dart';
 
 class HomeController extends BaseController {
-  static HomeController instance = Get.find();
+  RxList<OfferOfDayEntity> listOffer = RxList<OfferOfDayEntity>([]);
+  RxList<PopularEntity> listPopular = RxList<PopularEntity>([]);
   List<FoodEntity>? listDish;
-  List<FoodEntity>? listPopuler;
+  late CollectionReference offerOfDay;
+  late CollectionReference popular;
+  FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
+
+  @override
+  void onInit() {
+    super.onInit();
+    offerOfDay = firebaseFirestore.collection('food');
+    popular = firebaseFirestore.collection('food_popular');
+    listOffer.bindStream(getAllOfferOfDay());
+    listPopular.bindStream(getAllPopular());
+  }
+
+  Stream<List<OfferOfDayEntity>> getAllOfferOfDay() =>
+      offerOfDay.snapshots().map((event) =>
+          event.docs.map((e) => OfferOfDayEntity.fromMap(e)).toList());
+
+  Stream<List<PopularEntity>> getAllPopular() =>
+      popular.snapshots().map((event) =>
+          event.docs.map((e) => PopularEntity.fromMap(e)).toList());
+
   HomeController() {
     listDish = [
       FoodEntity(
@@ -36,33 +59,32 @@ class HomeController extends BaseController {
         sale: '25',
       ),
     ];
-    listPopuler = [
-      FoodEntity(
-        img: 'assets/img/domino’s_pizza.png',
-        name: "Domino's Pizza",
-        type: "Pizza/Fast Food",
-      ),
-      FoodEntity(
-        img: 'assets/img/fat_cow.png',
-        name: "Fat Cow",
-        type: "Asia",
-      ),
-      FoodEntity(
-        img: 'assets/img/esora.png',
-        name: "Esora",
-        type: "Asia",
-      ),
-      FoodEntity(
-        img: 'assets/img/coucou.png',
-        name: "Coucou",
-        type: "Asia",
-      ),
-      FoodEntity(
-        img: 'assets/img/new_ubin_seafood.png',
-        name: "New Ubin Seafood",
-        type: "Asia",
-      ),
-    ];
+    // listPopuler = [
+    //   FoodEntity(
+    //     img: 'assets/img/domino’s_pizza.png',
+    //     name: "Domino's Pizza",
+    //     type: "Pizza/Fast Food",
+    //   ),
+    //   FoodEntity(
+    //     img: 'assets/img/fat_cow.png',
+    //     name: "Fat Cow",
+    //     type: "Asia",
+    //   ),
+    //   FoodEntity(
+    //     img: 'assets/img/esora.png',
+    //     name: "Esora",
+    //     type: "Asia",
+    //   ),
+    //   FoodEntity(
+    //     img: 'assets/img/coucou.png',
+    //     name: "Coucou",
+    //     type: "Asia",
+    //   ),
+    //   FoodEntity(
+    //     img: 'assets/img/new_ubin_seafood.png',
+    //     name: "New Ubin Seafood",
+    //     type: "Asia",
+    //   ),
+    // ];
   }
-
 }

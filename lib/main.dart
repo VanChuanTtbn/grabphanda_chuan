@@ -17,9 +17,9 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   final Future<FirebaseApp> firebaseApp = Firebase.initializeApp();
   firebaseApp.then((value) => {
-  Get.put(AuthController()),
-    // Get.put(BaseController()),
-  });
+        Get.put(AuthController()),
+        // Get.put(BaseController()),
+      });
   await GetStorage.init();
   runApp(const MyApp());
 }

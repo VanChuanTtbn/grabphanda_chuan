@@ -39,7 +39,6 @@ class BaseController extends GetxController {
 
   FirebaseAuth auth = FirebaseAuth.instance;
   late Rx<User?> _firebaseUser;
-  FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
 
   @override
   void onReady() {
