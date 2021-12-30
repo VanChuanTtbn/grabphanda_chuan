@@ -120,93 +120,93 @@ class HomeScreen extends StatelessWidget {
                               height: Get.height * 0.18,
                               width: Get.width * 0.9,
                               child: Obx(
-                                  ()=>ListView.builder(
-                                    scrollDirection: Axis.horizontal,
-                                    itemCount: homeController.listOffer.length,
-                                    itemBuilder: (context, index) {
-                                      return Stack(
-                                        children: [
-                                          Container(
-                                            padding: const EdgeInsets.only(
-                                              top: 10,
-                                              right: 5,
-                                              left: 5,
-                                            ),
-                                            child: Stack(
-                                              children: [
-                                                Container(
-                                                  width: Get.width * 0.55,
-                                                  padding: const EdgeInsets.only(
-                                                      bottom: 10,
-                                                      left: 8,
-                                                      right: 8),
-                                                  decoration: BoxDecoration(
-                                                    borderRadius:
-                                                    BorderRadius.circular(10),
-                                                    image: DecorationImage(
-                                                      scale: 0.5,
-                                                      image: NetworkImage(
-                                                        "${homeController.listOffer[index].img}",
-                                                      ),
-                                                      fit: BoxFit.cover,
+                                () => ListView.builder(
+                                  scrollDirection: Axis.horizontal,
+                                  itemCount: homeController.listOffer.length,
+                                  itemBuilder: (context, index) {
+                                    return Stack(
+                                      children: [
+                                        Container(
+                                          padding: const EdgeInsets.only(
+                                            top: 10,
+                                            right: 5,
+                                            left: 5,
+                                          ),
+                                          child: Stack(
+                                            children: [
+                                              Container(
+                                                width: Get.width * 0.55,
+                                                padding: const EdgeInsets.only(
+                                                    bottom: 10,
+                                                    left: 8,
+                                                    right: 8),
+                                                decoration: BoxDecoration(
+                                                  borderRadius:
+                                                      BorderRadius.circular(10),
+                                                  image: DecorationImage(
+                                                    scale: 0.5,
+                                                    image: NetworkImage(
+                                                      "${homeController.listOffer[index].img}",
                                                     ),
-                                                  ),
-                                                  child: Column(
-                                                    mainAxisAlignment:
-                                                    MainAxisAlignment.start,
-                                                    crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                    children: [
-                                                      const Spacer(),
-                                                      Text(
-                                                        "${homeController.listOffer[index].name}                                                  ",
-                                                        style: Theme.of(context)
-                                                            .textTheme
-                                                            .bodyText1
-                                                            ?.copyWith(
-                                                          color: Colors.white,
-                                                          fontSize: 20.0,
-                                                          fontWeight:
-                                                          FontWeight.bold,
-                                                        ),
-                                                        overflow:
-                                                        TextOverflow.ellipsis,
-                                                        textAlign:
-                                                        TextAlign.justify,
-                                                        maxLines: 2,
-                                                      ),
-                                                    ],
+                                                    fit: BoxFit.cover,
                                                   ),
                                                 ),
-                                              ],
-                                            ),
-                                          ),
-                                          Positioned(
-                                            top: -2,
-                                            left: 15,
-                                            child: Container(
-                                              height: Get.height * 0.04,
-                                              width: Get.width * 0.14,
-                                              decoration: BoxDecoration(
-                                                borderRadius:
-                                                BorderRadius.circular(10),
-                                                color: Colors.yellow,
-                                              ),
-                                              child: Align(
-                                                alignment: Alignment.center,
-                                                child: Text(
-                                                  "-${homeController.listOffer[index].sale}%",
-                                                  style: Theme.of(context)
-                                                      .textTheme
-                                                      .bodyText1,
+                                                child: Column(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.start,
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  children: [
+                                                    const Spacer(),
+                                                    Text(
+                                                      "${homeController.listOffer[index].name}                                                  ",
+                                                      style: Theme.of(context)
+                                                          .textTheme
+                                                          .bodyText1
+                                                          ?.copyWith(
+                                                            color: Colors.white,
+                                                            fontSize: 20.0,
+                                                            fontWeight:
+                                                                FontWeight.bold,
+                                                          ),
+                                                      overflow:
+                                                          TextOverflow.ellipsis,
+                                                      textAlign:
+                                                          TextAlign.justify,
+                                                      maxLines: 2,
+                                                    ),
+                                                  ],
                                                 ),
                                               ),
+                                            ],
+                                          ),
+                                        ),
+                                        Positioned(
+                                          top: -2,
+                                          left: 15,
+                                          child: Container(
+                                            height: Get.height * 0.04,
+                                            width: Get.width * 0.14,
+                                            decoration: BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(10),
+                                              color: Colors.yellow,
+                                            ),
+                                            child: Align(
+                                              alignment: Alignment.center,
+                                              child: Text(
+                                                "-${homeController.listOffer[index].sale}%",
+                                                style: Theme.of(context)
+                                                    .textTheme
+                                                    .bodyText1,
+                                              ),
                                             ),
                                           ),
-                                        ],
-                                      );
-                                    },
-                                  ),
+                                        ),
+                                      ],
+                                    );
+                                  },
+                                ),
                               ),
                             ),
                             SizedBox(
@@ -252,219 +252,273 @@ class HomeScreen extends StatelessWidget {
                             SizedBox(
                               height: Get.height * 0.01,
                             ),
-                            SingleChildScrollView(
-                              scrollDirection: Axis.horizontal,
-                              child: Row(
-                                children: [
-                                  Column(
-                                    children: [
-                                      Container(
-                                        padding: const EdgeInsets.only(
-                                            right: 15,
-                                            left: 15,
-                                            top: 15,
-                                            bottom: 15),
-                                        margin: const EdgeInsets.symmetric(
-                                            horizontal: 10),
-                                        decoration: BoxDecoration(
-                                          color: Colors.white,
-                                          borderRadius:
-                                              BorderRadius.circular(90),
-                                          boxShadow: const [
-                                            BoxShadow(
-                                              color: Colors.grey,
-                                              blurRadius: 3,
-                                              offset: Offset(0, 3),
+                            Container(
+                              height: Get.height * 0.15,
+                              width: Get.width * 0.9,
+                              child: Obx(
+                                () => ListView.builder(
+                                    scrollDirection: Axis.horizontal,
+                                    itemCount:
+                                        homeController.listCulinary.length,
+                                    itemBuilder: (context, index) {
+                                      return Column(
+                                        children: [
+                                          Container(
+                                            height: Get.height * 0.1,
+                                            width: Get.height * 0.1,
+                                            padding: const EdgeInsets.only(
+                                                right: 15,
+                                                left: 15,
+                                                top: 15,
+                                                bottom: 15),
+                                            margin: const EdgeInsets.symmetric(
+                                                horizontal: 10),
+                                            decoration: BoxDecoration(
+                                              color: Colors.white,
+                                              borderRadius:
+                                                  BorderRadius.circular(90),
+                                              boxShadow: const [
+                                                BoxShadow(
+                                                  color: Colors.grey,
+                                                  blurRadius: 3,
+                                                  offset: Offset(0, 3),
+                                                ),
+                                              ], //AppShadow.boxShadowPost,
                                             ),
-                                          ], //AppShadow.boxShadowPost,
-                                        ),
-                                        child: Column(
-                                          children: const [
-                                            Icon(
-                                              Icons.emoji_food_beverage,
+                                            child: Column(
+                                              children: [
+                                                Image.network(
+                                                    "${homeController.listCulinary[index].img}")
+                                              ],
                                             ),
-                                          ],
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        height: Get.height * 0.01,
-                                      ),
-                                      Text(
-                                        "Korean",
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .bodyText1,
-                                      ),
-                                    ],
-                                  ),
-                                  Column(
-                                    children: [
-                                      Container(
-                                        padding: const EdgeInsets.only(
-                                            right: 15,
-                                            left: 15,
-                                            top: 15,
-                                            bottom: 15),
-                                        margin: const EdgeInsets.symmetric(
-                                            horizontal: 10),
-                                        decoration: BoxDecoration(
-                                          color: Colors.white,
-                                          borderRadius:
-                                              BorderRadius.circular(90),
-                                          boxShadow: const [
-                                            BoxShadow(
-                                              color: Colors.grey,
-                                              blurRadius: 3,
-                                              offset: Offset(0, 3),
-                                            ),
-                                          ], //AppShadow.boxShadowPost,
-                                        ),
-                                        child: Column(
-                                          children: const [
-                                            Icon(
-                                              Icons
-                                                  .emoji_food_beverage_outlined,
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        height: Get.height * 0.01,
-                                      ),
-                                      Text(
-                                        "Western",
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .bodyText1,
-                                      ),
-                                    ],
-                                  ),
-                                  Column(
-                                    children: [
-                                      Container(
-                                        padding: const EdgeInsets.only(
-                                            right: 15,
-                                            left: 15,
-                                            top: 15,
-                                            bottom: 15),
-                                        margin: const EdgeInsets.symmetric(
-                                            horizontal: 10),
-                                        decoration: BoxDecoration(
-                                          color: Colors.white,
-                                          borderRadius:
-                                              BorderRadius.circular(90),
-                                          boxShadow: const [
-                                            BoxShadow(
-                                              color: Colors.grey,
-                                              blurRadius: 3,
-                                              offset: Offset(0, 3),
-                                            ),
-                                          ], //AppShadow.boxShadowPost,
-                                        ),
-                                        child: Column(
-                                          children: const [
-                                            Icon(
-                                              Icons.fastfood,
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        height: Get.height * 0.01,
-                                      ),
-                                      Text(
-                                        "Japanese",
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .bodyText1,
-                                      ),
-                                    ],
-                                  ),
-                                  Column(
-                                    children: [
-                                      Container(
-                                        padding: const EdgeInsets.only(
-                                            right: 15,
-                                            left: 15,
-                                            top: 15,
-                                            bottom: 15),
-                                        margin: const EdgeInsets.symmetric(
-                                            horizontal: 10),
-                                        decoration: BoxDecoration(
-                                          color: Colors.white,
-                                          borderRadius:
-                                              BorderRadius.circular(90),
-                                          boxShadow: const [
-                                            BoxShadow(
-                                              color: Colors.grey,
-                                              blurRadius: 3,
-                                              offset: Offset(0, 3),
-                                            ),
-                                          ], //AppShadow.boxShadowPost,
-                                        ),
-                                        child: Column(
-                                          children: const [
-                                            Icon(
-                                              Icons.no_food,
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        height: Get.height * 0.01,
-                                      ),
-                                      Text(
-                                        "Asian",
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .bodyText1,
-                                      ),
-                                    ],
-                                  ),
-                                  Column(
-                                    children: [
-                                      Container(
-                                        padding: const EdgeInsets.only(
-                                            right: 15,
-                                            left: 15,
-                                            top: 15,
-                                            bottom: 15),
-                                        margin: const EdgeInsets.symmetric(
-                                            horizontal: 10),
-                                        decoration: BoxDecoration(
-                                          color: Colors.white,
-                                          borderRadius:
-                                              BorderRadius.circular(90),
-                                          boxShadow: const [
-                                            BoxShadow(
-                                              color: Colors.grey,
-                                              blurRadius: 3,
-                                              offset: Offset(0, 3),
-                                            ),
-                                          ], //AppShadow.boxShadowPost,
-                                        ),
-                                        child: Column(
-                                          children: const [
-                                            Icon(
-                                              Icons.no_food,
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        height: Get.height * 0.01,
-                                      ),
-                                      Text(
-                                        "Fast Food",
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .bodyText1,
-                                      ),
-                                    ],
-                                  ),
-                                ],
+                                          ),
+                                          SizedBox(
+                                            height: Get.height * 0.01,
+                                          ),
+                                          Text(
+                                            "${homeController.listCulinary[index].name}",
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .bodyText1,
+                                          ),
+                                        ],
+                                      );
+                                    }),
                               ),
                             ),
+                            // SingleChildScrollView(
+                            //   scrollDirection: Axis.horizontal,
+                            //   child: Row(
+                            //     children: [
+                            //       Column(
+                            //         children: [
+                            //           Container(
+                            //             padding: const EdgeInsets.only(
+                            //                 right: 15,
+                            //                 left: 15,
+                            //                 top: 15,
+                            //                 bottom: 15),
+                            //             margin: const EdgeInsets.symmetric(
+                            //                 horizontal: 10),
+                            //             decoration: BoxDecoration(
+                            //               color: Colors.white,
+                            //               borderRadius:
+                            //                   BorderRadius.circular(90),
+                            //               boxShadow: const [
+                            //                 BoxShadow(
+                            //                   color: Colors.grey,
+                            //                   blurRadius: 3,
+                            //                   offset: Offset(0, 3),
+                            //                 ),
+                            //               ], //AppShadow.boxShadowPost,
+                            //             ),
+                            //             child: Column(
+                            //               children: const [
+                            //                 Icon(
+                            //                   Icons.emoji_food_beverage,
+                            //                 ),
+                            //               ],
+                            //             ),
+                            //           ),
+                            //           SizedBox(
+                            //             height: Get.height * 0.01,
+                            //           ),
+                            //           Text(
+                            //             "Korean",
+                            //             style: Theme.of(context)
+                            //                 .textTheme
+                            //                 .bodyText1,
+                            //           ),
+                            //         ],
+                            //       ),
+                            //       Column(
+                            //         children: [
+                            //           Container(
+                            //             padding: const EdgeInsets.only(
+                            //                 right: 15,
+                            //                 left: 15,
+                            //                 top: 15,
+                            //                 bottom: 15),
+                            //             margin: const EdgeInsets.symmetric(
+                            //                 horizontal: 10),
+                            //             decoration: BoxDecoration(
+                            //               color: Colors.white,
+                            //               borderRadius:
+                            //                   BorderRadius.circular(90),
+                            //               boxShadow: const [
+                            //                 BoxShadow(
+                            //                   color: Colors.grey,
+                            //                   blurRadius: 3,
+                            //                   offset: Offset(0, 3),
+                            //                 ),
+                            //               ], //AppShadow.boxShadowPost,
+                            //             ),
+                            //             child: Column(
+                            //               children: const [
+                            //                 Icon(
+                            //                   Icons
+                            //                       .emoji_food_beverage_outlined,
+                            //                 ),
+                            //               ],
+                            //             ),
+                            //           ),
+                            //           SizedBox(
+                            //             height: Get.height * 0.01,
+                            //           ),
+                            //           Text(
+                            //             "Western",
+                            //             style: Theme.of(context)
+                            //                 .textTheme
+                            //                 .bodyText1,
+                            //           ),
+                            //         ],
+                            //       ),
+                            //       Column(
+                            //         children: [
+                            //           Container(
+                            //             padding: const EdgeInsets.only(
+                            //                 right: 15,
+                            //                 left: 15,
+                            //                 top: 15,
+                            //                 bottom: 15),
+                            //             margin: const EdgeInsets.symmetric(
+                            //                 horizontal: 10),
+                            //             decoration: BoxDecoration(
+                            //               color: Colors.white,
+                            //               borderRadius:
+                            //                   BorderRadius.circular(90),
+                            //               boxShadow: const [
+                            //                 BoxShadow(
+                            //                   color: Colors.grey,
+                            //                   blurRadius: 3,
+                            //                   offset: Offset(0, 3),
+                            //                 ),
+                            //               ], //AppShadow.boxShadowPost,
+                            //             ),
+                            //             child: Column(
+                            //               children: const [
+                            //                 Icon(
+                            //                   Icons.fastfood,
+                            //                 ),
+                            //               ],
+                            //             ),
+                            //           ),
+                            //           SizedBox(
+                            //             height: Get.height * 0.01,
+                            //           ),
+                            //           Text(
+                            //             "Japanese",
+                            //             style: Theme.of(context)
+                            //                 .textTheme
+                            //                 .bodyText1,
+                            //           ),
+                            //         ],
+                            //       ),
+                            //       Column(
+                            //         children: [
+                            //           Container(
+                            //             padding: const EdgeInsets.only(
+                            //                 right: 15,
+                            //                 left: 15,
+                            //                 top: 15,
+                            //                 bottom: 15),
+                            //             margin: const EdgeInsets.symmetric(
+                            //                 horizontal: 10),
+                            //             decoration: BoxDecoration(
+                            //               color: Colors.white,
+                            //               borderRadius:
+                            //                   BorderRadius.circular(90),
+                            //               boxShadow: const [
+                            //                 BoxShadow(
+                            //                   color: Colors.grey,
+                            //                   blurRadius: 3,
+                            //                   offset: Offset(0, 3),
+                            //                 ),
+                            //               ], //AppShadow.boxShadowPost,
+                            //             ),
+                            //             child: Column(
+                            //               children: const [
+                            //                 Icon(
+                            //                   Icons.no_food,
+                            //                 ),
+                            //               ],
+                            //             ),
+                            //           ),
+                            //           SizedBox(
+                            //             height: Get.height * 0.01,
+                            //           ),
+                            //           Text(
+                            //             "Asian",
+                            //             style: Theme.of(context)
+                            //                 .textTheme
+                            //                 .bodyText1,
+                            //           ),
+                            //         ],
+                            //       ),
+                            //       Column(
+                            //         children: [
+                            //           Container(
+                            //             padding: const EdgeInsets.only(
+                            //                 right: 15,
+                            //                 left: 15,
+                            //                 top: 15,
+                            //                 bottom: 15),
+                            //             margin: const EdgeInsets.symmetric(
+                            //                 horizontal: 10),
+                            //             decoration: BoxDecoration(
+                            //               color: Colors.white,
+                            //               borderRadius:
+                            //                   BorderRadius.circular(90),
+                            //               boxShadow: const [
+                            //                 BoxShadow(
+                            //                   color: Colors.grey,
+                            //                   blurRadius: 3,
+                            //                   offset: Offset(0, 3),
+                            //                 ),
+                            //               ], //AppShadow.boxShadowPost,
+                            //             ),
+                            //             child: Column(
+                            //               children: const [
+                            //                 Icon(
+                            //                   Icons.no_food,
+                            //                 ),
+                            //               ],
+                            //             ),
+                            //           ),
+                            //           SizedBox(
+                            //             height: Get.height * 0.01,
+                            //           ),
+                            //           Text(
+                            //             "Fast Food",
+                            //             style: Theme.of(context)
+                            //                 .textTheme
+                            //                 .bodyText1,
+                            //           ),
+                            //         ],
+                            //       ),
+                            //     ],
+                            //   ),
+                            // ),
                             const SizedBox(
                               height: 20,
                             ),
@@ -506,156 +560,152 @@ class HomeScreen extends StatelessWidget {
                               height: Get.height * 0.01,
                             ),
                             Container(
-                                height: Get.height * 0.3,
-                                width: Get.width * 0.9,
-                                child: Obx(
-                                  () => ListView.builder(
-                                      scrollDirection: Axis.horizontal,
-                                      itemCount:
-                                          homeController.listPopular.length,
-                                      itemBuilder: (context, index) {
-                                        return Column(
-                                          children: [
-                                            Container(
-                                              height: Get.height * 0.18,
-                                              width: Get.width * 0.65,
-                                              margin:
-                                                  const EdgeInsets.symmetric(
-                                                      horizontal: 7),
-                                              decoration: BoxDecoration(
-                                                borderRadius:
-                                                    BorderRadius.circular(10),
-                                              ),
-                                              child: Stack(
-                                                children: [
-                                                  Container(
-                                                    width: 200,
-                                                    padding:
-                                                        const EdgeInsets.only(
-                                                            bottom: 10,
-                                                            left: 8,
-                                                            right: 8),
-                                                    decoration: BoxDecoration(
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              10),
-                                                      image: DecorationImage(
-                                                        image: NetworkImage(
-                                                          "${homeController.listPopular[index].img}",
-                                                        ),
-                                                        fit: BoxFit.cover,
+                              height: Get.height * 0.3,
+                              width: Get.width * 0.9,
+                              child: Obx(
+                                () => ListView.builder(
+                                    scrollDirection: Axis.horizontal,
+                                    itemCount:
+                                        homeController.listPopular.length,
+                                    itemBuilder: (context, index) {
+                                      return Column(
+                                        children: [
+                                          Container(
+                                            height: Get.height * 0.18,
+                                            width: Get.width * 0.65,
+                                            margin: const EdgeInsets.symmetric(
+                                                horizontal: 7),
+                                            decoration: BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(10),
+                                            ),
+                                            child: Stack(
+                                              children: [
+                                                Container(
+                                                  width: 200,
+                                                  padding:
+                                                      const EdgeInsets.only(
+                                                          bottom: 10,
+                                                          left: 8,
+                                                          right: 8),
+                                                  decoration: BoxDecoration(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            10),
+                                                    image: DecorationImage(
+                                                      image: NetworkImage(
+                                                        "${homeController.listPopular[index].img}",
                                                       ),
+                                                      fit: BoxFit.cover,
                                                     ),
                                                   ),
-                                                  // ignore: prefer_const_constructors
-                                                  Positioned(
-                                                    top: 10,
-                                                    right: 10,
-                                                    child:
-                                                        Icon(Icons.star_border),
-                                                  )
-                                                ],
-                                              ),
+                                                ),
+                                                // ignore: prefer_const_constructors
+                                                Positioned(
+                                                  top: 10,
+                                                  right: 10,
+                                                  child:
+                                                      Icon(Icons.star_border),
+                                                )
+                                              ],
                                             ),
-                                            Container(
-                                              margin: const EdgeInsets.only(
-                                                  left: 5, right: 5),
-                                              child: Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceBetween,
-                                                children: [
-                                                  Text(
-                                                    "${homeController.listPopular[index].name}",
-                                                    style: Theme.of(context)
-                                                        .textTheme
-                                                        .headline6
-                                                        ?.copyWith(
-                                                          fontSize: 20,
-                                                          fontWeight:
-                                                              FontWeight.bold,
-                                                        ),
-                                                    overflow:
-                                                        TextOverflow.ellipsis,
-                                                    textAlign:
-                                                        TextAlign.justify,
-                                                    maxLines: 2,
-                                                  ),
-                                                  Row(
-                                                    children: [
-                                                      const Icon(
-                                                        Icons.star,
-                                                        color: Colors.redAccent,
+                                          ),
+                                          Container(
+                                            margin: const EdgeInsets.only(
+                                                left: 5, right: 5),
+                                            child: Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              children: [
+                                                Text(
+                                                  "${homeController.listPopular[index].name}",
+                                                  style: Theme.of(context)
+                                                      .textTheme
+                                                      .headline6
+                                                      ?.copyWith(
+                                                        fontSize: 20,
+                                                        fontWeight:
+                                                            FontWeight.bold,
                                                       ),
-                                                      Text(
-                                                        "${homeController.listPopular[index].rate}",
-                                                        style: Theme.of(context)
-                                                            .textTheme
-                                                            .headline6
-                                                            ?.copyWith(
-                                                              fontSize: 20,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .bold,
-                                                            ),
-                                                        overflow: TextOverflow
-                                                            .ellipsis,
-                                                        textAlign:
-                                                            TextAlign.justify,
-                                                        maxLines: 2,
+                                                  overflow:
+                                                      TextOverflow.ellipsis,
+                                                  textAlign: TextAlign.justify,
+                                                  maxLines: 2,
+                                                ),
+                                                Row(
+                                                  children: [
+                                                    const Icon(
+                                                      Icons.star,
+                                                      color: Colors.redAccent,
+                                                    ),
+                                                    Text(
+                                                      "${homeController.listPopular[index].rate}",
+                                                      style: Theme.of(context)
+                                                          .textTheme
+                                                          .headline6
+                                                          ?.copyWith(
+                                                            fontSize: 20,
+                                                            fontWeight:
+                                                                FontWeight.bold,
+                                                          ),
+                                                      overflow:
+                                                          TextOverflow.ellipsis,
+                                                      textAlign:
+                                                          TextAlign.justify,
+                                                      maxLines: 2,
+                                                    ),
+                                                  ],
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                          Container(
+                                            margin: const EdgeInsets.only(
+                                                left: 5, right: 5),
+                                            child: Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.center,
+                                              children: [
+                                                Text(
+                                                  "${homeController.listPopular[index].type}",
+                                                  style: Theme.of(context)
+                                                      .textTheme
+                                                      .bodyText1
+                                                      ?.copyWith(
+                                                        color: Colors.grey,
+                                                        fontSize: 15.0,
                                                       ),
-                                                    ],
-                                                  ),
-                                                ],
-                                              ),
+                                                  overflow:
+                                                      TextOverflow.ellipsis,
+                                                  textAlign: TextAlign.justify,
+                                                  maxLines: 2,
+                                                ),
+                                                Text(
+                                                  "1.2 Km",
+                                                  style: Theme.of(context)
+                                                      .textTheme
+                                                      .bodyText1
+                                                      ?.copyWith(
+                                                        color: Colors.grey,
+                                                        fontSize: 15.0,
+                                                      ),
+                                                  overflow:
+                                                      TextOverflow.ellipsis,
+                                                  textAlign: TextAlign.justify,
+                                                  maxLines: 2,
+                                                ),
+                                              ],
                                             ),
-                                            Container(
-                                              margin: const EdgeInsets.only(
-                                                  left: 5, right: 5),
-                                              child: Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceBetween,
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.center,
-                                                children: [
-                                                  Text(
-                                                    "${homeController.listPopular[index].type}",
-                                                    style: Theme.of(context)
-                                                        .textTheme
-                                                        .bodyText1
-                                                        ?.copyWith(
-                                                          color: Colors.grey,
-                                                          fontSize: 15.0,
-                                                        ),
-                                                    overflow:
-                                                        TextOverflow.ellipsis,
-                                                    textAlign:
-                                                        TextAlign.justify,
-                                                    maxLines: 2,
-                                                  ),
-                                                  Text(
-                                                    "1.2 Km",
-                                                    style: Theme.of(context)
-                                                        .textTheme
-                                                        .bodyText1
-                                                        ?.copyWith(
-                                                          color: Colors.grey,
-                                                          fontSize: 15.0,
-                                                        ),
-                                                    overflow:
-                                                        TextOverflow.ellipsis,
-                                                    textAlign:
-                                                        TextAlign.justify,
-                                                    maxLines: 2,
-                                                  ),
-                                                ],
-                                              ),
-                                            ),
-                                          ],
-                                        );
-                                      }),
-                                ),)
+                                          ),
+                                        ],
+                                      );
+                                    }),
+                              ),
+                            )
                           ],
                         ),
                       ),
