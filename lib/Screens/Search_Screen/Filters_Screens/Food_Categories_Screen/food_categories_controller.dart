@@ -1,13 +1,13 @@
-
-
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:get/get.dart';
 import 'package:grabpanda1/Controller/controller.dart';
+import 'package:grabpanda1/Models/Entity/filters_entity.dart';
 import 'package:grabpanda1/Models/Entity/food_entity.dart';
 
 class FoodCategoriesController extends BaseController {
   List<FoodEntity>? listFoodCategories;
-  List count = [];
+  late CollectionReference foodCategories;
   FoodCategoriesController() {
-    count = [];
     listFoodCategories = [
       FoodEntity(
         type: "Asian cuisine",
@@ -79,12 +79,20 @@ class FoodCategoriesController extends BaseController {
       ),
     ];
   }
-  getCount() {
-    count = [];
-    for (var element in listFoodCategories!) {
-        if (element.checkFoodCategories == true) {
-          count.add(element.type);
-        }
-      }
-  }
+  // @override
+  // void onInit() {
+  //   super.onInit();
+  //   offerOfDay = firebaseFirestore.collection('food');
+  //   listCulinary.bindStream(getAllCulinary());
+  // }
+
+  // getCount() {
+  //   getFoodCate = [];
+  //   for (var element in listFoodCategories!) {
+  //     if (element.checkFoodCategories == true) {
+  //       getFoodCate.add(element.type);
+  //     }
+  //   }
+  //   print(getFoodCate);
+  // }
 }

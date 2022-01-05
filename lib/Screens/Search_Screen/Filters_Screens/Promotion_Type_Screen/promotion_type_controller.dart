@@ -10,7 +10,7 @@ class PromotionTypeController extends BaseController{
     count = [];
     listPromotionType = [
       FoodEntity(
-        promotionType: "Free Ship",
+        promotionType: "35",
         checkFoodCategories: false,
       ),
       FoodEntity(

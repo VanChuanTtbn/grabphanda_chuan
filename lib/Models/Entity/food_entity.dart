@@ -6,6 +6,8 @@ class FoodEntity {
   bool? checkFoodCategories = false;
   String? location;
   String? promotionType;
+  bool? checkPromo = false;
+  bool? checkLoca = false;
   FoodEntity({
     this.type,
     this.img,
@@ -14,5 +16,7 @@ class FoodEntity {
     this.checkFoodCategories = false,
     this.location,
     this.promotionType,
+    this.checkPromo = false,
+    this.checkLoca = false,
 });
 }

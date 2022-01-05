@@ -8,7 +8,7 @@ class LocationController extends BaseController {
   LocationController() {
     listLocation = [
       FoodEntity(
-        location: "Kampong Glam",
+          location: "Kampong Glam",
       ),
       FoodEntity(
         location: "Tiong Bahru",
@@ -17,7 +17,7 @@ class LocationController extends BaseController {
         location: "Jalan Besar",
       ),
       FoodEntity(
-        location: "Bras Basah.Bugis:",
+        location: "Bras Basah.Bugis",
       ),
       FoodEntity(
         location: "Kampong Glam",

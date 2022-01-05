@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:grabpanda1/Screens/Search_Screen/Filters_Screens/Filters_Screen/filters_controller.dart';
 import 'package:grabpanda1/Screens/Search_Screen/Filters_Screens/Promotion_Type_Screen/promotion_type_controller.dart';
 
 class PromotionTypeScreen extends StatefulWidget{
@@ -10,7 +11,7 @@ class PromotionTypeScreen extends StatefulWidget{
 class _PromotionTypeScreenState extends State<PromotionTypeScreen> {
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(PromotionTypeController());
+    final filtersController = Get.put(FiltersController());
     // TODO: implement build
     return Scaffold(
       backgroundColor: Colors.white,
@@ -25,11 +26,11 @@ class _PromotionTypeScreenState extends State<PromotionTypeScreen> {
                   Container(
                       child: CheckboxListTile(
                         checkColor: Colors.white,
-                        title: Text('${controller.listPromotionType![index].promotionType}', style: Theme.of(context).textTheme.bodyText1,),
-                        value: controller.listPromotionType![index].checkFoodCategories,
+                        title: Text('${filtersController.listPromotionType![index].promotionType}%', style: Theme.of(context).textTheme.bodyText1,),
+                        value: filtersController.listPromotionType![index].checkPromo,
                         onChanged: (bool? value){
                           setState(() {
-                            controller.listPromotionType![index].checkFoodCategories = value;
+                            filtersController.listPromotionType![index].checkPromo = value;
                           });
                         },
                       )
@@ -42,7 +43,7 @@ class _PromotionTypeScreenState extends State<PromotionTypeScreen> {
                 height: 0,
               );
             },
-            itemCount: controller.listPromotionType!.length,
+            itemCount: filtersController.listPromotionType!.length,
           ),
         ),
       ),
