@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:grabpanda1/Screens/Bottom_Bar/bottom_bar.dart';
 import 'package:grabpanda1/Screens/Search_Screen/Filters_Screens/Food_Categories_Screen/food_categories_screen.dart';
 import 'package:grabpanda1/Screens/Search_Screen/Filters_Screens/Location_Screen/location_screen.dart';
 import 'package:grabpanda1/Screens/Search_Screen/Filters_Screens/Promotion_Type_Screen/promotion_type_screen.dart';
 import 'package:grabpanda1/Screens/Search_Screen/Search_Success/search_success_screen.dart';
+import 'package:grabpanda1/Screens/Search_Screen/search_screen.dart';
 import 'filters_controller.dart';
 
 class FiltersScreen extends StatefulWidget {
@@ -32,8 +34,18 @@ class _FiltersScreenState extends State<FiltersScreen> {
           ),
         ),
         backgroundColor: Colors.white,
-        iconTheme: const IconThemeData(
-          color: Colors.black,
+        leading: IconButton(
+          icon: const Icon(
+            Icons.arrow_back,
+            color: Colors.black,
+          ),
+          onPressed: () {
+            filtersController.clearsFilter();
+            filtersController.clearsLocation();
+            filtersController.clearsFoodCate();
+            filtersController.clearsHotPromo();
+            Get.off(const BottomBarScreen(tabIndex: 1,));
+          },
         ),
         elevation: 0,
       ),

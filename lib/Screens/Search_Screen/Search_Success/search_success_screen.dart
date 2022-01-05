@@ -4,9 +4,14 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:grabpanda1/Screens/Search_Screen/Filters_Screens/Filters_Screen/filters_controller.dart';
 import 'package:grabpanda1/Screens/Search_Screen/Filters_Screens/Filters_Screen/filters_screen.dart';
 
-class SearchSuccessScreen extends StatelessWidget {
+class SearchSuccessScreen extends StatefulWidget {
   const SearchSuccessScreen({Key? key}) : super(key: key);
 
+  @override
+  State<SearchSuccessScreen> createState() => _SearchSuccessScreenState();
+}
+
+class _SearchSuccessScreenState extends State<SearchSuccessScreen> {
   @override
   Widget build(BuildContext context) {
     final filtersController = Get.put(FiltersController());
@@ -23,13 +28,18 @@ class SearchSuccessScreen extends StatelessWidget {
         ),
         backgroundColor: Colors.white,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.black,),
-          onPressed: (){
-            filtersController.clearsFilter();
-            filtersController.clearsLocation();
-            filtersController.clearsFoodCate();
-            filtersController.clearsHotPromo();
-            Get.back();
+          icon: const Icon(
+            Icons.arrow_back,
+            color: Colors.black,
+          ),
+          onPressed: () {
+            setState(() {
+              filtersController.clearsFilter();
+              filtersController.clearsLocation();
+              filtersController.clearsFoodCate();
+              filtersController.clearsHotPromo();
+              Get.off(FiltersScreen());
+            });
           },
         ),
         elevation: 0,
@@ -37,11 +47,11 @@ class SearchSuccessScreen extends StatelessWidget {
       backgroundColor: Colors.white,
       body: SafeArea(
           child: GetBuilder<FiltersController>(
-        init: filtersController,
-        builder: (filtersController) {
-          return ListView.builder(
-            itemCount: filtersController.filtersSuccess.length,
-            itemBuilder: (context, index) {
+            init: filtersController,
+            builder: (filtersController) {
+            return ListView.builder(
+              itemCount: filtersController.filtersSuccess.length,
+              itemBuilder: (context, index) {
               return Stack(
                 children: [
                   Column(

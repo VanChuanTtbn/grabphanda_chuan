@@ -7,7 +7,7 @@ import 'package:grabpanda1/Screens/Profile_Screen/profile_screen.dart';
 import 'package:grabpanda1/Screens/Reservations_Screen/reservations_screen.dart';
 import 'package:grabpanda1/Screens/Search_Screen/search_screen.dart';
 
-class BottomBarScreen extends StatefulWidget{
+class BottomBarScreen extends StatefulWidget {
   final int? tabIndex;
 
   const BottomBarScreen({Key? key, this.tabIndex}) : super(key: key);
@@ -21,7 +21,8 @@ class _BottomBarScreenState extends State<BottomBarScreen> {
 
   void initState() {
     super.initState();
-    _pageController = PageController(initialPage: widget.tabIndex ?? 0, keepPage: true);
+    _pageController =
+        PageController(initialPage: widget.tabIndex ?? 0, keepPage: true);
 
     if (widget.tabIndex != null) {
       onTappedBar(widget.tabIndex!);
@@ -32,10 +33,10 @@ class _BottomBarScreenState extends State<BottomBarScreen> {
   void onTappedBar(int index) {
     setState(() {
       currentIndex = index;
-      _pageController?.jumpToPage(index);
+      if(_pageController!.hasClients){
+      _pageController?.jumpToPage(index);}
     });
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -46,6 +47,7 @@ class _BottomBarScreenState extends State<BottomBarScreen> {
       bottomNavigationBar: _buildBottomNavigationBar(context, currentIndex),
     );
   }
+
   Widget _buildBottomNavigationBar(BuildContext context, int? currentTabIndex) {
     return Container(
       decoration: BoxDecoration(
@@ -70,7 +72,8 @@ class _BottomBarScreenState extends State<BottomBarScreen> {
         currentIndex: currentTabIndex ?? 0,
         unselectedItemColor: const Color(0xFF5A5A5A),
         selectedLabelStyle: GoogleFonts.poppins(
-          textStyle: const TextStyle(color: Colors.blue, fontSize: 12, fontWeight: FontWeight.bold),
+          textStyle: const TextStyle(
+              color: Colors.blue, fontSize: 12, fontWeight: FontWeight.bold),
         ),
         unselectedLabelStyle: GoogleFonts.poppins(
           textStyle: const TextStyle(
@@ -139,6 +142,8 @@ class _BottomBarScreenState extends State<BottomBarScreen> {
     IconStatus(active: Icons.home, inactive: Icons.home),
     IconStatus(active: Icons.search, inactive: Icons.search),
     IconStatus(active: Icons.home_filled, inactive: Icons.home_filled),
-    IconStatus(active: Icons.account_circle_outlined, inactive: Icons.account_circle_outlined),
+    IconStatus(
+        active: Icons.account_circle_outlined,
+        inactive: Icons.account_circle_outlined),
   ];
 }
