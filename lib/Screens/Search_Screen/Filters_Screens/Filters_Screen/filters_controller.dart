@@ -214,27 +214,12 @@ class FiltersController extends BaseController {
 
   filtersFoodCate() async {
     await getData();
-    filtersSuccess = [];
     for(var e in getListData){
       if(getFoodCate.any((element) => e.foodCate!.contains(element))){
         filtersSuccess.add(e);
       }
     }
-    // for(var e in getListData){
-    //   if(getPromo.any((element) => e.sale!.contains(element))){
-    //     if(!filtersSuccess.any((element) => e.name!.contains(element.name as Pattern))){
-    //       filtersSuccess.add(e);
-    //     }
-    //   }
-    // }
-    // for(var e in getListData){
-    //   if(e.location!.contains(location as Pattern)){
-    //     if(!filtersSuccess.any((element) => e.name!.contains(element.name as Pattern))){
-    //       filtersSuccess.add(e);
-    //     }
-    //   }
-    // }
-    print(filtersSuccess);
+    print(filtersSuccess.toList());
   }
 
   filtersPromo() async {
@@ -244,10 +229,11 @@ class FiltersController extends BaseController {
         filtersSuccess.add(e);
       }
     }
-    print(filtersSuccess);
+    print(filtersSuccess.toList());
   }
 
-  filtersLocation(){
+  filtersLocation() async {
+    await getData();
     for(var e in getListData){
       if(e.location!.contains(location as Pattern)){
         if(!filtersSuccess.any((element) => e.name!.contains(element.name as Pattern))){
@@ -255,7 +241,7 @@ class FiltersController extends BaseController {
         }
       }
     }
-    print(filtersSuccess);
+    print(filtersSuccess.toList());
   }
 
   getCountFoodCate() {
@@ -297,5 +283,9 @@ class FiltersController extends BaseController {
     for(var e in listPromotionType!){
       e.checkPromo = false;
     }
+  }
+
+  clearsFilter(){
+    filtersSuccess = [];
   }
 }

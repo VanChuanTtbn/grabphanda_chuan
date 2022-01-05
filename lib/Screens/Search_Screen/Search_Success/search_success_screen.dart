@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:grabpanda1/Screens/Search_Screen/Filters_Screens/Filters_Screen/filters_controller.dart';
+import 'package:grabpanda1/Screens/Search_Screen/Filters_Screens/Filters_Screen/filters_screen.dart';
 
 class SearchSuccessScreen extends StatelessWidget {
   const SearchSuccessScreen({Key? key}) : super(key: key);
@@ -11,53 +13,35 @@ class SearchSuccessScreen extends StatelessWidget {
     // TODO: implement build
     return Scaffold(
       appBar: AppBar(
-        elevation: 0,
-        automaticallyImplyLeading: false,
-        backgroundColor: Colors.white,
-        title: Stack(
-          children: [
-            FutureBuilder(
-              future: filtersController.getName(),
-              builder: (BuildContext context, AsyncSnapshot snapshot) {
-                return Text(
-                  "Welcome, ${snapshot.data}\n",
-                  style: Theme.of(context).textTheme.headline5?.copyWith(
-                        color: Colors.black,
-                      ),
-                );
-              },
-            ),
-            Positioned(
-              top: Get.height * 0.07,
-              child: FutureBuilder(
-                future: filtersController.getLocation(),
-                builder: (BuildContext context, AsyncSnapshot snapshot) {
-                  return Text(
-                    "${snapshot.data}",
-                    style: Theme.of(context).textTheme.bodyText1?.copyWith(
-                          color: Colors.black,
-                        ),
-                  );
-                },
-              ),
-            ),
-          ],
-        ),
-        actions: const [
-          Icon(
-            Icons.notifications_sharp,
+        centerTitle: true,
+        title: Text(
+          "Filters Success",
+          style: GoogleFonts.inter(
             color: Colors.black,
+            fontWeight: FontWeight.bold,
           ),
-        ],
+        ),
+        backgroundColor: Colors.white,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back, color: Colors.black,),
+          onPressed: (){
+            filtersController.clearsFilter();
+            filtersController.clearsLocation();
+            filtersController.clearsFoodCate();
+            filtersController.clearsHotPromo();
+            Get.back();
+          },
+        ),
+        elevation: 0,
       ),
       backgroundColor: Colors.white,
       body: SafeArea(
           child: GetBuilder<FiltersController>(
-            init: filtersController,
-            builder: (filtersController) {
-            return ListView.builder(
-              itemCount: filtersController.filtersSuccess.length,
-              itemBuilder: (context, index) {
+        init: filtersController,
+        builder: (filtersController) {
+          return ListView.builder(
+            itemCount: filtersController.filtersSuccess.length,
+            itemBuilder: (context, index) {
               return Stack(
                 children: [
                   Column(
@@ -85,12 +69,6 @@ class SearchSuccessScreen extends StatelessWidget {
                                 ),
                               ),
                             ),
-                            // ignore: prefer_const_constructors
-                            Positioned(
-                              top: 10,
-                              right: 10,
-                              child: const Icon(Icons.star_border),
-                            )
                           ],
                         ),
                       ),
